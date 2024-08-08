@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace slnJapanTravel.View
 {
-    public partial class FrmOrder : Form
+    public partial class FrmTicketOrder : Form
     {
-        public FrmOrder()
+        public FrmTicketOrder()
         {
             InitializeComponent();
         }

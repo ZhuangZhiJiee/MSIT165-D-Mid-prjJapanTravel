@@ -211,4 +211,19 @@
         eAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVFhH7Za7LkVBFIZ3QoJOK3SoVC6FV3Cp1aglxGnw
+        DIISD4DWA9BIUCqIQq0iUbskfP8yOzmJvU/msmOa8yVfsv9J1spMZmXOKbo4rvDb+YIb+K+0b0B+4Dhm
+        4RS1iRVLGdhGbWDfUgbmURu4sJSBESxnoWk1a15oCKsapPqKXlyiCuYspbOA6ud9rQeogi1L6eyg+u1Z
+        8mAVVXBiKZ0zVL9lSx5MowoeLKXziOo3acmDPvx09mshgQH8wuBeOr12PWUpnhlUn3tLATT1JEfPUxNP
+        sq7yHNVnXQshLKEKm/ANhzCICaxqFqIG7xZnMQr9OVGjYUsZKJ9k/UJmoeknOZg1LO8zxnc8xkEMphfv
+        sKpxqDfYg0EsooqfcBTH3LfW6mYipqaWFqpw19Iv+tbapqW/xNTUUv6J0Al0Ep/TxNTUojvTI6Lidq+x
+        7j5jajqi6T3CZ+ehW+tETE2XXBTFD77g18hGBFZlAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>54</value>
+  </metadata>
 </root>

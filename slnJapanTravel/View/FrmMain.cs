@@ -57,15 +57,6 @@ namespace slnJapanTravel.View
             fs.Show();
         }
 
-        private void tsbOrder_Click(object sender, EventArgs e)
-        {
-            while (this.ActiveMdiChild != null)
-                this.ActiveMdiChild.Close();
-
-            FrmOrder fo = new FrmOrder();
-            fo.MdiParent = this;
-            fo.Show();
-        }
 
         private void tsbBlog_Click(object sender, EventArgs e)
         {
@@ -76,5 +67,47 @@ namespace slnJapanTravel.View
             fb.MdiParent = this;
             fb.Show();
         }
+
+        private void 船票ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            while (this.ActiveMdiChild != null)
+                this.ActiveMdiChild.Close();
+
+            FrmTicketCart fb = new FrmTicketCart();
+            fb.MdiParent = this;
+            fb.Show();
+        }
+
+        private void 行程ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            while (this.ActiveMdiChild != null)
+                this.ActiveMdiChild.Close();
+
+            FrmItineraryCart fb = new FrmItineraryCart();
+            fb.MdiParent = this;
+            fb.Show();
+
+        }
+
+        private void 行程ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            while (this.ActiveMdiChild != null)
+                this.ActiveMdiChild.Close();
+
+            FrmItineraryOrder fb = new FrmItineraryOrder();
+            fb.MdiParent = this;
+            fb.Show();
+        }
+
+        private void 船票ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            while (this.ActiveMdiChild != null)
+                this.ActiveMdiChild.Close();
+
+            FrmTicketOrder fb = new FrmTicketOrder();
+            fb.MdiParent = this;
+            fb.Show();
+        }
+
     }
 }
