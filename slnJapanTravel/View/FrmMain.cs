@@ -19,6 +19,7 @@ namespace slnJapanTravel.View
 
         private void tsAdmin_Click(object sender, EventArgs e)
         {
+
             while (this.ActiveMdiChild != null)
                 this.ActiveMdiChild.Close();
 
