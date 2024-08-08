@@ -42,7 +42,8 @@
             // tsAdmin
             // 
             this.tsAdmin.AutoSize = false;
-            this.tsAdmin.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsAdmin.BackColor = System.Drawing.Color.Cornsilk;
+            this.tsAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tsAdmin.BackgroundImage")));
             this.tsAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsAdmin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsAdmin.Image = ((System.Drawing.Image)(resources.GetObject("tsAdmin.Image")));
@@ -59,7 +60,7 @@
             // tsbMember
             // 
             this.tsbMember.AutoSize = false;
-            this.tsbMember.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsbMember.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbMember.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbMember.Image = ((System.Drawing.Image)(resources.GetObject("tsbMember.Image")));
@@ -76,7 +77,7 @@
             // tsbItinerary
             // 
             this.tsbItinerary.AutoSize = false;
-            this.tsbItinerary.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsbItinerary.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbItinerary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbItinerary.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbItinerary.Image = ((System.Drawing.Image)(resources.GetObject("tsbItinerary.Image")));
@@ -93,7 +94,8 @@
             // trs
             // 
             this.trs.AutoSize = false;
-            this.trs.BackColor = System.Drawing.Color.SkyBlue;
+            this.trs.BackColor = System.Drawing.Color.PowderBlue;
+            this.trs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("trs.BackgroundImage")));
             this.trs.Dock = System.Windows.Forms.DockStyle.Left;
             this.trs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAdmin,
@@ -111,7 +113,7 @@
             // tsbShip
             // 
             this.tsbShip.AutoSize = false;
-            this.tsbShip.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsbShip.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbShip.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbShip.Image = ((System.Drawing.Image)(resources.GetObject("tsbShip.Image")));
@@ -128,7 +130,7 @@
             // tsbOrder
             // 
             this.tsbOrder.AutoSize = false;
-            this.tsbOrder.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsbOrder.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbOrder.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbOrder.Image = ((System.Drawing.Image)(resources.GetObject("tsbOrder.Image")));
@@ -145,7 +147,7 @@
             // tsbBlog
             // 
             this.tsbBlog.AutoSize = false;
-            this.tsbBlog.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsbBlog.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbBlog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbBlog.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbBlog.Image = ((System.Drawing.Image)(resources.GetObject("tsbBlog.Image")));
