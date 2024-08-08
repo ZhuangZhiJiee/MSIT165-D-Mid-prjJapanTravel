@@ -66,6 +66,12 @@
     <Compile Include="View\FrmItinerary.Designer.cs">
       <DependentUpon>FrmItinerary.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmItineraryInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmItineraryInsert.Designer.cs">
+      <DependentUpon>FrmItineraryInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmItinerary.resx">
       <DependentUpon>FrmItinerary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmItineraryInsert.resx">
+      <DependentUpon>FrmItineraryInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

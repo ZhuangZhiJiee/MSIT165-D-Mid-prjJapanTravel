@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace slnJapanTravel.View
 {
-    public partial class FrmItinerary : Form
+    public partial class FrmItineraryInsert : Form
     {
-        public FrmItinerary()
+        public FrmItineraryInsert()
         {
             InitializeComponent();
         }
-
-      
     }
 }
