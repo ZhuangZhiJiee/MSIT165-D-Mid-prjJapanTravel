@@ -16,5 +16,11 @@ namespace slnJapanTravel.View
         {
             InitializeComponent();
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            FrmTicketOrderEditor f = new FrmTicketOrderEditor();
+            f.ShowDialog();
+        }
     }
 }

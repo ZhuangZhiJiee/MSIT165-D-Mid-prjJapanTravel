@@ -50,14 +50,27 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Component\FieldBox.Designer.cs" />
+    <Compile Include="Component\itineraryBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\itineraryBox.Designer.cs">
+      <DependentUpon>itineraryBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\ticketBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\ticketBox.Designer.cs">
+      <DependentUpon>ticketBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CStatus.cs" />
+    <Compile Include="Model\C行程訂單Manager.cs" />
     <Compile Include="Model\C付款方式.cs" />
-    <Compile Include="Model\C付款狀態.cs" />
     <Compile Include="Model\C航班旅客資料.cs" />
     <Compile Include="Model\C航班訂單Detail.cs" />
+    <Compile Include="Model\C航班訂單Manager.cs" />
     <Compile Include="Model\C航班訂單資料.cs" />
     <Compile Include="Model\C行程旅客資料.cs" />
     <Compile Include="Model\C行程訂單資料.cs" />
-    <Compile Include="Model\C訂單狀態.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\FrmAdmin.cs">
@@ -78,11 +91,11 @@
     <Compile Include="View\FrmItineraryCart.Designer.cs">
       <DependentUpon>FrmItineraryCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmOrderEditor.cs">
+    <Compile Include="View\FrmItineraryOrderEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmOrderEditor.Designer.cs">
-      <DependentUpon>FrmOrderEditor.cs</DependentUpon>
+    <Compile Include="View\FrmItineraryOrderEditor.Designer.cs">
+      <DependentUpon>FrmItineraryOrderEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmTicketCart.cs">
       <SubType>Form</SubType>
@@ -126,7 +139,19 @@
     <Compile Include="View\FrmTicketOrder.Designer.cs">
       <DependentUpon>FrmTicketOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmTicketOrderEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmTicketOrderEditor.Designer.cs">
+      <DependentUpon>FrmTicketOrderEditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Component\FieldBox.resx" />
+    <EmbeddedResource Include="Component\itineraryBox.resx">
+      <DependentUpon>itineraryBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\ticketBox.resx">
+      <DependentUpon>ticketBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -145,8 +170,8 @@
     <EmbeddedResource Include="View\FrmItineraryCart.resx">
       <DependentUpon>FrmItineraryCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmOrderEditor.resx">
-      <DependentUpon>FrmOrderEditor.cs</DependentUpon>
+    <EmbeddedResource Include="View\FrmItineraryOrderEditor.resx">
+      <DependentUpon>FrmItineraryOrderEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmTicketCart.resx">
       <DependentUpon>FrmTicketCart.cs</DependentUpon>
@@ -169,6 +194,10 @@
     <EmbeddedResource Include="View\FrmTicketOrder.resx">
       <DependentUpon>FrmTicketOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmTicketOrderEditor.resx">
+      <DependentUpon>FrmTicketOrderEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\slnJapanTravel.Model.C付款方式.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

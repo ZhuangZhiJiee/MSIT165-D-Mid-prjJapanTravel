@@ -41,6 +41,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.行程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.船票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.trs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +101,7 @@
             this.trs.AutoSize = false;
             this.trs.BackColor = System.Drawing.Color.SkyBlue;
             this.trs.Dock = System.Windows.Forms.DockStyle.Left;
+            this.trs.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.trs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAdmin,
             this.tsbMember,
@@ -107,10 +109,11 @@
             this.tsbShip,
             this.tsbOrder,
             this.tsbBlog,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.trs.Location = new System.Drawing.Point(0, 0);
             this.trs.Name = "trs";
-            this.trs.Size = new System.Drawing.Size(167, 767);
+            this.trs.Size = new System.Drawing.Size(167, 908);
             this.trs.TabIndex = 1;
             this.trs.Text = "toolStrip1";
             // 
@@ -154,7 +157,7 @@
             // 
             this.行程ToolStripMenuItem1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.行程ToolStripMenuItem1.Name = "行程ToolStripMenuItem1";
-            this.行程ToolStripMenuItem1.Size = new System.Drawing.Size(180, 28);
+            this.行程ToolStripMenuItem1.Size = new System.Drawing.Size(179, 46);
             this.行程ToolStripMenuItem1.Text = "行程";
             this.行程ToolStripMenuItem1.Click += new System.EventHandler(this.行程ToolStripMenuItem1_Click);
             // 
@@ -162,7 +165,7 @@
             // 
             this.船票ToolStripMenuItem1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.船票ToolStripMenuItem1.Name = "船票ToolStripMenuItem1";
-            this.船票ToolStripMenuItem1.Size = new System.Drawing.Size(180, 28);
+            this.船票ToolStripMenuItem1.Size = new System.Drawing.Size(179, 46);
             this.船票ToolStripMenuItem1.Text = "船票";
             this.船票ToolStripMenuItem1.Click += new System.EventHandler(this.船票ToolStripMenuItem1_Click);
             // 
@@ -220,11 +223,29 @@
             this.船票ToolStripMenuItem.Text = "船票";
             this.船票ToolStripMenuItem.Click += new System.EventHandler(this.船票ToolStripMenuItem_Click);
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton2.AutoSize = false;
+            this.toolStripButton2.BackColor = System.Drawing.Color.SkyBlue;
+            this.toolStripButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButton2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton2.Size = new System.Drawing.Size(180, 100);
+            this.toolStripButton2.Text = "離開";
+            this.toolStripButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 767);
+            this.ClientSize = new System.Drawing.Size(1298, 908);
             this.Controls.Add(this.trs);
             this.Font = new System.Drawing.Font("微軟正黑體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.IsMdiContainer = true;
@@ -251,5 +272,6 @@
         private System.Windows.Forms.ToolStripSplitButton tsbOrder;
         private System.Windows.Forms.ToolStripMenuItem 行程ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 船票ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

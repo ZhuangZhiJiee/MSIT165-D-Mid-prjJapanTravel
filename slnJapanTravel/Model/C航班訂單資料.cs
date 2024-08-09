@@ -16,6 +16,7 @@ namespace slnJapanTravel.Model
         public DateTime 付款時間 { get; set; }
         public int 訂單狀態編號 { get; set; }
         public int 優惠券ID { get; set; }
+        public decimal 總金額 { get; set; }
         public string 備註 { get; set; }
         public int 評論星級 { get; set; }
         public string 評論內容 { get; set; }

@@ -19,8 +19,18 @@ namespace slnJapanTravel.View
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            FrmOrderEditor f = new FrmOrderEditor();
+            FrmOrderItineraryEditor f = new FrmOrderItineraryEditor();
             f.ShowDialog();
+        }
+
+        private void FrmItineraryOrder_Load(object sender, EventArgs e)
+        {
+            diplayBySql("SECLET * FORM 行程訂單資料");
+        }
+
+        private void diplayBySql(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

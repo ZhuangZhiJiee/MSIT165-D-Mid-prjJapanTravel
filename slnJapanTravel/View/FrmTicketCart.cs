@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnJapanTravel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,5 +23,10 @@ namespace slnJapanTravel.View
             InitializeComponent();
         }
 
+        private void cbPaymentMethods_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            C付款方式 c = new C付款方式();
+            cbPaymentMethods.Items.Add(c.付款方式);
+        }
     }
 }
