@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace slnJapanTravel.View
+namespace slnJapanTravel.Component
 {
-    public partial class FrmItinerary : Form
+    public partial class ticketBox : UserControl
     {
-        public FrmItinerary()
+        public ticketBox()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace slnJapanTravel.View
 {
-    public partial class FrmShip : Form
+    public partial class FrmItineraryCart : Form
     {
-        public FrmShip()
+        public FrmItineraryCart()
         {
             InitializeComponent();
         }
