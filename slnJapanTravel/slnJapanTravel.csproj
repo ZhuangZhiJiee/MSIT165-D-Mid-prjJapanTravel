@@ -62,63 +62,63 @@
     <Compile Include="Component\ticketBox.Designer.cs">
       <DependentUpon>ticketBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\CStatus.cs" />
-    <Compile Include="Model\C行程訂單Manager.cs" />
-    <Compile Include="Model\C付款方式.cs" />
-    <Compile Include="Model\C航班旅客資料.cs" />
-    <Compile Include="Model\C航班訂單Detail.cs" />
-    <Compile Include="Model\C航班訂單Manager.cs" />
-    <Compile Include="Model\C航班訂單資料.cs" />
-    <Compile Include="Model\C行程旅客資料.cs" />
-    <Compile Include="Model\C行程訂單資料.cs" />
-    <Compile Include="Model\CArea.cs" />
-    <Compile Include="Model\CDetail.cs" />
-    <Compile Include="Model\CHotel.cs" />
-    <Compile Include="Model\CItineraryMain.cs" />
-    <Compile Include="Model\CNumberUtility.cs" />
-    <Compile Include="Model\CSpot.cs" />
+    <Compile Include="Model\Order\CStatus.cs" />
+    <Compile Include="Model\Order\C行程訂單Manager.cs" />
+    <Compile Include="Model\Order\C付款方式.cs" />
+    <Compile Include="Model\Order\C航班旅客資料.cs" />
+    <Compile Include="Model\Order\C航班訂單Detail.cs" />
+    <Compile Include="Model\Order\C航班訂單Manager.cs" />
+    <Compile Include="Model\Order\C航班訂單資料.cs" />
+    <Compile Include="Model\Order\C行程旅客資料.cs" />
+    <Compile Include="Model\Order\C行程訂單資料.cs" />
+    <Compile Include="Model\Product\CArea.cs" />
+    <Compile Include="Model\Product\CDetail.cs" />
+    <Compile Include="Model\Product\CHotel.cs" />
+    <Compile Include="Model\Product\CItineraryMain.cs" />
+    <Compile Include="Model\Product\CNumberUtility.cs" />
+    <Compile Include="Model\Product\CSpot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\FrmAdmin.cs">
+    <Compile Include="View\Member\FrmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmAdmin.Designer.cs">
+    <Compile Include="View\Member\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmBlog.cs">
+    <Compile Include="View\Blog\FrmBlog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmBlog.Designer.cs">
+    <Compile Include="View\Blog\FrmBlog.Designer.cs">
       <DependentUpon>FrmBlog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmItineraryCart.cs">
+    <Compile Include="View\Product\FrmItineraryCart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmItineraryCart.Designer.cs">
+    <Compile Include="View\Product\FrmItineraryCart.Designer.cs">
       <DependentUpon>FrmItineraryCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmItineraryOrderEditor.cs">
+    <Compile Include="View\Order\FrmItineraryOrderEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmItineraryOrderEditor.Designer.cs">
+    <Compile Include="View\Order\FrmItineraryOrderEditor.Designer.cs">
       <DependentUpon>FrmItineraryOrderEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmTicketCart.cs">
+    <Compile Include="View\Order\FrmTicketCart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmTicketCart.Designer.cs">
+    <Compile Include="View\Order\FrmTicketCart.Designer.cs">
       <DependentUpon>FrmTicketCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmItinerary.cs">
+    <Compile Include="View\Product\FrmItinerary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmItinerary.Designer.cs">
+    <Compile Include="View\Product\FrmItinerary.Designer.cs">
       <DependentUpon>FrmItinerary.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmItineraryInsert.cs">
+    <Compile Include="View\Product\FrmItineraryInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmItineraryInsert.Designer.cs">
+    <Compile Include="View\Product\FrmItineraryInsert.Designer.cs">
       <DependentUpon>FrmItineraryInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmMain.cs">
@@ -127,34 +127,34 @@
     <Compile Include="View\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmMember.cs">
+    <Compile Include="View\Member\FrmMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmMember.Designer.cs">
+    <Compile Include="View\Member\FrmMember.Designer.cs">
       <DependentUpon>FrmMember.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmItineraryOrder.cs">
+    <Compile Include="View\Order\FrmItineraryOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmItineraryOrder.Designer.cs">
+    <Compile Include="View\Order\FrmItineraryOrder.Designer.cs">
       <DependentUpon>FrmItineraryOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmShip.cs">
+    <Compile Include="View\Ship\FrmShip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmShip.Designer.cs">
+    <Compile Include="View\Ship\FrmShip.Designer.cs">
       <DependentUpon>FrmShip.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmTicketOrder.cs">
+    <Compile Include="View\Order\FrmTicketOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmTicketOrder.Designer.cs">
+    <Compile Include="View\Order\FrmTicketOrder.Designer.cs">
       <DependentUpon>FrmTicketOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmTicketOrderEditor.cs">
+    <Compile Include="View\Order\FrmTicketOrderEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmTicketOrderEditor.Designer.cs">
+    <Compile Include="View\Order\FrmTicketOrderEditor.Designer.cs">
       <DependentUpon>FrmTicketOrderEditor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Component\FieldBox.resx" />
@@ -173,45 +173,45 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\FrmAdmin.resx">
+    <EmbeddedResource Include="View\Member\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmBlog.resx">
+    <EmbeddedResource Include="View\Blog\FrmBlog.resx">
       <DependentUpon>FrmBlog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmItineraryCart.resx">
+    <EmbeddedResource Include="View\Product\FrmItineraryCart.resx">
       <DependentUpon>FrmItineraryCart.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmItineraryOrderEditor.resx">
+    <EmbeddedResource Include="View\Order\FrmItineraryOrderEditor.resx">
       <DependentUpon>FrmItineraryOrderEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmTicketCart.resx">
+    <EmbeddedResource Include="View\Order\FrmTicketCart.resx">
       <DependentUpon>FrmTicketCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmItinerary.resx">
+    <EmbeddedResource Include="View\Product\FrmItinerary.resx">
       <DependentUpon>FrmItinerary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmItineraryInsert.resx">
+    <EmbeddedResource Include="View\Product\FrmItineraryInsert.resx">
       <DependentUpon>FrmItineraryInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmMember.resx">
+    <EmbeddedResource Include="View\Member\FrmMember.resx">
       <DependentUpon>FrmMember.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmItineraryOrder.resx">
+    <EmbeddedResource Include="View\Order\FrmItineraryOrder.resx">
       <DependentUpon>FrmItineraryOrder.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmShip.resx">
+    <EmbeddedResource Include="View\Ship\FrmShip.resx">
       <DependentUpon>FrmShip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmTicketOrder.resx">
+    <EmbeddedResource Include="View\Order\FrmTicketOrder.resx">
       <DependentUpon>FrmTicketOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmTicketOrderEditor.resx">
+    <EmbeddedResource Include="View\Order\FrmTicketOrderEditor.resx">
       <DependentUpon>FrmTicketOrderEditor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\slnJapanTravel.Model.C付款方式.datasource" />
@@ -228,6 +228,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Component\Blog\" />
+    <Folder Include="Component\Member\" />
+    <Folder Include="Component\Order\" />
+    <Folder Include="Component\Product\" />
+    <Folder Include="Component\Ship\" />
+    <Folder Include="Model\Blog\" />
+    <Folder Include="Model\Member\" />
+    <Folder Include="Model\Ship\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
