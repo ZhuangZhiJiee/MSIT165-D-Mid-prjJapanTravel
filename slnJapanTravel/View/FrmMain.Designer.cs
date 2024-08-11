@@ -161,7 +161,7 @@
             // 
             this.行程ToolStripMenuItem1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.行程ToolStripMenuItem1.Name = "行程ToolStripMenuItem1";
-            this.行程ToolStripMenuItem1.Size = new System.Drawing.Size(180, 28);
+            this.行程ToolStripMenuItem1.Size = new System.Drawing.Size(118, 28);
             this.行程ToolStripMenuItem1.Text = "行程";
             this.行程ToolStripMenuItem1.Click += new System.EventHandler(this.行程ToolStripMenuItem1_Click);
             // 
@@ -169,7 +169,7 @@
             // 
             this.船票ToolStripMenuItem1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.船票ToolStripMenuItem1.Name = "船票ToolStripMenuItem1";
-            this.船票ToolStripMenuItem1.Size = new System.Drawing.Size(180, 28);
+            this.船票ToolStripMenuItem1.Size = new System.Drawing.Size(118, 28);
             this.船票ToolStripMenuItem1.Text = "船票";
             this.船票ToolStripMenuItem1.Click += new System.EventHandler(this.船票ToolStripMenuItem1_Click);
             // 
@@ -231,7 +231,7 @@
             // 
             this.tsbLeave.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbLeave.AutoSize = false;
-            this.tsbLeave.BackColor = System.Drawing.Color.SkyBlue;
+            this.tsbLeave.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbLeave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbLeave.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbLeave.Image = ((System.Drawing.Image)(resources.GetObject("tsbLeave.Image")));
