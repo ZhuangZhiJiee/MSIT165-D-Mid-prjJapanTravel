@@ -16,8 +16,8 @@ namespace slnJapanTravel.View
 {
     public partial class FrmItineraryInsert : Form
     {
-        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-        //string _s = "";
+        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public DialogResult isOK { get; set; }
         private CItineraryMain _main;
         private CPic _pic;

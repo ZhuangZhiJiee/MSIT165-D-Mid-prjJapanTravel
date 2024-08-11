@@ -15,8 +15,8 @@ namespace slnJapanTravel.View
     {   string sq = "INSERT INTO Itinerary行程 (體驗) values ('24SUP0922')";
         SqlDataAdapter _adapter;
         private SqlCommandBuilder _builder;
-        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-
+        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public FrmItinerary()
         {
             InitializeComponent();
@@ -35,8 +35,6 @@ namespace slnJapanTravel.View
 
             _adapter = new SqlDataAdapter(sql, con); 
             _builder = new SqlCommandBuilder(_adapter); 
-            SqlCommand cmd = new SqlCommand(sq, con);
-            cmd.ExecuteNonQuery();
             DataSet ds = new DataSet(); 
             _adapter.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];

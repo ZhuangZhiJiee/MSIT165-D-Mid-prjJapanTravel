@@ -277,7 +277,6 @@
             this.Name = "FrmItinerary";
             this.Text = "旅遊行程系統";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmItinerary_FormClosed);
             this.Load += new System.EventHandler(this.FrmItinerary_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

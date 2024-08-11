@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace slnJapanTravel.View
+namespace slnJapanTravel.Component
 {
-    public partial class FrmShip : Form
+    public partial class itineraryBox : UserControl
     {
-        public FrmShip()
+        public itineraryBox()
         {
             InitializeComponent();
         }
+
     }
 }
