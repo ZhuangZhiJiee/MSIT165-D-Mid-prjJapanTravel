@@ -16,8 +16,11 @@ namespace slnJapanTravel.View
 {
     public partial class FrmItineraryInsert : Form
     {
+        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public DialogResult isOK { get; set; }
         private CItineraryMain _main;
+        private CPic _pic;
 
         public FrmItineraryInsert()
         {
@@ -31,8 +34,10 @@ namespace slnJapanTravel.View
                     _main = new CItineraryMain(); //若類別為null，要用的話要new
                 _main.行程編號 = txtItineraryId.Text;
                 _main.行程名稱 = txtItineraryName.Text;
+                _main.體驗名稱 = txtActivitySearch.Text;
                 _main.總團位 = Convert.ToInt32(txtItinerarySpace.Text);
                 _main.價格 = Convert.ToInt32(txtItineraryPrice.Text);
+                _main.地區名稱 = cbAreaInsert.Text;
 
                 return _main;
             }
@@ -41,14 +46,50 @@ namespace slnJapanTravel.View
                 _main = value;
                 txtItineraryId.Text = _main.行程編號;
                 txtItineraryName.Text = _main.行程名稱;
+                txtActivitySearch.Text = _main.體驗名稱;
                 txtItinerarySpace.Text = _main.總團位.ToString();
-                txtItineraryPrice.Text = _main.價格.ToString();  
-                //if (_main.fImage != null)
-                //{
-                //    Stream streamImage = new MemoryStream(_travel.fImage);
-                //    TravelPic.Image = Bitmap.FromStream(streamImage);
-                //}
+                txtItineraryPrice.Text = _main.價格.ToString();
+                cbAreaInsert.Text = _main.地區名稱;
+                if (_pic.圖片系統編號 != 0)
+                {
+                    Stream streamImage = new MemoryStream(_pic.圖片系統編號);
+                    picbItinerary.Image = Bitmap.FromStream(streamImage);
+                }
             }
+        }
+        private int GetActivityIdByName(string activityName)
+        {
+            int activityId = 0;
+            using (SqlConnection con = new SqlConnection(_s))
+            {
+                con.Open();
+                string query = "SELECT 體驗編號 FROM Activity體驗 WHERE 體驗名稱 = @ActivityName";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ActivityName", activityName);
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    activityId = Convert.ToInt32(result);
+                }
+            }
+            return activityId;
+        }
+        private int GeAreaIdByName(string areaName)
+        {
+            int areaId = 0;
+            using (SqlConnection con = new SqlConnection(_s))
+            {
+                con.Open();
+                string query = "SELECT 地區編號 FROM Area地區 WHERE 地區名稱 = @AreaName";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@AreaName", areaName);
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    areaId = Convert.ToInt32(result);
+                }
+            }
+            return areaId;
         }
         private void btnInsertMain_Click(object sender, EventArgs e)
         {
@@ -68,6 +109,8 @@ namespace slnJapanTravel.View
                 MessageBox.Show(errMsg);
                 return;
             }
+            main.體驗 = GetActivityIdByName(main.體驗名稱);
+            main.地區 = GeAreaIdByName(main.地區名稱);
 
             isOK = DialogResult.OK;
             this.Close();
@@ -75,7 +118,7 @@ namespace slnJapanTravel.View
         private void FrmItineraryInsert_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+            con.ConnectionString = _s;
             con.Open();
 
             string sql = "SELECT *  FROM Area地區";
@@ -97,94 +140,54 @@ namespace slnJapanTravel.View
         private void displaySpot(string sql)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+            con.ConnectionString = _s;
             con.Open();
 
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet ds = new DataSet();
             SqlCommandBuilder builder = new SqlCommandBuilder();
-            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_KEYWORD", "%" + txtSpotSearch.Text + "%"));
+            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_KEYWORD", "%" + txtActivitySearch.Text + "%"));
             adapter.Fill(ds);
-            SpotdataGridView.DataSource = ds.Tables[0];
+            ActivitydataGridView.DataSource = ds.Tables[0];
             con.Close();
-            SpotdataGridView.Controls.Clear();
+            ActivitydataGridView.Controls.Clear();
         }
 
-        private void btnSpotSearch_Click(object sender, EventArgs e)
+        private void btnActivitySearch_Click(object sender, EventArgs e)
         {
             
-            string sql = "SELECT 景點名稱, 景點內容 FROM Spot景點";
-            sql += " WHERE 景點名稱 LIKE @K_KEYWORD ";
+            string sql = "SELECT 體驗名稱, 體驗內容 FROM Activity體驗";
+            sql += " WHERE 體驗名稱 LIKE @K_KEYWORD ";
             displaySpot(sql);
         }
 
-        private void SpotdataGridView_DoubleClick(object sender, EventArgs e)
+        private void ActivitydataGridView_DoubleClick(object sender, EventArgs e)
         {
-            if (SpotdataGridView.CurrentRow != null)
+            if (ActivitydataGridView.CurrentRow != null)
             {
-                txtSpotSearch.Text = SpotdataGridView.CurrentRow.Cells["景點名稱"].Value.ToString();
+                txtActivitySearch.Text = ActivitydataGridView.CurrentRow.Cells["體驗名稱"].Value.ToString();
             }
-        }
-
-        private void displayHotel(string sql)
-        {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-            con.Open();
-
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
-            DataSet ds = new DataSet();
-            SqlCommandBuilder builder = new SqlCommandBuilder();
-            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_KEYWORD", "%" + txtHotelSearch.Text + "%"));
-            adapter.Fill(ds);
-            HoteldataGridView.DataSource = ds.Tables[0];
-            con.Close();
-        }
-        private void btnHotelSearchDetail_Click_1(object sender, EventArgs e)
-        {
-            string sql = "SELECT 飯店名稱, 飯店星級 FROM Hotel飯店";
-            sql += " WHERE 飯店名稱 LIKE @K_KEYWORD ";
-            displayHotel(sql);
-        }
-        private void HoteldataGridView_DoubleClick_1(object sender, EventArgs e)
-        {
-            if (HoteldataGridView.CurrentRow != null)
-            {
-                txtHotelSearch.Text = HoteldataGridView.CurrentRow.Cells["飯店名稱"].Value.ToString();
-            }
-        }
-        private void displaySpotDetail(string sql)
-        {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-            con.Open();
-
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
-            DataSet ds = new DataSet();
-            SqlCommandBuilder builder = new SqlCommandBuilder();
-            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_KEYWORD", "%" + txtSpotDetailSearch.Text + "%"));
-            adapter.Fill(ds);
-            SpotDetaildataGridView.DataSource = ds.Tables[0];
-            con.Close();
-            SpotDetaildataGridView.Controls.Clear();
-        }
-        private void btnSpotSearchDetail_Click(object sender, EventArgs e)
-        {
-            string sql = "SELECT 景點名稱 FROM Spot景點";
-            sql += " WHERE 景點名稱 LIKE @K_KEYWORD ";
-            displaySpotDetail(sql);
-        }
-        private void SpotDetaildataGridView_DoubleClick(object sender, EventArgs e)
-        {
-         if (SpotDetaildataGridView.CurrentRow != null)
-            {
-                txtSpotDetailSearch.Text = SpotDetaildataGridView.CurrentRow.Cells["景點名稱"].Value.ToString();
-             }
         }
 
         private void btnCancelMain_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void picbItinerary_DoubleClick(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "體驗圖片(*.jpg)|*.jpg|體驗圖片(*.png)|*.png"; //用過濾器 用|隔開，左邊給人看右邊給電腦看
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+
+            Image img = Bitmap.FromFile(openFileDialog1.FileName); //圖片繼承Bitmap
+            picbItinerary.Image = img;
+
+            FileStream imgstream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read); //先把檔案變成串流
+            BinaryReader reader = new BinaryReader(imgstream); //串流放到讀取器
+            this.main.圖片 = reader.ReadBytes /*轉成byte陣列的方法叫做ReadBytes*/((int)imgstream.Length); //轉成byte陣列，因為是陣列所以用Length
+            reader.Close(); //讀完的東西會占掉記憶體所以要關閉，釋放記憶體
+            imgstream.Close();
         }
     }
 }
