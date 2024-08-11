@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\CArea.cs" />
-    <Compile Include="Model\CDetail.cs" />
-    <Compile Include="Model\CHotel.cs" />
     <Compile Include="Model\CItineraryMain.cs" />
     <Compile Include="Model\CNumberUtility.cs" />
-    <Compile Include="Model\CSpot.cs" />
+    <Compile Include="Model\CActivity.cs" />
+    <Compile Include="Model\CPic.cs" />
+    <Compile Include="Model\DGetName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\FrmAdmin.cs">
