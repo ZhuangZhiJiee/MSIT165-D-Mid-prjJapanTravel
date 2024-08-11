@@ -16,5 +16,22 @@ namespace slnJapanTravel.View
         {
             InitializeComponent();
         }
+
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRoute_Click(object sender, EventArgs e)
+        {
+            FrmShipRoute fs = new FrmShipRoute();
+            fs.MdiParent = MdiParent;
+            fs.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
