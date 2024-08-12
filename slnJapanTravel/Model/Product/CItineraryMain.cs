@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnJapanTravel.Model.Product;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace slnJapanTravel.Model
 {
     public class CItineraryMain
     {
+        public CItineraryDate date {  get; set; }
         public int 行程系統編號 {  get; set; }
         public string 行程編號 { get; set;}
         public string 行程名稱 { get; set; } 

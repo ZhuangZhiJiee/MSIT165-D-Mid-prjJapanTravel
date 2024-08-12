@@ -62,6 +62,7 @@
     <Compile Include="Component\Order\ticketBox.Designer.cs">
       <DependentUpon>ticketBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\Product\CProductManager.cs" />
     <Compile Include="Model\Order\CStatus.cs" />
     <Compile Include="Model\Order\C行程訂單Manager.cs" />
     <Compile Include="Model\Order\C付款方式.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Model\Order\C行程訂單資料.cs" />
     <Compile Include="Model\Product\CActivity.cs" />
     <Compile Include="Model\Product\CArea.cs" />
+    <Compile Include="Model\Product\CItineraryDate.cs" />
     <Compile Include="Model\Product\CItineraryMain.cs" />
     <Compile Include="Model\Product\CNumberUtility.cs" />
     <Compile Include="Model\Product\CPic.cs" />
@@ -253,7 +255,6 @@
   <ItemGroup>
     <Folder Include="Component\Blog\" />
     <Folder Include="Component\Member\" />
-    <Folder Include="Component\Product\" />
     <Folder Include="Component\Ship\" />
     <Folder Include="Model\Blog\" />
     <Folder Include="Model\Member\" />
