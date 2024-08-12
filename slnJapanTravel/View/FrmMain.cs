@@ -1,9 +1,12 @@
-﻿using System;
+﻿using slnJapanTravel.Model.Member;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +18,36 @@ namespace slnJapanTravel.View
         public FrmMain()
         {
             InitializeComponent();
+        }
+        string _constr = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
+
+
+        private void Buttondisable()
+        {
+            tsbAdmin.Enabled = false;
+            tsbMember.Enabled = false;
+            tsbItinerary.Enabled = false;
+            tsbShip.Enabled = false;
+            tsbOrder.Enabled = false;
+            tsbCart.Enabled = false;
+            tsbBlog.Enabled = false;
+        }
+        private void ButtonEnable()
+        {
+            if(CLoginAdmin.管理員管理權限 == true)
+                tsbAdmin.Enabled = true;
+            if (CLoginAdmin.會員管理權限 == true)
+                tsbMember.Enabled = true;
+            if (CLoginAdmin.行程管理權限 == true)
+                tsbItinerary.Enabled = true;
+            if (CLoginAdmin.航班管理權限 == true)
+                tsbShip.Enabled = true;
+            if (CLoginAdmin.訂單管理權限 == true)
+                tsbOrder.Enabled = true;
+                tsbCart.Enabled = true;
+            if (CLoginAdmin.會員管理權限 == true)
+                tsbBlog.Enabled = true;
+            tslLogin.Text = CLoginAdmin.管理員姓名;
         }
 
         private void tsAdmin_Click(object sender, EventArgs e)
@@ -113,6 +146,17 @@ namespace slnJapanTravel.View
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            Buttondisable();
+            FrmLogin fl = new FrmLogin();
+            fl.ShowDialog();
+            if (fl._isok == DialogResult.OK)
+            {
+                ButtonEnable();
+            }
         }
     }
 }
