@@ -20,6 +20,15 @@ namespace slnJapanTravel.View
         }
         string _constr = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public DialogResult _isok;
+        private CLoginAdmin _loginAdmin;
+        public CLoginAdmin loginAdmin
+        {
+            get
+            {
+                return _loginAdmin;
+            }
+            set { _loginAdmin = value; }
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -35,20 +44,22 @@ namespace slnJapanTravel.View
             {
                 _isok = DialogResult.OK;
                 this.Close();
-                CLoginAdmin.管理員ID = Convert.ToInt32(reader["管理員ID"]);
-                CLoginAdmin.管理員姓名 = reader["管理員姓名"].ToString();
-                CLoginAdmin.管理員帳號 = reader["帳號"].ToString();
-                CLoginAdmin.管理員密碼 = reader["密碼"].ToString();
-                CLoginAdmin.管理員信箱 = reader["Email"].ToString();
+                _loginAdmin = new CLoginAdmin();
+                _loginAdmin.管理員ID = Convert.ToInt32(reader["管理員ID"]);
+                _loginAdmin.管理員姓名 = reader["管理員姓名"].ToString();
+                _loginAdmin.管理員帳號 = reader["帳號"].ToString();
+                _loginAdmin.管理員密碼 = reader["密碼"].ToString();
+                _loginAdmin.管理員信箱 = reader["Email"].ToString();
                 if(reader["照片"]!=DBNull.Value)
-                    CLoginAdmin.管理員照片 = (byte[])(reader["照片"]);
-                CLoginAdmin.會員管理權限 = Convert.ToBoolean(reader["會員管理權限"].ToString());
-                CLoginAdmin.管理員管理權限 = Convert.ToBoolean(reader["管理員管理權限"].ToString());
-                CLoginAdmin.行程管理權限 = Convert.ToBoolean(reader["行程管理權限"].ToString());
-                CLoginAdmin.訂單管理權限 = Convert.ToBoolean(reader["訂單管理權限"].ToString());
-                CLoginAdmin.航班管理權限 = Convert.ToBoolean(reader["航班管理權限"].ToString());
-                CLoginAdmin.部落格管理權限 = Convert.ToBoolean(reader["部落格管理權限"].ToString());
-                CLoginAdmin.評論管理權限 = Convert.ToBoolean(reader["評論管理權限"].ToString());
+                    _loginAdmin.管理員照片 = (byte[])(reader["照片"]);
+                _loginAdmin.會員管理權限 = Convert.ToBoolean(reader["會員管理權限"]);
+                _loginAdmin.管理員管理權限 = Convert.ToBoolean(reader["管理員管理權限"]);
+                _loginAdmin.行程管理權限 = Convert.ToBoolean(reader["行程管理權限"]);
+                _loginAdmin.訂單管理權限 = Convert.ToBoolean(reader["訂單管理權限"]);
+                _loginAdmin.航班管理權限 = Convert.ToBoolean(reader["航班管理權限"]);
+                _loginAdmin.部落格管理權限 = Convert.ToBoolean(reader["部落格管理權限"]);
+                _loginAdmin.評論管理權限 = Convert.ToBoolean(reader["評論管理權限"]);
+                _loginAdmin.優惠券管理權限 = Convert.ToBoolean(reader["優惠券管理權限"]);
             }
             else 
             {

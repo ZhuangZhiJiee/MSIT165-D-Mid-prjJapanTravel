@@ -21,5 +21,6 @@ namespace slnJapanTravel.Model.Member
         public bool 航班管理權限 { get; set; }
         public bool 部落格管理權限 { get; set; }
         public bool 評論管理權限 { get; set; }
+        public bool 優惠券管理權限 { get; set; }
     }
 }

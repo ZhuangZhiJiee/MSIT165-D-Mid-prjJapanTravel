@@ -99,6 +99,12 @@
     <Compile Include="View\Blog\FrmBlog.Designer.cs">
       <DependentUpon>FrmBlog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Member\FrmCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Member\FrmCoupon.Designer.cs">
+      <DependentUpon>FrmCoupon.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Member\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Blog\FrmBlog.resx">
       <DependentUpon>FrmBlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Member\FrmCoupon.resx">
+      <DependentUpon>FrmCoupon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Member\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
