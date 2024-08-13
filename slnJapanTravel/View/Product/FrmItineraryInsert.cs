@@ -52,12 +52,12 @@ namespace slnJapanTravel.View
                 txtItinerarySpace.Text = _main.總團位.ToString();
                 txtItineraryPrice.Text = _main.價格.ToString();
                 cbAreaInsert.Text = _main.地區名稱;
-                InsertdateTimePicker.Value = _main.date.出發日期;
-                if (_pic.圖片系統編號 != 0)
-                {
-                    Stream streamImage = new MemoryStream(_pic.圖片系統編號);
-                    picbItinerary.Image = Bitmap.FromStream(streamImage);
-                }
+                //InsertdateTimePicker.Value = _main.date.出發日期;
+                //if (_pic.圖片系統編號 != 0)
+                //{
+                //    Stream streamImage = new MemoryStream(_pic.圖片系統編號);
+                //    picbItinerary.Image = Bitmap.FromStream(streamImage);
+                //}
             }
         }
         private int GetActivityIdByName(string activityName)

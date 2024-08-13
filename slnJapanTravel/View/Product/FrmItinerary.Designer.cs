@@ -45,7 +45,7 @@
             this.txtItineraryName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.btnMainUpdate = new System.Windows.Forms.Button();
             this.btnMainDelete = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -228,7 +228,7 @@
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.btnCopy);
             this.panel4.Controls.Add(this.btnMainUpdate);
             this.panel4.Controls.Add(this.btnMainDelete);
             this.panel4.Location = new System.Drawing.Point(0, 227);
@@ -236,20 +236,19 @@
             this.panel4.Size = new System.Drawing.Size(1208, 50);
             this.panel4.TabIndex = 16;
             // 
-            // button1
+            // btnCopy
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(158, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 37);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "複製";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnMainUpdate_Click);
+            this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCopy.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopy.Location = new System.Drawing.Point(158, 8);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(71, 37);
+            this.btnCopy.TabIndex = 0;
+            this.btnCopy.Text = "複製";
+            this.btnCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnMainUpdate
             // 
@@ -264,7 +263,6 @@
             this.btnMainUpdate.Text = "修改";
             this.btnMainUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMainUpdate.UseVisualStyleBackColor = true;
-            this.btnMainUpdate.Click += new System.EventHandler(this.btnMainUpdate_Click);
             // 
             // btnMainDelete
             // 
@@ -309,9 +307,12 @@
             this.MaindataGridView.Size = new System.Drawing.Size(949, 503);
             this.MaindataGridView.TabIndex = 0;
             this.MaindataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MaindataGridView_CellClick);
+            this.MaindataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.MaindataGridView_RowEnter_1);
+            this.MaindataGridView.Paint += new System.Windows.Forms.PaintEventHandler(this.MaindataGridView_Paint_1);
             // 
             // TimedataGridView
             // 
+            this.TimedataGridView.AllowUserToAddRows = false;
             this.TimedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TimedataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TimedataGridView.Location = new System.Drawing.Point(0, 0);
@@ -319,6 +320,7 @@
             this.TimedataGridView.RowTemplate.Height = 24;
             this.TimedataGridView.Size = new System.Drawing.Size(255, 503);
             this.TimedataGridView.TabIndex = 0;
+            this.TimedataGridView.Paint += new System.Windows.Forms.PaintEventHandler(this.TimedataGridView_Paint);
             // 
             // FrmItinerary
             // 
@@ -370,6 +372,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView MaindataGridView;
         private System.Windows.Forms.DataGridView TimedataGridView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCopy;
     }
 }
