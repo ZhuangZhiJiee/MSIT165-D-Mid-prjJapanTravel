@@ -20,6 +20,7 @@ namespace slnJapanTravel.View
         private SqlCommandBuilder _builder;
         CItineraryDate _date;
         private int _position;
+        
 
         string _s = "Data Source=.;Initial Catalog = JapanTravel; Integrated Security = True; Encrypt=False";
         //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
@@ -118,15 +119,7 @@ namespace slnJapanTravel.View
             dr["總團位"] = f.main.總團位.ToString();
             dr["價格"] = f.main.價格.ToString();
             dr["地區名稱"] = GetAreaNameById(f.main.地區);
-            //string combinedDates = "";
-            //foreach (var date in f.main.date.出發日期.ToString())
-            //{
-            //    if (!string.IsNullOrEmpty(combinedDates))
-            //    {
-            //        combinedDates += ", ";
-            //    }
-            //    combinedDates += date.ToString();
-            //}
+           
             maindt.Rows.Add(dr);
 
             //DataTable dtTime = TimedataGridView.DataSource as DataTable;
@@ -198,8 +191,6 @@ namespace slnJapanTravel.View
             displayBySql(sql);
         }
 
-       
-
         private void btnMainDelete_Click(object sender, EventArgs e)
         {
             DataTable dt = MaindataGridView.DataSource as DataTable;  //建立一個資料表，來源為畫面輸入的資料
@@ -218,48 +209,97 @@ namespace slnJapanTravel.View
             }
         }
 
-        private void btnMainUpdate_Click(object sender, EventArgs e)
+        private void btnCopy_Click(object sender, EventArgs e)
         {
+            DataTable dt = MaindataGridView.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+            CItineraryMain main = new CItineraryMain();
+            main.行程編號 = dr["行程編號"].ToString();
+            main.行程名稱 = dr["行程名稱"].ToString() + "(複製)";
+            main.體驗名稱 = dr["體驗名稱"].ToString();
+            main.總團位 = (int)dr["總團位"];
+            main.價格 = Convert.ToInt32(dr["價格"]);
 
+            FrmItineraryInsert f = new FrmItineraryInsert();
+            f.main = main;
+            f.ShowDialog();
+            CProductManager p = new CProductManager();
+            p.copy(f.main);
+
+            if (f.isOK == DialogResult.OK)
+            {
+                DataRow dr1 = dt.NewRow();
+                dr1["行程編號"] = f.main.行程編號;
+                dr1["體驗名稱"] = GetActivityNameById(f.main.體驗);
+                dr1["行程名稱"] = f.main.行程名稱;
+                dr1["總團位"] = f.main.總團位.ToString();
+                dr1["價格"] = f.main.價格.ToString();
+                dr1["地區名稱"] = GetAreaNameById(f.main.地區);
+                dt.Rows.Add(dr1);
+            }
+
+            DataGridRefresh();
         }
 
-        private void MaindataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+
+        
+
+        private void resetMainGridStyle()
+        {
+            MaindataGridView.Columns[0].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[0].Width = 100;
+            MaindataGridView.Columns[1].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[1].Width = 800;
+            MaindataGridView.Columns[2].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[2].Width = 150;
+            MaindataGridView.Columns[3].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[3].Width = 50;
+            MaindataGridView.Columns[4].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[4].Width = 50;
+            MaindataGridView.Columns[5].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[5].Width = 100;
+            MaindataGridView.Columns[6].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[6].Width = 100;
+            MaindataGridView.Columns[7].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[7].Width = 100;
+
+            //int count = 0;
+            //bool isColorChanged = false;
+            //foreach (DataGridViewRow r in MaindataGridView.Rows)
+            //{
+            //    count++;
+            //    isColorChanged = !isColorChanged;
+            //    if (isColorChanged)
+            //        r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            //    r.DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            //    r.Height = 50;
+            //    r.HeaderCell.Value = count.ToString();
+            //}
+        }
+        private void MaindataGridView_Paint_1(object sender, PaintEventArgs e)
+        {
+            resetMainGridStyle();
+        }
+
+        private void resetTimeGridStyle()
+        {
+            if (TimedataGridView.Rows.Count > 0)
+            {
+                TimedataGridView.Columns[0].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+                TimedataGridView.Columns[0].Width = this.Width;
+            }
+            
+        }
+
+        private void TimedataGridView_Paint(object sender, PaintEventArgs e)
+        {
+            resetTimeGridStyle();
+        }
+
+        private void MaindataGridView_RowEnter_1(object sender, DataGridViewCellEventArgs e)
         {
             _position = e.RowIndex;
         }
-
-        //private void resetGridStyle()
-        //{
-        //    MaindataGridView.Columns[0].Width = 100;
-        //    MaindataGridView.Columns[1].Width = this.Width - 850;
-        //    MaindataGridView.Columns[2].Width = 150;
-        //    MaindataGridView.Columns[3].Width = 50;
-        //    MaindataGridView.Columns[4].Width = 50;
-        //    MaindataGridView.Columns[5].Width = 100;
-        //    MaindataGridView.Columns[6].Width = 100;
-        //    MaindataGridView.Columns[7].Width = 100;
-        //    MaindataGridView.Columns[8].Width = 200;
-
-        //    int count = 0;
-        //    bool isColorChanged = false;
-        //    foreach (DataGridViewRow r in MaindataGridView.Rows)
-        //    {
-        //        count++;
-        //        isColorChanged = !isColorChanged;
-        //        if (isColorChanged)
-        //            r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-        //        r.DefaultCellStyle.Font = new Font("Meiryo UI", 11);
-        //        r.Height = 50;
-        //        r.HeaderCell.Value = count.ToString();
-        //    }
-        //}
-
-        private void MaindataGridView_Paint(object sender, PaintEventArgs e)
-        {
-            //resetGridStyle();
-        }
-
-        
     }
     
 
