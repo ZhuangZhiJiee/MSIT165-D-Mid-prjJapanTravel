@@ -32,6 +32,7 @@
             this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.tsAdmin = new System.Windows.Forms.ToolStrip();
             this.tsbInsert = new System.Windows.Forms.ToolStripButton();
+            this.tsbAlter = new System.Windows.Forms.ToolStripButton();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblAccount = new System.Windows.Forms.Label();
@@ -41,14 +42,23 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.picAdmin = new System.Windows.Forms.PictureBox();
-            this.clbStatus = new System.Windows.Forms.CheckedListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbCoupon = new System.Windows.Forms.CheckBox();
+            this.cbComment = new System.Windows.Forms.CheckBox();
+            this.cbBlog = new System.Windows.Forms.CheckBox();
+            this.cbOrder = new System.Windows.Forms.CheckBox();
+            this.cbShip = new System.Windows.Forms.CheckBox();
+            this.cbItinerary = new System.Windows.Forms.CheckBox();
+            this.cbMember = new System.Windows.Forms.CheckBox();
+            this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAdmin
@@ -64,7 +74,8 @@
             // tsAdmin
             // 
             this.tsAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbInsert});
+            this.tsbInsert,
+            this.tsbAlter});
             this.tsAdmin.Location = new System.Drawing.Point(0, 0);
             this.tsAdmin.Name = "tsAdmin";
             this.tsAdmin.Size = new System.Drawing.Size(1235, 53);
@@ -81,6 +92,17 @@
             this.tsbInsert.Size = new System.Drawing.Size(150, 50);
             this.tsbInsert.Text = "新增管理員";
             this.tsbInsert.Click += new System.EventHandler(this.tsbInsert_Click);
+            // 
+            // tsbAlter
+            // 
+            this.tsbAlter.AutoSize = false;
+            this.tsbAlter.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tsbAlter.Image = ((System.Drawing.Image)(resources.GetObject("tsbAlter.Image")));
+            this.tsbAlter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAlter.Name = "tsbAlter";
+            this.tsbAlter.Size = new System.Drawing.Size(150, 50);
+            this.tsbAlter.Text = "修改資料";
+            this.tsbAlter.Click += new System.EventHandler(this.tsbAlter_Click);
             // 
             // lblName
             // 
@@ -164,29 +186,11 @@
             this.picAdmin.TabIndex = 10;
             this.picAdmin.TabStop = false;
             // 
-            // clbStatus
-            // 
-            this.clbStatus.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.clbStatus.FormattingEnabled = true;
-            this.clbStatus.Items.AddRange(new object[] {
-            "管理員管理權限",
-            "會員管理權限",
-            "行程管理權限",
-            "航線管理權限",
-            "訂單管理權限",
-            "部落格管理權限",
-            "評論管理權限",
-            "優惠券管理權限"});
-            this.clbStatus.Location = new System.Drawing.Point(642, 17);
-            this.clbStatus.Name = "clbStatus";
-            this.clbStatus.Size = new System.Drawing.Size(224, 270);
-            this.clbStatus.TabIndex = 6;
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.clbStatus);
             this.panel1.Controls.Add(this.picAdmin);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.lblPassword);
@@ -201,15 +205,111 @@
             this.panel1.Size = new System.Drawing.Size(888, 317);
             this.panel1.TabIndex = 5;
             // 
-            // btnSave
+            // groupBox1
             // 
-            this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(642, 274);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 40);
-            this.btnSave.TabIndex = 11;
-            this.btnSave.Text = "儲存";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.cbCoupon);
+            this.groupBox1.Controls.Add(this.cbComment);
+            this.groupBox1.Controls.Add(this.cbBlog);
+            this.groupBox1.Controls.Add(this.cbOrder);
+            this.groupBox1.Controls.Add(this.cbShip);
+            this.groupBox1.Controls.Add(this.cbItinerary);
+            this.groupBox1.Controls.Add(this.cbMember);
+            this.groupBox1.Controls.Add(this.cbAdmin);
+            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox1.Location = new System.Drawing.Point(642, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(234, 274);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "權限";
+            // 
+            // cbCoupon
+            // 
+            this.cbCoupon.AutoSize = true;
+            this.cbCoupon.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbCoupon.Location = new System.Drawing.Point(5, 235);
+            this.cbCoupon.Name = "cbCoupon";
+            this.cbCoupon.Size = new System.Drawing.Size(223, 39);
+            this.cbCoupon.TabIndex = 7;
+            this.cbCoupon.Text = "優惠券管理權限";
+            this.cbCoupon.UseVisualStyleBackColor = true;
+            // 
+            // cbComment
+            // 
+            this.cbComment.AutoSize = true;
+            this.cbComment.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbComment.Location = new System.Drawing.Point(6, 204);
+            this.cbComment.Name = "cbComment";
+            this.cbComment.Size = new System.Drawing.Size(196, 39);
+            this.cbComment.TabIndex = 6;
+            this.cbComment.Text = "評論管理權限";
+            this.cbComment.UseVisualStyleBackColor = true;
+            // 
+            // cbBlog
+            // 
+            this.cbBlog.AutoSize = true;
+            this.cbBlog.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbBlog.Location = new System.Drawing.Point(5, 176);
+            this.cbBlog.Name = "cbBlog";
+            this.cbBlog.Size = new System.Drawing.Size(223, 39);
+            this.cbBlog.TabIndex = 5;
+            this.cbBlog.Text = "部落格管理權限";
+            this.cbBlog.UseVisualStyleBackColor = true;
+            // 
+            // cbOrder
+            // 
+            this.cbOrder.AutoSize = true;
+            this.cbOrder.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbOrder.Location = new System.Drawing.Point(6, 146);
+            this.cbOrder.Name = "cbOrder";
+            this.cbOrder.Size = new System.Drawing.Size(196, 39);
+            this.cbOrder.TabIndex = 4;
+            this.cbOrder.Text = "訂單管理權限";
+            this.cbOrder.UseVisualStyleBackColor = true;
+            // 
+            // cbShip
+            // 
+            this.cbShip.AutoSize = true;
+            this.cbShip.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbShip.Location = new System.Drawing.Point(6, 115);
+            this.cbShip.Name = "cbShip";
+            this.cbShip.Size = new System.Drawing.Size(196, 39);
+            this.cbShip.TabIndex = 3;
+            this.cbShip.Text = "航線管理權限";
+            this.cbShip.UseVisualStyleBackColor = true;
+            // 
+            // cbItinerary
+            // 
+            this.cbItinerary.AutoSize = true;
+            this.cbItinerary.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbItinerary.Location = new System.Drawing.Point(6, 85);
+            this.cbItinerary.Name = "cbItinerary";
+            this.cbItinerary.Size = new System.Drawing.Size(196, 39);
+            this.cbItinerary.TabIndex = 2;
+            this.cbItinerary.Text = "行程管理權限";
+            this.cbItinerary.UseVisualStyleBackColor = true;
+            // 
+            // cbMember
+            // 
+            this.cbMember.AutoSize = true;
+            this.cbMember.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbMember.Location = new System.Drawing.Point(6, 54);
+            this.cbMember.Name = "cbMember";
+            this.cbMember.Size = new System.Drawing.Size(196, 39);
+            this.cbMember.TabIndex = 1;
+            this.cbMember.Text = "會員管理權限";
+            this.cbMember.UseVisualStyleBackColor = true;
+            // 
+            // cbAdmin
+            // 
+            this.cbAdmin.AutoSize = true;
+            this.cbAdmin.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbAdmin.Location = new System.Drawing.Point(7, 26);
+            this.cbAdmin.Name = "cbAdmin";
+            this.cbAdmin.Size = new System.Drawing.Size(223, 39);
+            this.cbAdmin.TabIndex = 0;
+            this.cbAdmin.Text = "管理員管理權限";
+            this.cbAdmin.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -221,6 +321,17 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSave.Location = new System.Drawing.Point(642, 274);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(86, 40);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "儲存";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmAdmin
             // 
@@ -240,6 +351,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,9 +372,18 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.CheckedListBox clbStatus;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox cbAdmin;
+        private System.Windows.Forms.CheckBox cbItinerary;
+        private System.Windows.Forms.CheckBox cbMember;
+        private System.Windows.Forms.CheckBox cbOrder;
+        private System.Windows.Forms.CheckBox cbShip;
+        private System.Windows.Forms.CheckBox cbComment;
+        private System.Windows.Forms.CheckBox cbBlog;
+        private System.Windows.Forms.CheckBox cbCoupon;
+        private System.Windows.Forms.ToolStripButton tsbAlter;
     }
 }

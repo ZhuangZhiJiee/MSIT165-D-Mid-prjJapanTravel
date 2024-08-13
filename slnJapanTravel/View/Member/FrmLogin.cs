@@ -56,7 +56,7 @@ namespace slnJapanTravel.View
                 _loginAdmin.管理員管理權限 = Convert.ToBoolean(reader["管理員管理權限"]);
                 _loginAdmin.行程管理權限 = Convert.ToBoolean(reader["行程管理權限"]);
                 _loginAdmin.訂單管理權限 = Convert.ToBoolean(reader["訂單管理權限"]);
-                _loginAdmin.航班管理權限 = Convert.ToBoolean(reader["航班管理權限"]);
+                _loginAdmin.航線管理權限 = Convert.ToBoolean(reader["航線管理權限"]);
                 _loginAdmin.部落格管理權限 = Convert.ToBoolean(reader["部落格管理權限"]);
                 _loginAdmin.評論管理權限 = Convert.ToBoolean(reader["評論管理權限"]);
                 _loginAdmin.優惠券管理權限 = Convert.ToBoolean(reader["優惠券管理權限"]);
