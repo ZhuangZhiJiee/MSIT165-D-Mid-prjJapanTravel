@@ -45,7 +45,7 @@ namespace slnJapanTravel.View
 
         }
 
-        private void displaysql(string sql)
+        public void displaysql(string sql)
         {
             SqlConnection con = new SqlConnection(CS);
             con.Open();

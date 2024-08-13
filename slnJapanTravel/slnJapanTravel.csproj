@@ -190,6 +190,18 @@
     <Compile Include="View\Order\FrmTicketOrderEditor.Designer.cs">
       <DependentUpon>FrmTicketOrderEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Ship\FrmShipPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipPhoto.Designer.cs">
+      <DependentUpon>FrmShipPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipPhotoEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipPhotoEdit.Designer.cs">
+      <DependentUpon>FrmShipPhotoEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Ship\FrmShipREdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +279,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Order\FrmTicketOrderEditor.resx">
       <DependentUpon>FrmTicketOrderEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipPhoto.resx">
+      <DependentUpon>FrmShipPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipPhotoEdit.resx">
+      <DependentUpon>FrmShipPhotoEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Ship\FrmShipREdit.resx">
       <DependentUpon>FrmShipREdit.cs</DependentUpon>
