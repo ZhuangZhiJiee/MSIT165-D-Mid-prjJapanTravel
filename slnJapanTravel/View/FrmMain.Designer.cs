@@ -43,13 +43,13 @@
             this.船票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbBlog = new System.Windows.Forms.ToolStripButton();
             this.tsbCopon = new System.Windows.Forms.ToolStripButton();
+            this.tsbComment = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tslLogin = new System.Windows.Forms.ToolStripLabel();
             this.tsbLogout = new System.Windows.Forms.ToolStripButton();
             this.tsbLogin = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslTitle = new System.Windows.Forms.ToolStripLabel();
-            this.tsbComment = new System.Windows.Forms.ToolStripButton();
             this.trs.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,6 @@
             // tsbAdmin
             // 
             this.tsbAdmin.AutoSize = false;
-            this.tsbAdmin.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tsbAdmin.BackgroundImage")));
             this.tsbAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbAdmin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -75,7 +74,6 @@
             // tsbMember
             // 
             this.tsbMember.AutoSize = false;
-            this.tsbMember.BackColor = System.Drawing.Color.MintCream;
             this.tsbMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbMember.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbMember.Image = ((System.Drawing.Image)(resources.GetObject("tsbMember.Image")));
@@ -93,7 +91,6 @@
             // tsbItinerary
             // 
             this.tsbItinerary.AutoSize = false;
-            this.tsbItinerary.BackColor = System.Drawing.Color.MintCream;
             this.tsbItinerary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbItinerary.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbItinerary.Image = ((System.Drawing.Image)(resources.GetObject("tsbItinerary.Image")));
@@ -135,7 +132,6 @@
             // tsbShip
             // 
             this.tsbShip.AutoSize = false;
-            this.tsbShip.BackColor = System.Drawing.Color.MintCream;
             this.tsbShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbShip.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbShip.Image = ((System.Drawing.Image)(resources.GetObject("tsbShip.Image")));
@@ -174,7 +170,7 @@
             // 
             this.行程ToolStripMenuItem1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.行程ToolStripMenuItem1.Name = "行程ToolStripMenuItem1";
-            this.行程ToolStripMenuItem1.Size = new System.Drawing.Size(180, 28);
+            this.行程ToolStripMenuItem1.Size = new System.Drawing.Size(118, 28);
             this.行程ToolStripMenuItem1.Text = "行程";
             this.行程ToolStripMenuItem1.Click += new System.EventHandler(this.行程ToolStripMenuItem1_Click);
             // 
@@ -182,26 +178,26 @@
             // 
             this.船票ToolStripMenuItem1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.船票ToolStripMenuItem1.Name = "船票ToolStripMenuItem1";
-            this.船票ToolStripMenuItem1.Size = new System.Drawing.Size(180, 28);
+            this.船票ToolStripMenuItem1.Size = new System.Drawing.Size(118, 28);
             this.船票ToolStripMenuItem1.Text = "船票";
             this.船票ToolStripMenuItem1.Click += new System.EventHandler(this.船票ToolStripMenuItem1_Click);
             // 
             // tsbLeave
             // 
-            this.tsbBlog.AutoSize = false;
-            this.tsbBlog.BackColor = System.Drawing.Color.Cornsilk;
-            this.tsbBlog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tsbBlog.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tsbBlog.Image = ((System.Drawing.Image)(resources.GetObject("tsbBlog.Image")));
-            this.tsbBlog.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbBlog.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBlog.Name = "tsbBlog";
-            this.tsbBlog.Padding = new System.Windows.Forms.Padding(10);
-            this.tsbBlog.RightToLeftAutoMirrorImage = true;
-            this.tsbBlog.Size = new System.Drawing.Size(180, 100);
-            this.tsbBlog.Text = "部落格系統";
-            this.tsbBlog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tsbBlog.Click += new System.EventHandler(this.tsbBlog_Click);
+            this.tsbLeave.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbLeave.AutoSize = false;
+            this.tsbLeave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tsbLeave.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tsbLeave.Image = ((System.Drawing.Image)(resources.GetObject("tsbLeave.Image")));
+            this.tsbLeave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbLeave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLeave.Name = "tsbLeave";
+            this.tsbLeave.Padding = new System.Windows.Forms.Padding(10);
+            this.tsbLeave.RightToLeftAutoMirrorImage = true;
+            this.tsbLeave.Size = new System.Drawing.Size(180, 100);
+            this.tsbLeave.Text = "離開";
+            this.tsbLeave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tsbLeave.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // tsbCart
             // 
@@ -244,7 +240,6 @@
             // tsbBlog
             // 
             this.tsbBlog.AutoSize = false;
-            this.tsbBlog.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbBlog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbBlog.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbBlog.Image = ((System.Drawing.Image)(resources.GetObject("tsbBlog.Image")));
@@ -261,7 +256,6 @@
             // tsbCopon
             // 
             this.tsbCopon.AutoSize = false;
-            this.tsbCopon.BackColor = System.Drawing.Color.Cornsilk;
             this.tsbCopon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbCopon.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbCopon.Image = ((System.Drawing.Image)(resources.GetObject("tsbCopon.Image")));
@@ -274,6 +268,21 @@
             this.tsbCopon.Text = "優惠券系統";
             this.tsbCopon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbCopon.Click += new System.EventHandler(this.tsbCopon_Click);
+            // 
+            // tsbComment
+            // 
+            this.tsbComment.AutoSize = false;
+            this.tsbComment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tsbComment.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tsbComment.Image = ((System.Drawing.Image)(resources.GetObject("tsbComment.Image")));
+            this.tsbComment.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbComment.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbComment.Name = "tsbComment";
+            this.tsbComment.Padding = new System.Windows.Forms.Padding(10);
+            this.tsbComment.RightToLeftAutoMirrorImage = true;
+            this.tsbComment.Size = new System.Drawing.Size(180, 100);
+            this.tsbComment.Text = "評論管理";
+            this.tsbComment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStrip1
             // 
@@ -330,37 +339,8 @@
             // 
             // tslTitle
             // 
-            this.tsbLeave.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbLeave.AutoSize = false;
-            this.tsbLeave.BackColor = System.Drawing.Color.Cornsilk;
-            this.tsbLeave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tsbLeave.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tsbLeave.Image = ((System.Drawing.Image)(resources.GetObject("tsbLeave.Image")));
-            this.tsbLeave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbLeave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbLeave.Name = "tsbLeave";
-            this.tsbLeave.Padding = new System.Windows.Forms.Padding(10);
-            this.tsbLeave.RightToLeftAutoMirrorImage = true;
-            this.tsbLeave.Size = new System.Drawing.Size(180, 100);
-            this.tsbLeave.Text = "離開";
-            this.tsbLeave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tsbLeave.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // tsbComment
-            // 
-            this.tsbComment.AutoSize = false;
-            this.tsbComment.BackColor = System.Drawing.Color.Cornsilk;
-            this.tsbComment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tsbComment.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tsbComment.Image = ((System.Drawing.Image)(resources.GetObject("tsbComment.Image")));
-            this.tsbComment.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbComment.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbComment.Name = "tsbComment";
-            this.tsbComment.Padding = new System.Windows.Forms.Padding(10);
-            this.tsbComment.RightToLeftAutoMirrorImage = true;
-            this.tsbComment.Size = new System.Drawing.Size(180, 100);
-            this.tsbComment.Text = "評論管理";
-            this.tsbComment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tslTitle.Name = "tslTitle";
+            this.tslTitle.Size = new System.Drawing.Size(0, 50);
             // 
             // FrmMain
             // 
