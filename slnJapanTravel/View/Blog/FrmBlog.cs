@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnJapanTravel.View.Blog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace slnJapanTravel.View
         public FrmBlog()
         {
             InitializeComponent();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Frmhashtag h=new Frmhashtag();
+            //h.MdiParent = this;
+            h.Show();
         }
     }
 }
