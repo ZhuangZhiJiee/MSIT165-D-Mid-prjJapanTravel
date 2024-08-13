@@ -43,7 +43,7 @@ namespace slnJapanTravel.View
                 tsbMember.Enabled = true;
             if (_admin.行程管理權限 == true)
                 tsbItinerary.Enabled = true;
-            if (_admin.航班管理權限 == true)
+            if (_admin.航線管理權限 == true)
                 tsbShip.Enabled = true;
             if (_admin.訂單管理權限 == true)
                 tsbOrder.Enabled = true;
@@ -163,14 +163,14 @@ namespace slnJapanTravel.View
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //Buttondisable();
-            //FrmLogin flg = new FrmLogin();
-            //flg.ShowDialog();
-            //if (flg._isok == DialogResult.OK)
-            //{
-            //    _admin = flg.loginAdmin;
-            //    ButtonEnable();
-            //}
+            Buttondisable();
+            FrmLogin flg = new FrmLogin();
+            flg.ShowDialog();
+            if (flg._isok == DialogResult.OK)
+            {
+                _admin = flg.loginAdmin;
+                ButtonEnable();
+            }
         }
 
         private void tsbLogin_Click(object sender, EventArgs e)
