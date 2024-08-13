@@ -37,8 +37,8 @@ namespace slnJapanTravel.View
             {
                 _cRoute = value;
                 tbID.Text = _cRoute.RouteID渡輪航線ID.ToString();
-                tbPhoytoID.Text = _cRoute.ImageID渡輪圖片ID.ToString();
-                tbDesc.Text = _cRoute.Description圖片描述;
+                //tbPhoytoID.Text = _cRoute.ImageID渡輪圖片ID.ToString();
+                //tbDesc.Text = _cRoute.Description圖片描述;
                 
             }
         }

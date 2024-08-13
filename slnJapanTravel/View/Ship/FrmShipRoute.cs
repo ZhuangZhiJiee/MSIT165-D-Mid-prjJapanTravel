@@ -73,7 +73,7 @@ namespace slnJapanTravel.View
             {
                 DataTable dt = dataGridView1.DataSource as DataTable;
                 DataRow dr = dt.NewRow();
-                dr["RouteID渡輪航線ID"] = f.cRoute.RouteID渡輪航線ID;
+                //dr["RouteID渡輪航線ID"] = f.cRoute.RouteID渡輪航線ID;
                 //dr["OriginPortID出發港ID"] = f.cRoute.OriginPortID出發港ID;
                 //dr["DestinationPortID目的地ID"] = f.cRoute.DestinationPortID目的地ID;
                 //dr["RouteDescription航線敘述"] = f.cRoute.RouteDescription航線敘述;
