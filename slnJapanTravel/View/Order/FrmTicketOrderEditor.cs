@@ -15,11 +15,16 @@ namespace slnJapanTravel.View
 {
     public partial class FrmTicketOrderEditor : Form
     {
-        //string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
-        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";                                                                                                                     //string _s = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";  //本機ConnectionString
+        string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
+        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";                                                                                                                     //string _s = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";  //本機ConnectionString
 
         private C航班訂單資料 _ticket = null;
-        public DialogResult isOk {  get; set; }
+        private C航班訂單Detail _ticketDetail = null;
+        private DialogResult _isOk;
+        public DialogResult isOk
+        {
+            get { return _isOk; }
+        }
 
         public C航班訂單資料 ticket
         {
@@ -27,27 +32,48 @@ namespace slnJapanTravel.View
             {
                 if (_ticket == null)
                     _ticket = new C航班訂單資料();
-                _ticket.會員ID = Convert.ToInt32(fb會員ID.fieldValue);
+                _ticket.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
                 _ticket.下單時間 = DateTime.Now;
-                _ticket.付款方式編號 = Convert.ToInt32(fb付款方式編號.fieldValue);
-                _ticket.付款狀態編號 = Convert.ToInt32(fb付款狀態編號.fieldValue);
+                _ticket.付款方式編號 = Convert.ToInt32(fbPaymentMethodId.fieldValue);
+                _ticket.付款狀態編號 = 1;
+                _ticket.付款時間 = DateTime.Now;
                 _ticket.訂單狀態編號 = 1;
-                _ticket.優惠券ID = Convert.ToInt32(fb優惠券ID.fieldValue);
-                _ticket.總金額 = Convert.ToDecimal(fb總金額.fieldValue);
-                _ticket.備註 = fb備註.fieldValue;
+                //_ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                _ticket.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
+                _ticket.備註 = fbRemark.fieldValue;
+                //_ticket.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
+                //_ticket.評論內容 = fbCommentContent.fieldValue;
+                //_ticket.評論日期 = Convert.ToDateTime(fbCommentDate.fieldValue);
+                _ticket.評論狀態 = true;
+
                 return _ticket;
             }
             set
             {
                 _ticket = value;
-                fb會員ID.fieldValue = _ticket.會員ID.ToString();
-                fb付款方式編號.fieldValue = _ticket.付款方式編號.ToString();
-                fb付款狀態編號.fieldValue = _ticket.付款狀態編號.ToString();
-                fb優惠券ID.fieldValue = _ticket.優惠券ID.ToString();
-                fb備註.fieldValue = _ticket.備註.ToString();
+                fbMemberId.fieldValue = Convert.ToString(_ticket.會員ID);
+                fbPaymentMethodId.fieldValue = Convert.ToString(_ticket.付款方式編號);
+                fbPaymentStatusId.fieldValue = Convert.ToString(_ticket.付款狀態編號);
+                fbPaymentTime.fieldValue = Convert.ToString(_ticket.付款時間);
+                fbCouponId.fieldValue = Convert.ToString(_ticket.優惠券ID);
+                fbAmount.fieldValue = Convert.ToString(_ticket.總金額);
+                fbRemark.fieldValue = Convert.ToString(_ticket.備註);
+                //fbCommentStar.fieldValue = Convert.ToString(_itineraryorder.評論星級);
+                //fbCommentContent.fieldValue = Convert.ToString(_itineraryorder.評論內容);
+                //fbCommentDate.fieldValue = Convert.ToString(_itineraryorder.評論日期);
+                //fbCommentStatus.fieldValue = Convert.ToString(_itineraryorder.評論狀態);
             }
         }
-        
+        //public C航班訂單Detail ticketDetail
+        //{
+        //    get
+        //    {
+        //        if(_ticketDetail == null)
+        //            _ticketDetail = new C航班訂單Detail();
+
+        //    }
+        //}
+
         public FrmTicketOrderEditor()
         {
             InitializeComponent();
@@ -55,57 +81,42 @@ namespace slnJapanTravel.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = _s;
-            con.Open();
+            string errMsg = "";
+            if (!isNumber(fbMemberId.fieldValue))
+                errMsg += "請輸入會員編號";
+            if (!isNumber(fbPaymentMethodId.fieldValue))
+                errMsg += "\r請輸入付款方式編號";
+            if (!isNumber(fbAmount.fieldValue))
+                errMsg += "\r請輸入總金額";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = GetInsertSql();
-            cmd.ExecuteNonQuery();
 
-            con.Close();
-            MessageBox.Show("新增成功");
+
+            if (!string.IsNullOrEmpty(errMsg))
+            {
+                MessageBox.Show(errMsg);
+                return;
+            }
+
+
+            _isOk = DialogResult.OK;
+            this.Close();
         }
 
-        private string GetInsertSql()
+        private bool isNumber(string p)
         {
-            string sql = "INSERT INTO 航班訂單資料 (";
-            sql += "會員ID, ";
-            sql += "下單時間, ";
-            sql += "付款方式編號, ";
-            sql += "付款狀態編號, ";
-            sql += "付款時間, ";
-            sql += "訂單狀態編號, ";
-            sql += "優惠券ID, ";
-            sql += "總金額, ";
-            sql += "備註, ";
-            sql += "評論星級, ";
-            sql += "評論內容, ";
-            sql += "評論日期, ";
-            sql += "評論狀態";
-            sql += ")VALUES(";
-            sql += "@f會員ID, ";
-            sql += "@f行程批次編號, ";
-            sql += "@f數量, ";
-            sql += "@下單時間, ";
-            sql += "@付款方式編號, ";
-            sql += "@付款狀態編號, ";
-            sql += "@付款時間, ";
-            sql += "@訂單狀態編號, ";
-            sql += "@優惠券ID, ";
-            sql += "@總金額, ";
-            sql += "@備註, ";
-            sql += "@評論星級, ";
-            sql += "@評論內容, ";
-            sql += "@評論日期, ";
-            sql += "@評論狀態)";
-
-
-            return sql;
+            try
+            {
+                double d = Convert.ToDouble(p);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }

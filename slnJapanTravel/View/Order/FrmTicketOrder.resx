@@ -121,21 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAGzSURBVFhH7dY9KEZRHMfxh9VEBoqSLFIsZDF6KQZSIikv
-        kaw2ikwyWIzKZDGZ2CzCaDB4Ky+LsgjJ+7vvrx51Op1777mPp2fQ86tPTz3d/z3/zj3n3JvI5j8kJ/mb
-        kZRhHBu4wCvecYltTKIKQWlKip1SLEGDfUf4wioqYWYGv9fU6Q/ftOAW5iA+XjAExRxcuuCVEXzALI5r
-        y/GfVwON8JnyVEQ2UIhruIrlGHMYSJrFPlzXukQ2MA9X4ROGkQs72o498FkvoQ0UQAPZRY9oQFSmYNfa
-        QhvohauoH1HR4/iEq94U2sAy7IJDuKbdTB98BpfQBnZgF2iRRUWnoV0XpBOBOYVdMIioLMBn256gCIHR
-        FrOLfBpIWzZhN+DzCNKWRdgNHCBjr9122A1INzKSPNzAbkAnnP2KdUXH+ArusIt6xM4E7AZEjWkPBz2O
-        WpzBrLlCPmJFs3AO80amPejI7UArxrAOfYy4rm9G7FTjHq4bxqHTsQIppQ16Cblu7Gsaf0oN9AHqunkY
-        zV7ado4WkT5AnuEazPQGvdDKkfYUYxRrOMJDko5vLUItxhJkk41nEokfCi9D7486qRAAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <data name="toolStripButton4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCreate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKKSURBVFhHvZe5qhRBFIYHFVTcIlEwU9xABZ/CLXYLXRAz
@@ -152,7 +138,7 @@
         mV8o/nbsJnjPm3S4bo1GfwBhisdrM1Rx3wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFJSURBVFhH7dfBKkRhGMbxQ8QFzIJYsOAaJhskOytlYyEL
@@ -164,7 +150,7 @@
         k9ggmAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFDSURBVFhH7da9SsRAGIXhNIIiCtqIYKGFXoK12KqFgreg
@@ -176,7 +162,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="toolStripButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAH5SURBVFhH1da/S1ZRHMfxJ00lQ2gRJ0EJchBayqVBl8qh
@@ -189,6 +175,17 @@
         y0RUrKlGk5iHA6OCTXg3eISs3MUWooIRPzjfedHE/fsDZMfz3CPVUy0q7IfrVmsfOC73uU/CeKS6pSYx
         B9trUYe7sEnkpGoSdRvcmeJq/UQ0iWV0JEWTeIuOxXd++s7pKxhHR+MHvPRfxx9ekFbrH8Htb2hOPis/
         AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnUpload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAERSURBVFhH7ZbLjcIwFEWzZgoAupgpgwJYsOOzoguqmEFA
+        bVADYs3nHuSniUzAJLHDxkc6ihPs965sFKXItGTi/AgreXUy7pSFvEgLwJhnnUCjs7TmJs+Sh5hLa+7v
+        gF2XMgl+860b468s/xY9hN+cBmN3j4yr5kRhJq0wVztnPwCU/x9cWduao/SbQ1UAKIdgbWt28iSn97t/
+        ngUA5rKGtcl4FaATcoAcIEmAH+c7NAnwsv635AWCjEPUDRCsH72gR7B+3QAQ9ciaBKhDDhCsP5I2gY+L
+        2FDT6tPrgaHkS4YJe8kCksaQWgdJbXoMZCUbaSlT+Sef8iUJYTsRU2quZU8GYYs4p6rtbCK1+jLjURQ3
+        eRjG+oLbWDUAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

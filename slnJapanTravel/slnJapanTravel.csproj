@@ -62,6 +62,11 @@
     <Compile Include="Component\Order\ticketBox.Designer.cs">
       <DependentUpon>ticketBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="JapanTravelDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Member\CAdmin.cs" />
     <Compile Include="Model\Member\CCoupon.cs" />
     <Compile Include="Model\Member\CLoginAdmin.cs" />
@@ -146,6 +151,12 @@
     </Compile>
     <Compile Include="View\Order\FrmItineraryOrder.Designer.cs">
       <DependentUpon>FrmItineraryOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Order\FrmTicketOrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Order\FrmTicketOrderDetail.Designer.cs">
+      <DependentUpon>FrmTicketOrderDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Product\FrmItinerary.cs">
       <SubType>Form</SubType>
@@ -237,6 +248,9 @@
       <DependentUpon>FrmItineraryOrder.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Order\FrmTicketOrderDetail.resx">
+      <DependentUpon>FrmTicketOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Product\FrmItinerary.resx">
       <DependentUpon>FrmItinerary.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +272,17 @@
     <EmbeddedResource Include="View\Ship\FrmShipRoute.resx">
       <DependentUpon>FrmShipRoute.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="JapanTravelDataSet.xsc">
+      <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JapanTravelDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JapanTravelDataSet.xss">
+      <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\slnJapanTravel.Model.C付款方式.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

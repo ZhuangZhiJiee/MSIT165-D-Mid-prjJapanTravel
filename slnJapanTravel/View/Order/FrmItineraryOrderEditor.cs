@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnJapanTravel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,69 +15,104 @@ namespace slnJapanTravel.View
 {
     public partial class FrmOrderItineraryEditor : Form
     {
-        //string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
-        //string _s = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";  //本機ConnectionString
-        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
+        private C行程訂單資料 _itineraryorder;
+        private DialogResult _isOk;
+        public DialogResult isOk
+        {
+            get { return _isOk; }
+        }
         public FrmOrderItineraryEditor()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public C行程訂單資料 itineraryorder
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = _s;
-            con.Open();
+            get
+            {
+                if (_itineraryorder == null)
+                    _itineraryorder = new C行程訂單資料();
+                _itineraryorder.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
+                _itineraryorder.行程批次編號 = Convert.ToInt32(fbItineraryId.fieldValue);
+                _itineraryorder.數量 = Convert.ToInt32(fbQuantity.fieldValue);
+                _itineraryorder.下單時間 = DateTime.Now;
+                _itineraryorder.付款方式編號 = Convert.ToInt32(fbPaymentMethodId.fieldValue);
+                _itineraryorder.付款狀態編號 = 1;
+                _itineraryorder.付款時間 = DateTime.Now;
+                _itineraryorder.訂單狀態編號 = 1;
+                //_itineraryorder.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                _itineraryorder.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
+                _itineraryorder.備註 = fbRemark.fieldValue;
+                //_itineraryorder.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
+                //_itineraryorder.評論內容 = fbCommentContent.fieldValue;
+                //_itineraryorder.評論日期 = Convert.ToDateTime(fbCommentDate.fieldValue);
+                _itineraryorder.評論狀態 = true;
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = GetInsertSql();
-            cmd.ExecuteNonQuery();
+                return _itineraryorder;
 
-            con.Close();
-            MessageBox.Show("新增成功");
+            }
+
+            set
+            {
+                _itineraryorder = value;
+                fbMemberId.fieldValue = Convert.ToString(_itineraryorder.會員ID);
+                fbItineraryId.fieldValue = Convert.ToString(_itineraryorder.行程批次編號);
+                fbQuantity.fieldValue = Convert.ToString(_itineraryorder.數量);
+                fbPaymentMethodId.fieldValue = Convert.ToString(_itineraryorder.付款方式編號);
+                fbPaymentStatusId.fieldValue = Convert.ToString(_itineraryorder.付款狀態編號);
+                fbPaymentTime.fieldValue = Convert.ToString(_itineraryorder.付款時間);
+                fbCouponId.fieldValue = Convert.ToString(_itineraryorder.優惠券ID);
+                fbAmount.fieldValue = Convert.ToString(_itineraryorder.總金額);
+                fbRemark.fieldValue = Convert.ToString(_itineraryorder.備註);
+                //fbCommentStar.fieldValue = Convert.ToString(_itineraryorder.評論星級);
+                //fbCommentContent.fieldValue = Convert.ToString(_itineraryorder.評論內容);
+                //fbCommentDate.fieldValue = Convert.ToString(_itineraryorder.評論日期);
+                //fbCommentStatus.fieldValue = Convert.ToString(_itineraryorder.評論狀態);
+            }
         }
 
-        private string GetInsertSql()
+        private bool isNumber(string p)
         {
-            string sql = "INSERT INTO 行程訂單資料 (";
-            sql += "會員ID, ";
-            sql += "行程批次編號, ";
-            sql += "數量, ";
-            sql += "下單時間, ";
-            sql += "付款方式編號, ";
-            sql += "付款狀態編號, ";
-            sql += "付款時間, ";
-            sql += "訂單狀態編號, ";
-            sql += "優惠券ID, ";
-            sql += "總金額, ";
-            sql += "備註, ";
-            sql += "評論星級, ";
-            sql += "評論內容, ";
-            sql += "評論日期, ";
-            sql += "評論狀態";
-            sql += ")VALUES(";
-            sql += "@f會員ID, ";
-            sql += "@f行程批次編號, ";
-            sql += "@f數量, ";
-            sql += "@下單時間, ";
-            sql += "@付款方式編號, ";
-            sql += "@付款狀態編號, ";
-            sql += "@付款時間, ";
-            sql += "@訂單狀態編號, ";
-            sql += "@優惠券ID, ";
-            sql += "@總金額, ";
-            sql += "@備註, ";
-            sql += "@評論星級, ";
-            sql += "@評論內容, ";
-            sql += "@評論日期, ";
-            sql += "@評論狀態)";
-
-
-            return sql;
+            try
+            {
+                double d = Convert.ToDouble(p);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            string errMsg = "";
+            if (!isNumber(fbMemberId.fieldValue))
+                errMsg += "請輸入會員編號";
+            if (!isNumber(fbItineraryId.fieldValue))
+                errMsg += "\r請輸入行程批次編號";
+            if (!isNumber(fbQuantity.fieldValue))
+                errMsg += "\r請輸入數量";
+            if (!isNumber(fbPaymentMethodId.fieldValue))
+                errMsg += "\r請輸入付款方式編號";
+            if (!isNumber(fbAmount.fieldValue))
+                errMsg += "\r請輸入總金額";
+
+
+
+            if (!string.IsNullOrEmpty(errMsg))
+            {
+                MessageBox.Show(errMsg);
+                return;
+            }
+
+
+            _isOk = DialogResult.OK;
+            this.Close();
+        }
+
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
