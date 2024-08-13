@@ -56,9 +56,7 @@ namespace slnJapanTravel.View.Ship
             con.Open();
             _adapter = new SqlDataAdapter(sql, con);
 
-            _adapter = new SqlDataAdapter(sql, con);
             _builder = new SqlCommandBuilder(_adapter);
-
             _adapter.SelectCommand.Parameters.Add(
                 new SqlParameter("K_KEYWORD", "%" + (object)txtKeyword.Text + "%"));
 
@@ -164,6 +162,46 @@ namespace slnJapanTravel.View.Ship
                 dr["Description圖片描述"] = f.image.Description圖片描述;
                 dr["RouteID渡輪航線ID"] = f.image.RouteID渡輪航線ID;
                 dt.Rows.Add(dr);
+
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT * FROM 渡輪圖片";
+            sql += " WHERE Description圖片描述 LIKE @K_KEYWORD";
+
+            displaysql(sql);
+        }
+
+        private void FrmShipPhoto_Paint(object sender, PaintEventArgs e)
+        {
+            resetGridStyle();
+        }
+
+        private void resetGridStyle()
+        {
+            dataGridView1.Columns[0].Width = 100;
+            dataGridView1.Columns[1].HeaderText = "圖片編號";
+            dataGridView1.Columns[1].Width = 100;
+            dataGridView1.Columns[1].HeaderText = "航線編號";
+            dataGridView1.Columns[2].Width = 1600;
+            dataGridView1.Columns[2].HeaderText = "圖片";
+            dataGridView1.Columns[3].Width = 100;
+            dataGridView1.Columns[3].HeaderText = "圖片敘述";
+            dataGridView1.Columns[2].Width = this.Width - 100 - 100 - 100 - 50  ;
+            bool isColorChanged = false;
+            int count = 0;
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                count++;
+                isColorChanged = !isColorChanged;
+                r.DefaultCellStyle.BackColor = Color.White;
+                if (isColorChanged)
+                    r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                r.DefaultCellStyle.Font = new Font("微軟正黑體", 13);
+                r.Height = 40;
+                r.HeaderCell.Value = count.ToString();
 
             }
         }

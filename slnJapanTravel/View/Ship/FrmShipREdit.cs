@@ -11,14 +11,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace slnJapanTravel.View
 {
     public partial class FrmShipREdit : Form
     {
-        public CRoute cRoute = null;
-        public Image titleIcon
+        public CRoute _cRoute = null;
+        public CRoute Route
+        {
+            get
+            {
+                if (_cRoute == null)
+                    _cRoute = new CRoute();
+                Route.RouteID渡輪航線ID = Convert.ToInt32(tbID.Text);
+                //Route.DestinationPortID目的地ID = tbDest.Text;
+                //Route.DestinationPortID目的地ID = tbDest.Text;
+                Route.RouteDescription航線敘述 = tbDesc.Text;
+
+
+                return _cRoute;
+            }
+            set
+            {
+                _cRoute = value;
+                tbID.Text = _cRoute.RouteID渡輪航線ID.ToString();
+                tbPhoytoID.Text = _cRoute.ImageID渡輪圖片ID.ToString();
+                tbDesc.Text = _cRoute.Description圖片描述;
+                
+            }
+        }
+        public System.Drawing.Image titleIcon
         {
             get { return pictureBox1.Image; }
             set { pictureBox1.Image = value; }

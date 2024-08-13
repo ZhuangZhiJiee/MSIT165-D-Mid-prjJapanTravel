@@ -50,19 +50,17 @@ namespace slnJapanTravel.View
             SqlConnection con = new SqlConnection(CS);
             con.Open();
             _adapter = new SqlDataAdapter(sql, con);
-            
+
+            _builder = new SqlCommandBuilder(_adapter);
+            _adapter.SelectCommand.Parameters.Add(
+                new SqlParameter("K_KEYWORD", "%" + (object)txtKeyword.Text + "%"));
+
             DataSet ds = new DataSet();
             _adapter.Fill(ds);
             con.Close();
             dataGridView1.DataSource = ds.Tables[0];
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
        
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -76,9 +74,9 @@ namespace slnJapanTravel.View
                 DataTable dt = dataGridView1.DataSource as DataTable;
                 DataRow dr = dt.NewRow();
                 dr["RouteID渡輪航線ID"] = f.cRoute.RouteID渡輪航線ID;
-                dr["OriginPortID出發港ID"] = f.cRoute.OriginPortID出發港ID;
-                dr["DestinationPortID目的地ID"] = f.cRoute.DestinationPortID目的地ID;
-                dr["RouteDescription航線敘述"] = f.cRoute.RouteDescription航線敘述;
+                //dr["OriginPortID出發港ID"] = f.cRoute.OriginPortID出發港ID;
+                //dr["DestinationPortID目的地ID"] = f.cRoute.DestinationPortID目的地ID;
+                //dr["RouteDescription航線敘述"] = f.cRoute.RouteDescription航線敘述;
 
                 dt.Rows.Add(dr);
             }
