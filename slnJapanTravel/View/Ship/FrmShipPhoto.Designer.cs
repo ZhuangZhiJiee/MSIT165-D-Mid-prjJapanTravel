@@ -112,6 +112,7 @@
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(67, 36);
             this.btnFind.Text = "搜尋";
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txtKeyword
             // 
@@ -142,6 +143,7 @@
             this.Text = "航線圖片管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmShipPhoto_FormClosed);
             this.Load += new System.EventHandler(this.FrmShipPhoto_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmShipPhoto_Paint);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
