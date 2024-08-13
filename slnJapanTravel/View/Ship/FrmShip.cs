@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnJapanTravel.View.Ship;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,13 @@ namespace slnJapanTravel.View
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnRoutePhoto_Click(object sender, EventArgs e)
+        {
+            FrmShipPhoto fs = new FrmShipPhoto();
+            fs.MdiParent = MdiParent;
+            fs.Show();
         }
     }
 }

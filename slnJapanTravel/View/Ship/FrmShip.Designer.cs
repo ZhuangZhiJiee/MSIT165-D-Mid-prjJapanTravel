@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShip));
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.btnRoutePhoto = new System.Windows.Forms.ToolStripButton();
-            this.btnSchedule = new System.Windows.Forms.ToolStripButton();
             this.btnRoute = new System.Windows.Forms.ToolStripButton();
+            this.btnSchedule = new System.Windows.Forms.ToolStripButton();
             this.btnPort = new System.Windows.Forms.ToolStripButton();
+            this.btnRoutePhoto = new System.Windows.Forms.ToolStripButton();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -53,22 +53,6 @@
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // btnRoutePhoto
-            // 
-            this.btnRoutePhoto.Image = ((System.Drawing.Image)(resources.GetObject("btnRoutePhoto.Image")));
-            this.btnRoutePhoto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRoutePhoto.Name = "btnRoutePhoto";
-            this.btnRoutePhoto.Size = new System.Drawing.Size(91, 36);
-            this.btnRoutePhoto.Text = "圖片管理";
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnSchedule.Image")));
-            this.btnSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(91, 36);
-            this.btnSchedule.Text = "航班管理";
-            // 
             // btnRoute
             // 
             this.btnRoute.Image = ((System.Drawing.Image)(resources.GetObject("btnRoute.Image")));
@@ -78,6 +62,14 @@
             this.btnRoute.Text = "航線管理";
             this.btnRoute.Click += new System.EventHandler(this.btnRoute_Click);
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnSchedule.Image")));
+            this.btnSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(91, 36);
+            this.btnSchedule.Text = "航班管理";
+            // 
             // btnPort
             // 
             this.btnPort.Image = ((System.Drawing.Image)(resources.GetObject("btnPort.Image")));
@@ -85,6 +77,15 @@
             this.btnPort.Name = "btnPort";
             this.btnPort.Size = new System.Drawing.Size(91, 36);
             this.btnPort.Text = "港口管理";
+            // 
+            // btnRoutePhoto
+            // 
+            this.btnRoutePhoto.Image = ((System.Drawing.Image)(resources.GetObject("btnRoutePhoto.Image")));
+            this.btnRoutePhoto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRoutePhoto.Name = "btnRoutePhoto";
+            this.btnRoutePhoto.Size = new System.Drawing.Size(91, 36);
+            this.btnRoutePhoto.Text = "圖片管理";
+            this.btnRoutePhoto.Click += new System.EventHandler(this.btnRoutePhoto_Click);
             // 
             // btnExit
             // 
