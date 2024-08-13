@@ -32,7 +32,7 @@
             this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.tsAdmin = new System.Windows.Forms.ToolStrip();
             this.tsbInsert = new System.Windows.Forms.ToolStripButton();
-            this.tsbAlter = new System.Windows.Forms.ToolStripButton();
+            this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblAccount = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.picAdmin = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblID = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbCoupon = new System.Windows.Forms.CheckBox();
             this.cbComment = new System.Windows.Forms.CheckBox();
@@ -70,12 +71,13 @@
             this.dgvAdmin.RowTemplate.Height = 24;
             this.dgvAdmin.Size = new System.Drawing.Size(1235, 334);
             this.dgvAdmin.TabIndex = 0;
+            this.dgvAdmin.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_RowEnter);
             // 
             // tsAdmin
             // 
             this.tsAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbInsert,
-            this.tsbAlter});
+            this.tsbUpdate});
             this.tsAdmin.Location = new System.Drawing.Point(0, 0);
             this.tsAdmin.Name = "tsAdmin";
             this.tsAdmin.Size = new System.Drawing.Size(1235, 53);
@@ -93,16 +95,16 @@
             this.tsbInsert.Text = "新增管理員";
             this.tsbInsert.Click += new System.EventHandler(this.tsbInsert_Click);
             // 
-            // tsbAlter
+            // tsbUpdate
             // 
-            this.tsbAlter.AutoSize = false;
-            this.tsbAlter.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tsbAlter.Image = ((System.Drawing.Image)(resources.GetObject("tsbAlter.Image")));
-            this.tsbAlter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAlter.Name = "tsbAlter";
-            this.tsbAlter.Size = new System.Drawing.Size(150, 50);
-            this.tsbAlter.Text = "修改資料";
-            this.tsbAlter.Click += new System.EventHandler(this.tsbAlter_Click);
+            this.tsbUpdate.AutoSize = false;
+            this.tsbUpdate.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
+            this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbUpdate.Name = "tsbUpdate";
+            this.tsbUpdate.Size = new System.Drawing.Size(150, 50);
+            this.tsbUpdate.Text = "修改資料";
+            this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
             // lblName
             // 
@@ -188,6 +190,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblID);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
@@ -204,6 +207,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(888, 317);
             this.panel1.TabIndex = 5;
+            // 
+            // lblID
+            // 
+            this.lblID.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblID.Location = new System.Drawing.Point(574, 3);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(48, 43);
+            this.lblID.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -293,7 +304,7 @@
             // 
             this.cbMember.AutoSize = true;
             this.cbMember.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbMember.Location = new System.Drawing.Point(6, 54);
+            this.cbMember.Location = new System.Drawing.Point(3, 24);
             this.cbMember.Name = "cbMember";
             this.cbMember.Size = new System.Drawing.Size(196, 39);
             this.cbMember.TabIndex = 1;
@@ -304,7 +315,7 @@
             // 
             this.cbAdmin.AutoSize = true;
             this.cbAdmin.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbAdmin.Location = new System.Drawing.Point(7, 26);
+            this.cbAdmin.Location = new System.Drawing.Point(4, 57);
             this.cbAdmin.Name = "cbAdmin";
             this.cbAdmin.Size = new System.Drawing.Size(223, 39);
             this.cbAdmin.TabIndex = 0;
@@ -331,7 +342,6 @@
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "儲存";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmAdmin
             // 
@@ -384,6 +394,7 @@
         private System.Windows.Forms.CheckBox cbComment;
         private System.Windows.Forms.CheckBox cbBlog;
         private System.Windows.Forms.CheckBox cbCoupon;
-        private System.Windows.Forms.ToolStripButton tsbAlter;
+        private System.Windows.Forms.ToolStripButton tsbUpdate;
+        private System.Windows.Forms.Label lblID;
     }
 }
