@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmItineraryInsert));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.InsertdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.picbItinerary = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.InsertdateTimePicker);
             this.panel1.Controls.Add(this.picbItinerary);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label7);
@@ -89,12 +89,15 @@
             this.panel1.Size = new System.Drawing.Size(1196, 732);
             this.panel1.TabIndex = 14;
             // 
-            // dateTimePicker1
+            // InsertdateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(946, 56);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 31;
+            this.InsertdateTimePicker.CalendarFont = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertdateTimePicker.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertdateTimePicker.Location = new System.Drawing.Point(946, 53);
+            this.InsertdateTimePicker.Name = "InsertdateTimePicker";
+            this.InsertdateTimePicker.Size = new System.Drawing.Size(200, 27);
+            this.InsertdateTimePicker.TabIndex = 31;
+            this.InsertdateTimePicker.ValueChanged += new System.EventHandler(this.InsertdateTimePicker_ValueChanged);
             // 
             // picbItinerary
             // 
@@ -390,7 +393,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox picbItinerary;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker InsertdateTimePicker;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using slnJapanTravel.Model;
+using slnJapanTravel.Model.Product;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,7 @@ namespace slnJapanTravel.View
                 _main.總團位 = Convert.ToInt32(txtItinerarySpace.Text);
                 _main.價格 = Convert.ToInt32(txtItineraryPrice.Text);
                 _main.地區名稱 = cbAreaInsert.Text;
+                _main.date.出發日期 = InsertdateTimePicker.Value;
 
                 return _main;
             }
@@ -50,6 +52,7 @@ namespace slnJapanTravel.View
                 txtItinerarySpace.Text = _main.總團位.ToString();
                 txtItineraryPrice.Text = _main.價格.ToString();
                 cbAreaInsert.Text = _main.地區名稱;
+                InsertdateTimePicker.Value = _main.date.出發日期;
                 if (_pic.圖片系統編號 != 0)
                 {
                     Stream streamImage = new MemoryStream(_pic.圖片系統編號);
@@ -140,7 +143,7 @@ namespace slnJapanTravel.View
         private void displaySpot(string sql)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = _s;
+            con.ConnectionString =_s;
             con.Open();
 
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
@@ -188,6 +191,17 @@ namespace slnJapanTravel.View
             this.main.圖片 = reader.ReadBytes /*轉成byte陣列的方法叫做ReadBytes*/((int)imgstream.Length); //轉成byte陣列，因為是陣列所以用Length
             reader.Close(); //讀完的東西會占掉記憶體所以要關閉，釋放記憶體
             imgstream.Close();
+        }
+
+        private void InsertdateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (_main == null)
+                _main = new CItineraryMain();
+
+            if (_main.date == null)
+               _main.date = new CItineraryDate();
+
+            _main.date.出發日期 = InsertdateTimePicker.Value;
         }
     }
 }
