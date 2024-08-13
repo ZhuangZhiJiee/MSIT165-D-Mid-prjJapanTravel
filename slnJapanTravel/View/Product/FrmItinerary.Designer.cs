@@ -33,6 +33,8 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.lblProduct = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.cbAreaInsert = new System.Windows.Forms.ComboBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,13 +44,11 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbAreaInsert = new System.Windows.Forms.ComboBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnMainDelete = new System.Windows.Forms.Button();
-            this.btnMainUpdate = new System.Windows.Forms.Button();
             this.btnMainSearch = new System.Windows.Forms.Button();
+            this.btnMainUpdate = new System.Windows.Forms.Button();
+            this.btnMainDelete = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             // lblProduct
             // 
-            this.lblProduct.BackColor = System.Drawing.Color.OldLace;
+            this.lblProduct.BackColor = System.Drawing.Color.MintCream;
             this.lblProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblProduct.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -107,6 +107,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1165, 191);
             this.panel3.TabIndex = 14;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(838, 22);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 27;
+            // 
+            // cbAreaInsert
+            // 
+            this.cbAreaInsert.FormattingEnabled = true;
+            this.cbAreaInsert.Location = new System.Drawing.Point(428, 45);
+            this.cbAreaInsert.Name = "cbAreaInsert";
+            this.cbAreaInsert.Size = new System.Drawing.Size(183, 20);
+            this.cbAreaInsert.TabIndex = 26;
             // 
             // textBox7
             // 
@@ -191,20 +205,6 @@
             this.panel1.Size = new System.Drawing.Size(1165, 501);
             this.panel1.TabIndex = 15;
             // 
-            // cbAreaInsert
-            // 
-            this.cbAreaInsert.FormattingEnabled = true;
-            this.cbAreaInsert.Location = new System.Drawing.Point(428, 45);
-            this.cbAreaInsert.Name = "cbAreaInsert";
-            this.cbAreaInsert.Size = new System.Drawing.Size(183, 20);
-            this.cbAreaInsert.TabIndex = 26;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(838, 22);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 27;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -214,6 +214,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1165, 501);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             // 
             // panel4
             // 
@@ -226,18 +227,18 @@
             this.panel4.Size = new System.Drawing.Size(1165, 62);
             this.panel4.TabIndex = 16;
             // 
-            // btnMainDelete
+            // btnMainSearch
             // 
-            this.btnMainDelete.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnMainDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnMainDelete.Image")));
-            this.btnMainDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMainDelete.Location = new System.Drawing.Point(4, 8);
-            this.btnMainDelete.Name = "btnMainDelete";
-            this.btnMainDelete.Size = new System.Drawing.Size(71, 38);
-            this.btnMainDelete.TabIndex = 0;
-            this.btnMainDelete.Text = "刪除";
-            this.btnMainDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMainDelete.UseVisualStyleBackColor = true;
+            this.btnMainSearch.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMainSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnMainSearch.Image")));
+            this.btnMainSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainSearch.Location = new System.Drawing.Point(158, 8);
+            this.btnMainSearch.Name = "btnMainSearch";
+            this.btnMainSearch.Size = new System.Drawing.Size(71, 37);
+            this.btnMainSearch.TabIndex = 0;
+            this.btnMainSearch.Text = "查詢";
+            this.btnMainSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMainSearch.UseVisualStyleBackColor = true;
             // 
             // btnMainUpdate
             // 
@@ -252,18 +253,18 @@
             this.btnMainUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMainUpdate.UseVisualStyleBackColor = true;
             // 
-            // btnMainSearch
+            // btnMainDelete
             // 
-            this.btnMainSearch.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnMainSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnMainSearch.Image")));
-            this.btnMainSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMainSearch.Location = new System.Drawing.Point(158, 8);
-            this.btnMainSearch.Name = "btnMainSearch";
-            this.btnMainSearch.Size = new System.Drawing.Size(71, 37);
-            this.btnMainSearch.TabIndex = 0;
-            this.btnMainSearch.Text = "查詢";
-            this.btnMainSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMainSearch.UseVisualStyleBackColor = true;
+            this.btnMainDelete.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMainDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnMainDelete.Image")));
+            this.btnMainDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainDelete.Location = new System.Drawing.Point(4, 8);
+            this.btnMainDelete.Name = "btnMainDelete";
+            this.btnMainDelete.Size = new System.Drawing.Size(71, 38);
+            this.btnMainDelete.TabIndex = 0;
+            this.btnMainDelete.Text = "刪除";
+            this.btnMainDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMainDelete.UseVisualStyleBackColor = true;
             // 
             // FrmItinerary
             // 

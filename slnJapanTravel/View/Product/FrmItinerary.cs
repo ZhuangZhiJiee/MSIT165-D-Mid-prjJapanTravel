@@ -108,27 +108,54 @@ namespace slnJapanTravel.View
     }
     private string GetAreaNameById(int areaId)
     {
-    string areaName = string.Empty;
+        string areaName = string.Empty;
 
-    using (SqlConnection con = new SqlConnection(_s))
-    {
-        con.Open();
-        string sql = "SELECT 地區名稱 FROM Area地區 WHERE 地區編號 = @AreaId";
-        using (SqlCommand cmd = new SqlCommand(sql, con))
+        using (SqlConnection con = new SqlConnection(_s))
         {
-            cmd.Parameters.AddWithValue("@AreaId", areaId);
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            con.Open();
+            string sql = "SELECT 地區名稱 FROM Area地區 WHERE 地區編號 = @AreaId";
+            using (SqlCommand cmd = new SqlCommand(sql, con))
             {
-                if (reader.Read())
+                cmd.Parameters.AddWithValue("@AreaId", areaId);
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    areaName = reader["地區名稱"].ToString();
+                    if (reader.Read())
+                    {
+                        areaName = reader["地區名稱"].ToString();
+                    }
                 }
             }
         }
+
+        return areaName;
     }
 
-    return areaName;
-    }
- }
+    //private void dataGridView1_Paint(object sender, PaintEventArgs e)
+    //{
+    //    resetGridStyle();
+    //}
+    //}
+    //private void resetGridStyle()
+    //{
+    //    dataGridView1.Columns[0].Width = 0;
+    //    dataGridView1.Columns[1].Width = this.Width - 650;
+    //    dataGridView1.Columns[2].Width = 150;
+    //    dataGridView1.Columns[3].Width = 150;
+    //    dataGridView1.Columns[4].Width = 150;
+    //    dataGridView1.Columns[5].Width = 150;
+
+    //    int count = 0;
+    //    bool isColorChanged = false;
+    //    foreach (DataGridViewRow r in dataGridView1.Rows)
+    //    {
+    //        count++;
+    //        isColorChanged = !isColorChanged;
+    //        if (isColorChanged)
+    //            r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+    //        r.DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+    //        r.Height = 50;
+    //        r.HeaderCell.Value = count.ToString();
+    //    }
+    //}
 
 }
