@@ -197,7 +197,7 @@
             this.tsbLeave.Size = new System.Drawing.Size(180, 100);
             this.tsbLeave.Text = "離開";
             this.tsbLeave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tsbLeave.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.tsbLeave.Click += new System.EventHandler(this.tsbLeave_Click);
             // 
             // tsbCart
             // 

@@ -64,10 +64,13 @@
             // 
             // dgvAdmin
             // 
+            this.dgvAdmin.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvAdmin.Location = new System.Drawing.Point(0, 372);
+            this.dgvAdmin.MultiSelect = false;
             this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.ReadOnly = true;
             this.dgvAdmin.RowTemplate.Height = 24;
             this.dgvAdmin.Size = new System.Drawing.Size(1235, 334);
             this.dgvAdmin.TabIndex = 0;
@@ -347,6 +350,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(1235, 706);
             this.Controls.Add(this.tsAdmin);
             this.Controls.Add(this.dgvAdmin);

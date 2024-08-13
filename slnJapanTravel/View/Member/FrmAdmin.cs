@@ -86,22 +86,34 @@ namespace slnJapanTravel.View
             _ds = new DataSet();
             adapter.Fill(_ds, "管理員資料表");
 
-            if(txtName.DataBindings.Count == 0)
-            {
-                lblID.DataBindings.Add("Text", _ds, "管理員資料表.管理員ID");
-                txtName.DataBindings.Add("Text", _ds, "管理員資料表.管理員姓名");
-                txtEmail.DataBindings.Add("Text", _ds, "管理員資料表.Email");
-                txtAccount.DataBindings.Add("Text", _ds, "管理員資料表.帳號");
-                txtPassword.DataBindings.Add("Text", _ds, "管理員資料表.密碼");
-                cbAdmin.DataBindings.Add("Checked", _ds, "管理員資料表.管理員管理權限");
-                cbMember.DataBindings.Add("Checked", _ds, "管理員資料表.會員管理權限");
-                cbItinerary.DataBindings.Add("Checked", _ds, "管理員資料表.行程管理權限");
-                cbShip.DataBindings.Add("Checked", _ds, "管理員資料表.航線管理權限");
-                cbOrder.DataBindings.Add("Checked", _ds, "管理員資料表.訂單管理權限");
-                cbBlog.DataBindings.Add("Checked", _ds, "管理員資料表.部落格管理權限");
-                cbComment.DataBindings.Add("Checked", _ds, "管理員資料表.評論管理權限");
-                cbCoupon.DataBindings.Add("Checked", _ds, "管理員資料表.優惠券管理權限");
-            }
+            lblID.DataBindings.Clear();
+            txtName.DataBindings.Clear();
+            txtEmail.DataBindings.Clear();
+            txtAccount.DataBindings.Clear();
+            txtPassword.DataBindings.Clear();
+            cbAdmin.DataBindings.Clear();
+            cbMember.DataBindings.Clear();
+            cbItinerary.DataBindings.Clear();
+            cbShip.DataBindings.Clear();
+            cbOrder.DataBindings.Clear();
+            cbBlog.DataBindings.Clear();
+            cbComment.DataBindings.Clear();
+            cbCoupon.DataBindings.Clear();
+
+            lblID.DataBindings.Add("Text", _ds, "管理員資料表.管理員ID");
+            txtName.DataBindings.Add("Text", _ds, "管理員資料表.管理員姓名");
+            txtEmail.DataBindings.Add("Text", _ds, "管理員資料表.Email");
+            txtAccount.DataBindings.Add("Text", _ds, "管理員資料表.帳號");
+            txtPassword.DataBindings.Add("Text", _ds, "管理員資料表.密碼");
+            cbAdmin.DataBindings.Add("Checked", _ds, "管理員資料表.管理員管理權限");
+            cbMember.DataBindings.Add("Checked", _ds, "管理員資料表.會員管理權限");
+            cbItinerary.DataBindings.Add("Checked", _ds, "管理員資料表.行程管理權限");
+            cbShip.DataBindings.Add("Checked", _ds, "管理員資料表.航線管理權限");
+            cbOrder.DataBindings.Add("Checked", _ds, "管理員資料表.訂單管理權限");
+            cbBlog.DataBindings.Add("Checked", _ds, "管理員資料表.部落格管理權限");
+            cbComment.DataBindings.Add("Checked", _ds, "管理員資料表.評論管理權限");
+            cbCoupon.DataBindings.Add("Checked", _ds, "管理員資料表.優惠券管理權限");
+
             dgvAdmin.DataSource = _ds;
             dgvAdmin.DataMember = "管理員資料表";
 
