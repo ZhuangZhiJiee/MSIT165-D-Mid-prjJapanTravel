@@ -162,7 +162,22 @@ namespace slnJapanTravel.View
                 }
             }
             //_adapter.Update(dataGridView1.DataSource as DataTable);
-            Refresh();
+            //Refresh();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+            dr.Delete();
+            _adapter.Update(dataGridView1.DataSource as DataTable);
+
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            _position = e.RowIndex;
+
         }
     }
 }

@@ -33,8 +33,18 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.lbPortID = new System.Windows.Forms.Label();
-            this.tbPortID = new System.Windows.Forms.TextBox();
+            this.lbScheduleID = new System.Windows.Forms.Label();
+            this.tbScheduleID = new System.Windows.Forms.TextBox();
+            this.tbRouteID = new System.Windows.Forms.TextBox();
+            this.lbRouteID = new System.Windows.Forms.Label();
+            this.tbDepTime = new System.Windows.Forms.TextBox();
+            this.lb = new System.Windows.Forms.Label();
+            this.tbArrTime = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbSeat = new System.Windows.Forms.TextBox();
+            this.tbCapacity = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -97,30 +107,125 @@
             this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // lbPortID
+            // lbScheduleID
             // 
-            this.lbPortID.AutoSize = true;
-            this.lbPortID.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbPortID.Location = new System.Drawing.Point(10, 143);
-            this.lbPortID.Name = "lbPortID";
-            this.lbPortID.Size = new System.Drawing.Size(86, 24);
-            this.lbPortID.TabIndex = 34;
-            this.lbPortID.Text = "港口編號";
+            this.lbScheduleID.AutoSize = true;
+            this.lbScheduleID.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbScheduleID.Location = new System.Drawing.Point(29, 143);
+            this.lbScheduleID.Name = "lbScheduleID";
+            this.lbScheduleID.Size = new System.Drawing.Size(67, 24);
+            this.lbScheduleID.TabIndex = 34;
+            this.lbScheduleID.Text = "航班ID";
             // 
-            // tbPortID
+            // tbScheduleID
             // 
-            this.tbPortID.Location = new System.Drawing.Point(102, 143);
-            this.tbPortID.Name = "tbPortID";
-            this.tbPortID.Size = new System.Drawing.Size(450, 22);
-            this.tbPortID.TabIndex = 33;
+            this.tbScheduleID.Location = new System.Drawing.Point(114, 143);
+            this.tbScheduleID.Name = "tbScheduleID";
+            this.tbScheduleID.Size = new System.Drawing.Size(450, 22);
+            this.tbScheduleID.TabIndex = 33;
+            // 
+            // tbRouteID
+            // 
+            this.tbRouteID.Location = new System.Drawing.Point(114, 171);
+            this.tbRouteID.Name = "tbRouteID";
+            this.tbRouteID.Size = new System.Drawing.Size(450, 22);
+            this.tbRouteID.TabIndex = 33;
+            // 
+            // lbRouteID
+            // 
+            this.lbRouteID.AutoSize = true;
+            this.lbRouteID.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbRouteID.Location = new System.Drawing.Point(29, 171);
+            this.lbRouteID.Name = "lbRouteID";
+            this.lbRouteID.Size = new System.Drawing.Size(67, 24);
+            this.lbRouteID.TabIndex = 34;
+            this.lbRouteID.Text = "航線ID";
+            // 
+            // tbDepTime
+            // 
+            this.tbDepTime.Location = new System.Drawing.Point(114, 199);
+            this.tbDepTime.Name = "tbDepTime";
+            this.tbDepTime.Size = new System.Drawing.Size(450, 22);
+            this.tbDepTime.TabIndex = 33;
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lb.Location = new System.Drawing.Point(19, 199);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(86, 24);
+            this.lb.TabIndex = 34;
+            this.lb.Text = "出發時間";
+            // 
+            // tbArrTime
+            // 
+            this.tbArrTime.Location = new System.Drawing.Point(114, 227);
+            this.tbArrTime.Name = "tbArrTime";
+            this.tbArrTime.Size = new System.Drawing.Size(450, 22);
+            this.tbArrTime.TabIndex = 33;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(19, 227);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 24);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "到達時間";
+            // 
+            // tbSeat
+            // 
+            this.tbSeat.Location = new System.Drawing.Point(114, 255);
+            this.tbSeat.Name = "tbSeat";
+            this.tbSeat.Size = new System.Drawing.Size(450, 22);
+            this.tbSeat.TabIndex = 33;
+            // 
+            // tbCapacity
+            // 
+            this.tbCapacity.Location = new System.Drawing.Point(114, 283);
+            this.tbCapacity.Name = "tbCapacity";
+            this.tbCapacity.Size = new System.Drawing.Size(450, 22);
+            this.tbCapacity.TabIndex = 33;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(19, 255);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 24);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "總座位數";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Location = new System.Drawing.Point(10, 283);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 24);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "售出座位數";
             // 
             // FrmShipScheduleEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbPortID);
-            this.Controls.Add(this.tbPortID);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lb);
+            this.Controls.Add(this.lbRouteID);
+            this.Controls.Add(this.lbScheduleID);
+            this.Controls.Add(this.tbCapacity);
+            this.Controls.Add(this.tbArrTime);
+            this.Controls.Add(this.tbSeat);
+            this.Controls.Add(this.tbDepTime);
+            this.Controls.Add(this.tbRouteID);
+            this.Controls.Add(this.tbScheduleID);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -140,7 +245,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lbPortID;
-        private System.Windows.Forms.TextBox tbPortID;
+        private System.Windows.Forms.Label lbScheduleID;
+        private System.Windows.Forms.TextBox tbScheduleID;
+        private System.Windows.Forms.TextBox tbRouteID;
+        private System.Windows.Forms.Label lbRouteID;
+        private System.Windows.Forms.TextBox tbDepTime;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.TextBox tbArrTime;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbSeat;
+        private System.Windows.Forms.TextBox tbCapacity;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -66,6 +66,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(67, 36);
             this.btnCreate.Text = "新增";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnEdit
             // 
@@ -111,6 +112,7 @@
             // txtKeyword
             // 
             this.txtKeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.txtKeyword.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(100, 39);
             // 

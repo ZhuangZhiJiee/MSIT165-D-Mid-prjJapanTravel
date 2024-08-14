@@ -62,5 +62,10 @@ namespace slnJapanTravel.View.Ship
             con.Close();
             dataGridView1.DataSource = ds.Tables[0];
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
