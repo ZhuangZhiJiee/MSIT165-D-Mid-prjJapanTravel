@@ -30,7 +30,7 @@ namespace slnJapanTravel.View
         private int _position;
        
         
-        string _defimg = @"C:\Users\User\source\JapanTravel\slnJapanTravel\Picture\Member\AdminDefault.png";
+        string _defimg = @"C:\D組圖片\AdminDefault.png";
         private byte[] _selectimg;
         FileStream _imgstream;
         BinaryReader _reader;
