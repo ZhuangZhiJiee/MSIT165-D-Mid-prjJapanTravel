@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnJapanTravel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,9 +51,9 @@ namespace slnJapanTravel.View
                 }
                 dr["總金額"] = f.itineraryorder.總金額;
                 dr["備註"] = f.itineraryorder.備註;
-                dr["評論星級"] = DBNull.Value;
-                dr["評論內容"] = DBNull.Value;
-                dr["評論日期"] = DBNull.Value;
+                //dr["評論星級"] = DBNull.Value;
+                //dr["評論內容"] = DBNull.Value;
+                //dr["評論日期"] = DBNull.Value;
                 dr["評論狀態"] = f.itineraryorder.評論狀態;
                 dt.Rows.Add(dr);
             }
@@ -60,7 +61,8 @@ namespace slnJapanTravel.View
 
         private void FrmItineraryOrder_Load(object sender, EventArgs e)
         {
-            displayBySql("SELECT * FROM 行程訂單資料");
+            displayBySql("SELECT 行程訂單編號, 會員ID, 行程批次編號, 數量, 下單時間," +
+                "付款方式編號, 付款狀態編號, 優惠券ID, 總金額, 備註, 評論狀態 FROM 行程訂單資料");
         }
 
         private void displayBySql(string sql)
@@ -101,7 +103,8 @@ namespace slnJapanTravel.View
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            displayBySql("SELECT * FROM 行程訂單資料 WHERE 行程訂單編號 LIKE " +
+            displayBySql("SELECT 行程訂單編號, 會員ID, 行程批次編號, 數量, 下單時間, 付款方式編號, " +
+                "付款狀態編號, 優惠券ID, 總金額, 備註, 評論狀態 FROM 行程訂單資料 WHERE 行程訂單編號 LIKE " +
                 "'%" + txtKeyword.Text + "%'" +
                 "OR 會員Id LIKE '%" + txtKeyword.Text + "%'");
         }
@@ -115,47 +118,62 @@ namespace slnJapanTravel.View
         private void btnUpload_Click(object sender, EventArgs e)
         {
             _adapter.Update(dataGridView1.DataSource as DataTable);
-            displayBySql("SELECT * FROM 行程訂單資料");
+            displayBySql("SELECT 行程訂單編號, 會員ID, 行程批次編號, 數量, 下單時間, " +
+                "付款方式編號, 付款狀態編號, 優惠券ID, 總金額, 備註, 評論狀態 FROM 行程訂單資料");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //DataTable dt = dataGridView1.DataSource as DataTable;
-            //DataRow dr = dt.Rows[_position];
-            //C行程訂單資料 i = new C行程訂單資料();
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+            C行程訂單資料 i = new C行程訂單資料();
 
-            //i.會員ID = (int)dr["會員ID"];
-            //i.行程批次編號 = (int)dr["行程批次編號"];
-            //i.數量 = (int)dr["數量"];
-            //i.付款方式編號 = (int)dr["付款方式編號"];
-            //i.付款狀態編號 = (int)dr["付款狀態編號"];
-            //i.訂單狀態編號 = (int)dr["訂單狀態編號"];
-            //i.優惠券ID = (int)dr["優惠券ID"];
-            //i.總金額 = (decimal)dr["總金額"];
-            //i.備註 = (string)dr["備註"];
-            //i.評論星級 = (int)dr["評論星級"];
-            //i.評論內容 = (string)dr["評論內容"];
-            //i.評論日期 = (DateTime)dr["評論日期"];
-            //i.評論狀態 = (Boolean)dr["評論狀態"];
+            i.會員ID = (int)dr["會員ID"];
+            i.行程批次編號 = (int)dr["行程批次編號"];
+            i.數量 = (int)dr["數量"];
+            i.下單時間 = (DateTime)dr["下單時間"];
+            i.付款方式編號 = (int)dr["付款方式編號"];
+            i.付款狀態編號 = (int)dr["付款狀態編號"];
+            //if(dr["訂單狀態編號"] != DBNull.Value)
+            //    i.訂單狀態編號 = (int)dr["訂單狀態編號"];
+            if(dr["優惠券ID"] != DBNull.Value)
+                i.優惠券ID = (int)dr["優惠券ID"];
+            i.總金額 = (decimal)dr["總金額"];
+            i.備註 = dr["備註"].ToString();
+            //if(dr["評論星級"] != DBNull.Value)
+            //    i.評論星級 = (int)dr["評論星級"];
+            //i.評論內容 = dr["評論內容"].ToString();
+            //if(dr["評論日期"] != DBNull.Value)
+            //    i.評論日期 = (DateTime)dr["評論日期"];
+            i.評論狀態 = (Boolean)dr["評論狀態"];
 
-            //FrmOrderItineraryEditor f = new FrmOrderItineraryEditor();
-            //f.ShowDialog();
-            //if (f.isOk == DialogResult.OK)
-            //{
-            //    dr["會員ID"] = f.itineraryorder.會員ID;
-            //    dr["行程批次編號"] = f.itineraryorder.行程批次編號;
-            //    dr["數量"] = f.itineraryorder.數量;
-            //    dr["付款方式編號"] = f.itineraryorder.付款方式編號;
-            //    dr["付款狀態編號"] = f.itineraryorder.付款狀態編號;
-            //    dr["訂單狀態編號"] = f.itineraryorder.訂單狀態編號;
-            //    dr["優惠券ID"] = f.itineraryorder.優惠券ID;
-            //    dr["總金額"] = f.itineraryorder.總金額;
-            //    dr["備註"] = f.itineraryorder.備註;
-            //    dr["評論星級"] = f.itineraryorder.評論星級;
-            //    dr["評論內容"] = f.itineraryorder.評論內容;
-            //    dr["評論日期"] = f.itineraryorder.評論日期;
-            //    dr["評論狀態"] = f.itineraryorder.評論狀態;
-            //}
+            FrmOrderItineraryEditor f = new FrmOrderItineraryEditor();
+            f.itineraryorder = i;
+            f.btnText = "確定修改";
+            f.ShowDialog();
+            if (f.isOk == DialogResult.OK)
+            {
+            dr["會員ID"] = f.itineraryorder.會員ID;
+            dr["行程批次編號"] = f.itineraryorder.行程批次編號;
+            dr["數量"] = f.itineraryorder.數量;
+            dr["下單時間"] = f.itineraryorder.下單時間;
+            dr["付款方式編號"] = f.itineraryorder.付款方式編號;
+            dr["付款狀態編號"] = f.itineraryorder.付款狀態編號;
+            if (f.itineraryorder.優惠券ID == 0)
+            {
+                dr["優惠券ID"] = DBNull.Value;
+            }
+            else
+            {
+                dr["優惠券ID"] = f.itineraryorder.優惠券ID;
+            }
+            dr["總金額"] = f.itineraryorder.總金額;
+            dr["備註"] = f.itineraryorder.備註;
+            //dr["評論星級"] = DBNull.Value;
+            //dr["評論內容"] = DBNull.Value;
+            //dr["評論日期"] = DBNull.Value;
+            dr["評論狀態"] = f.itineraryorder.評論狀態;
+            }
         }
     }
 }

@@ -38,7 +38,8 @@ namespace slnJapanTravel.View
                 _ticket.付款狀態編號 = 1;
                 _ticket.付款時間 = DateTime.Now;
                 _ticket.訂單狀態編號 = 1;
-                //_ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                if (isNumber(fbCouponId.fieldValue))
+                    _ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
                 _ticket.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
                 _ticket.備註 = fbRemark.fieldValue;
                 //_ticket.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
@@ -120,5 +121,12 @@ namespace slnJapanTravel.View
         {
             Close();
         }
+
+        public string btnText
+        {
+            get { return btnOk.Text; }
+            set { btnOk.Text = value; }
+        }
+
     }
 }

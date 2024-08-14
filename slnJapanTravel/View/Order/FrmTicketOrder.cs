@@ -1,4 +1,5 @@
-﻿using slnJapanTravel.View.Order;
+﻿using slnJapanTravel.Model;
+using slnJapanTravel.View.Order;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,9 +49,9 @@ namespace slnJapanTravel.View
                 }
                 dr["總金額"] = f.ticket.總金額;
                 dr["備註"] = f.ticket.備註;
-                dr["評論星級"] = DBNull.Value;
-                dr["評論內容"] = DBNull.Value;
-                dr["評論日期"] = DBNull.Value;
+                //dr["評論星級"] = DBNull.Value;
+                //dr["評論內容"] = DBNull.Value;
+                //dr["評論日期"] = DBNull.Value;
                 dr["評論狀態"] = f.ticket.評論狀態;
                 dt.Rows.Add(dr);
             }
@@ -58,11 +59,16 @@ namespace slnJapanTravel.View
 
         private void FrmTicketOrder_Load(object sender, EventArgs e)
         {
-            //displayBySql("SELECT * FROM 航班訂單資料" +
-            //    " JOIN 航班訂單Detail" +
-            //    " ON 航班訂單資料.航班訂單編號 = 航班訂單Detail.航班訂單編號");
+            //displayBySql("SELECT 航班訂單編號, mem.會員名稱, 下單時間, p.付款方式, n.訂單狀態, 優惠券ID, 總金額, 備註, 評論狀態 from 航班訂單資料 m " +
+            //    "JOIN 付款方式 p " +
+            //    "ON m.付款方式編號 = p.付款方式編號 " +
+            //    "LEFT JOIN 訂單狀態 n " +
+            //    "ON m.訂單狀態編號 = n.訂單狀態編號 " +
+            //    "JOIN Member會員 mem " +
+            //    "ON m.會員ID = mem.會員ID");
+            displayBySql("SELECT 航班訂單編號, 會員ID, 下單時間, 付款方式編號, " +
+                "付款狀態編號, 優惠券ID, 總金額, 備註, 評論狀態 FROM 航班訂單資料");
 
-            displayBySql("SELECT * FROM 航班訂單資料");
         }
 
         private void displayBySql(string sql)
@@ -85,16 +91,29 @@ namespace slnJapanTravel.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataTable dt = dataGridView1.DataSource as DataTable;
-            DataRow dr = dt.Rows[_position];
-
             SqlConnection con = new SqlConnection();
             con.ConnectionString = _s;
             con.Open();
 
-            MessageBox.Show((dt.Rows[_position][0].ToString()));
-            //dr.Delete();
-            //_adapter.Update(dataGridView1.DataSource as DataTable);
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select count(*) from 航班訂單Detail where 航班訂單編號 =" + dr[0].ToString();
+            //SqlDataReader reader = cmd.ExecuteReader();
+
+            int count = (int)cmd.ExecuteScalar();
+
+            if (count == 0)
+            { 
+                dr.Delete();
+                _adapter.Update(dataGridView1.DataSource as DataTable);
+            }
+            else
+            {
+                MessageBox.Show("請先刪除此筆訂單的明細");
+            }
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -123,48 +142,67 @@ namespace slnJapanTravel.View
         private void btnUpload_Click(object sender, EventArgs e)
         {
             _adapter.Update(dataGridView1.DataSource as DataTable);
-            displayBySql("SELECT * FROM 航班訂單資料");
+            displayBySql("SELECT 航班訂單編號, 會員ID, 下單時間, 付款方式編號, " +
+                "付款狀態編號, 優惠券ID, 總金額, 備註, 評論狀態 FROM 航班訂單資料");
         }
 
-        //private C航班訂單Detail queryByOrderId(int 航班訂單編號)
-        //{
-        //    SqlConnection con = new SqlConnection();
-        //    con.ConnectionString = _s;
-        //    con.Open();
-        //    SqlCommand cmd = new SqlCommand();
-        //    cmd.Connection = con;
-        //    cmd.CommandText = "SELECT * FROM 航班訂單Detail WHERE 航班訂單編號=" + 航班訂單編號;
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    if (!reader.Read())
-        //    {
-        //        con.Close();
-        //        return null;
-        //    }
-        //    C航班訂單Detail c = new C航班訂單Detail();
-        //    c.航班訂單Detail編號 = Convert.ToInt32(reader["航班訂單Detail編號"]);
-        //    c.航班訂單編號 = Convert.ToInt32(reader["航班訂單編號"]);
-        //    c.ScheduleID航班編號 = Convert.ToInt32(reader["ScheduleID航班編號"]);
-        //    c.數量 = Convert.ToInt32(reader["數量"]);
-        //    con.Close();
-        //    return c;
-        //}
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            //DataTable dt = dataGridView1.DataSource as DataTable;
-            //DataRow dr = dt.Rows[_position];
-
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = _s;
-            //con.Open();
-
-            //int 航班訂單編號 = Convert.ToInt32(dt.Rows[_position][0]);
-            FrmTicketOrderDetail f = new FrmTicketOrderDetail();
-            //f.order = queryByOrderId(航班訂單編號);
+            FrmTicketDetail f = new FrmTicketDetail();
             f.ShowDialog();
 
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+            C航班訂單資料 i = new C航班訂單資料();
 
+            i.會員ID = (int)dr["會員ID"];
+            i.下單時間 = (DateTime)dr["下單時間"];
+            i.付款方式編號 = (int)dr["付款方式編號"];
+            i.付款狀態編號 = (int)dr["付款狀態編號"];
+            //if(dr["訂單狀態編號"] != DBNull.Value)
+            //    i.訂單狀態編號 = (int)dr["訂單狀態編號"];
+            if (dr["優惠券ID"] != DBNull.Value)
+                i.優惠券ID = (int)dr["優惠券ID"];
+            i.總金額 = (decimal)dr["總金額"];
+            i.備註 = dr["備註"].ToString();
+            //if(dr["評論星級"] != DBNull.Value)
+            //    i.評論星級 = (int)dr["評論星級"];
+            //i.評論內容 = dr["評論內容"].ToString();
+            //if(dr["評論日期"] != DBNull.Value)
+            //    i.評論日期 = (DateTime)dr["評論日期"];
+            //i.評論狀態 = (Boolean)dr["評論狀態"];
+
+            FrmTicketOrderEditor f = new FrmTicketOrderEditor();
+            f.ticket = i;
+            f.btnText = "確定修改";
+            f.ShowDialog();
+            if (f.isOk == DialogResult.OK)
+            {
+                dr["會員ID"] = f.ticket.會員ID;
+                dr["下單時間"] = f.ticket.下單時間;
+                dr["付款方式編號"] = f.ticket.付款方式編號;
+                dr["付款狀態編號"] = f.ticket.付款狀態編號;
+                if (f.ticket.優惠券ID == 0)
+                {
+                    dr["優惠券ID"] = DBNull.Value;
+                }
+                else
+                {
+                    dr["優惠券ID"] = f.ticket.優惠券ID;
+                }
+                dr["總金額"] = f.ticket.總金額;
+                dr["備註"] = f.ticket.備註;
+                //dr["評論星級"] = DBNull.Value;
+                //dr["評論內容"] = DBNull.Value;
+                //dr["評論日期"] = DBNull.Value;
+                //dr["評論狀態"] = f.itineraryorder.評論狀態;
+
+            }
+        }
     }
 }

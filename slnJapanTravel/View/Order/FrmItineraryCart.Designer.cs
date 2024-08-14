@@ -48,9 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblPaymentMethod = new System.Windows.Forms.Label();
             this.cbPaymentMethod = new System.Windows.Forms.ComboBox();
             this.付款方式BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblPaymentMethod = new System.Windows.Forms.Label();
             this.fbQuantity = new prjCustomerSystem.FieldBox();
             this.fbMemberId = new prjCustomerSystem.FieldBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -168,7 +168,7 @@
             // 
             this.cbTheme.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.theme主題BindingSource, "主題編號", true));
             this.cbTheme.DataSource = this.theme主題BindingSource;
-            this.cbTheme.DisplayMember = "主題分類";
+            this.cbTheme.DisplayMember = "主題名稱";
             this.cbTheme.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbTheme.FormattingEnabled = true;
             this.cbTheme.Location = new System.Drawing.Point(73, 32);
@@ -284,17 +284,6 @@
             this.panel2.Size = new System.Drawing.Size(617, 147);
             this.panel2.TabIndex = 1;
             // 
-            // lblPaymentMethod
-            // 
-            this.lblPaymentMethod.AutoSize = true;
-            this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(0, 96);
-            this.lblPaymentMethod.Name = "lblPaymentMethod";
-            this.lblPaymentMethod.Size = new System.Drawing.Size(109, 30);
-            this.lblPaymentMethod.TabIndex = 4;
-            this.lblPaymentMethod.Text = "付款方式";
-            // 
             // cbPaymentMethod
             // 
             this.cbPaymentMethod.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.付款方式BindingSource, "付款方式編號", true));
@@ -315,6 +304,17 @@
             // 
             this.付款方式BindingSource.DataMember = "付款方式";
             this.付款方式BindingSource.DataSource = this.japanTravelDataSet;
+            // 
+            // lblPaymentMethod
+            // 
+            this.lblPaymentMethod.AutoSize = true;
+            this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblPaymentMethod.Location = new System.Drawing.Point(0, 96);
+            this.lblPaymentMethod.Name = "lblPaymentMethod";
+            this.lblPaymentMethod.Size = new System.Drawing.Size(109, 30);
+            this.lblPaymentMethod.TabIndex = 4;
+            this.lblPaymentMethod.Text = "付款方式";
             // 
             // fbQuantity
             // 
