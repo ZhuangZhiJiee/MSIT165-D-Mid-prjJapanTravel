@@ -51,6 +51,8 @@
             this.cbPaymentMethod = new System.Windows.Forms.ComboBox();
             this.付款方式BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblPaymentMethod = new System.Windows.Forms.Label();
+            this.fbQuantity = new prjCustomerSystem.FieldBox();
+            this.fbMemberId = new prjCustomerSystem.FieldBox();
             this.label2 = new System.Windows.Forms.Label();
             this.theme主題TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Theme主題TableAdapter();
             this.area地區TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Area地區TableAdapter();
@@ -163,7 +165,7 @@
             // 
             this.cbTheme.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.theme主題BindingSource, "主題編號", true));
             this.cbTheme.DataSource = this.theme主題BindingSource;
-            this.cbTheme.DisplayMember = "主題分類";
+            this.cbTheme.DisplayMember = "主題名稱";
             this.cbTheme.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbTheme.FormattingEnabled = true;
             this.cbTheme.Location = new System.Drawing.Point(49, 21);
@@ -288,7 +290,19 @@
             this.付款方式BindingSource.DataMember = "付款方式";
             this.付款方式BindingSource.DataSource = this.japanTravelDataSet;
             // 
-            // lblPaymentMethod
+            // fbQuantity
+            // 
+            this.fbQuantity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fbQuantity.fieldName = "數　　量";
+            this.fbQuantity.fieldValue = "1";
+            this.fbQuantity.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbQuantity.Location = new System.Drawing.Point(0, 48);
+            this.fbQuantity.Margin = new System.Windows.Forms.Padding(6);
+            this.fbQuantity.Name = "fbQuantity";
+            this.fbQuantity.Size = new System.Drawing.Size(617, 48);
+            this.fbQuantity.TabIndex = 1;
+            // 
+            // fbMemberId
             // 
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;

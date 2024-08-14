@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace slnJapanTravel.Model
 {
+
     public class C航班訂單Manager
     {
         string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
+        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";  //本機ConnectionString
+
         public void delete(int 航班訂單編號)
         {
             SqlConnection con = new SqlConnection();
@@ -157,7 +160,7 @@ namespace slnJapanTravel.Model
             sql += " WHERE 航班訂單編號=@K_航班訂單編號 ";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000";//Trust Server Certificate=True";
+            con.ConnectionString = _s;
             con.Open();
 
             SqlCommand cmd = new SqlCommand();

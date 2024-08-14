@@ -35,12 +35,18 @@ namespace slnJapanTravel.View
                 _itineraryorder.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
                 _itineraryorder.行程批次編號 = Convert.ToInt32(fbItineraryId.fieldValue);
                 _itineraryorder.數量 = Convert.ToInt32(fbQuantity.fieldValue);
-                _itineraryorder.下單時間 = DateTime.Now;
+                if (string.IsNullOrEmpty(fbPaymentTime.fieldValue))
+                    { _itineraryorder.下單時間 = DateTime.Now; }
+                else
+                {
+                    _itineraryorder.下單時間 = Convert.ToDateTime(fbPaymentTime.fieldValue);
+                }
                 _itineraryorder.付款方式編號 = Convert.ToInt32(fbPaymentMethodId.fieldValue);
                 _itineraryorder.付款狀態編號 = 1;
                 _itineraryorder.付款時間 = DateTime.Now;
                 _itineraryorder.訂單狀態編號 = 1;
-                //_itineraryorder.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                if(isNumber(fbCouponId.fieldValue))
+                    _itineraryorder.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
                 _itineraryorder.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
                 _itineraryorder.備註 = fbRemark.fieldValue;
                 //_itineraryorder.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
@@ -116,5 +122,12 @@ namespace slnJapanTravel.View
         {
             Close();
         }
+
+        public string btnText
+        { 
+            get { return btnOk.Text; }
+            set { btnOk.Text = value; }
+        }
+
     }
 }

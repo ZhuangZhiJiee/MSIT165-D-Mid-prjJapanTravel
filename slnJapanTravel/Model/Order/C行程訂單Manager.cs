@@ -9,10 +9,13 @@ namespace slnJapanTravel.Model
 {
     public class C行程訂單Manager
     {
+        string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
+        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";  //本機ConnectionString
+
         public void delete(int 行程訂單編號)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000";//Trust Server Certificate=True";
+            con.ConnectionString = _s;
             con.Open();
 
             SqlCommand cmd = new SqlCommand();
@@ -60,7 +63,7 @@ namespace slnJapanTravel.Model
             sql += "@K_評論狀態)";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000";//Trust Server Certificate=True";
+            con.ConnectionString = _s;
             con.Open();
 
             SqlCommand cmd = new SqlCommand();
@@ -107,7 +110,7 @@ namespace slnJapanTravel.Model
             sql += " WHERE 行程訂單編號=@K_行程訂單編號 ";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000";//Trust Server Certificate=True";
+            con.ConnectionString = _s;
             con.Open();
 
             SqlCommand cmd = new SqlCommand();

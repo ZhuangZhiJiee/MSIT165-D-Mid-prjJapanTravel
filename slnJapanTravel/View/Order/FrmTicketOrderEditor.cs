@@ -1,4 +1,5 @@
 ﻿using slnJapanTravel.Model;
+using slnJapanTravel.Model.Member;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +21,24 @@ namespace slnJapanTravel.View
 
         private C航班訂單資料 _ticket = null;
         private C航班訂單Detail _ticketDetail = null;
+        private CMember _member = null;
         private DialogResult _isOk;
         public DialogResult isOk
         {
             get { return _isOk; }
         }
 
+        public CMember member
+        {
+            get
+            {
+                if (_member == null)
+                    _member = new CMember();
+                _member.會員名稱 = member.會員名稱;
+
+                return _member;
+            }
+        }
         public C航班訂單資料 ticket
         {
             get
@@ -38,7 +51,8 @@ namespace slnJapanTravel.View
                 _ticket.付款狀態編號 = 1;
                 _ticket.付款時間 = DateTime.Now;
                 _ticket.訂單狀態編號 = 1;
-                //_ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                if (isNumber(fbCouponId.fieldValue))
+                    _ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
                 _ticket.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
                 _ticket.備註 = fbRemark.fieldValue;
                 //_ticket.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
@@ -64,22 +78,13 @@ namespace slnJapanTravel.View
                 //fbCommentStatus.fieldValue = Convert.ToString(_itineraryorder.評論狀態);
             }
         }
-        //public C航班訂單Detail ticketDetail
-        //{
-        //    get
-        //    {
-        //        if(_ticketDetail == null)
-        //            _ticketDetail = new C航班訂單Detail();
-
-        //    }
-        //}
 
         public FrmTicketOrderEditor()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
             string errMsg = "";
             if (!isNumber(fbMemberId.fieldValue))
@@ -120,5 +125,12 @@ namespace slnJapanTravel.View
         {
             Close();
         }
+
+        public string btnText
+        {
+            get { return btnOk.Text; }
+            set { btnOk.Text = value; }
+        }
+
     }
 }
