@@ -91,6 +91,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(67, 36);
             this.btnDelete.Text = "刪除";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
@@ -99,6 +100,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(91, 36);
             this.btnClose.Text = "關閉視窗";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnFind
             // 
@@ -136,6 +138,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmShipSchedule";
             this.Text = "FrmShipSchedule";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmShipSchedule_FormClosed);
             this.Load += new System.EventHandler(this.FrmShipSchedule_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

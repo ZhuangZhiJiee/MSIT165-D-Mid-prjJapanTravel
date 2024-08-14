@@ -90,9 +90,10 @@
             this.button2.Location = new System.Drawing.Point(695, 395);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 34);
-            this.button2.TabIndex = 31;
+            this.button2.TabIndex = 7;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -103,9 +104,10 @@
             this.button1.Location = new System.Drawing.Point(581, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 34);
-            this.button1.TabIndex = 32;
+            this.button1.TabIndex = 6;
             this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbScheduleID
             // 
@@ -122,14 +124,14 @@
             this.tbScheduleID.Location = new System.Drawing.Point(114, 143);
             this.tbScheduleID.Name = "tbScheduleID";
             this.tbScheduleID.Size = new System.Drawing.Size(450, 22);
-            this.tbScheduleID.TabIndex = 33;
+            this.tbScheduleID.TabIndex = 0;
             // 
             // tbRouteID
             // 
             this.tbRouteID.Location = new System.Drawing.Point(114, 171);
             this.tbRouteID.Name = "tbRouteID";
             this.tbRouteID.Size = new System.Drawing.Size(450, 22);
-            this.tbRouteID.TabIndex = 33;
+            this.tbRouteID.TabIndex = 1;
             // 
             // lbRouteID
             // 
@@ -146,7 +148,7 @@
             this.tbDepTime.Location = new System.Drawing.Point(114, 199);
             this.tbDepTime.Name = "tbDepTime";
             this.tbDepTime.Size = new System.Drawing.Size(450, 22);
-            this.tbDepTime.TabIndex = 33;
+            this.tbDepTime.TabIndex = 2;
             // 
             // lb
             // 
@@ -163,7 +165,7 @@
             this.tbArrTime.Location = new System.Drawing.Point(114, 227);
             this.tbArrTime.Name = "tbArrTime";
             this.tbArrTime.Size = new System.Drawing.Size(450, 22);
-            this.tbArrTime.TabIndex = 33;
+            this.tbArrTime.TabIndex = 3;
             // 
             // label3
             // 
@@ -180,14 +182,14 @@
             this.tbSeat.Location = new System.Drawing.Point(114, 255);
             this.tbSeat.Name = "tbSeat";
             this.tbSeat.Size = new System.Drawing.Size(450, 22);
-            this.tbSeat.TabIndex = 33;
+            this.tbSeat.TabIndex = 4;
             // 
             // tbCapacity
             // 
             this.tbCapacity.Location = new System.Drawing.Point(114, 283);
             this.tbCapacity.Name = "tbCapacity";
             this.tbCapacity.Size = new System.Drawing.Size(450, 22);
-            this.tbCapacity.TabIndex = 33;
+            this.tbCapacity.TabIndex = 5;
             // 
             // label4
             // 
