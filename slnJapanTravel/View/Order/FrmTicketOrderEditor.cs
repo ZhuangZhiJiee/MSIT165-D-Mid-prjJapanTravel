@@ -1,4 +1,5 @@
 ﻿using slnJapanTravel.Model;
+using slnJapanTravel.Model.Member;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +21,24 @@ namespace slnJapanTravel.View
 
         private C航班訂單資料 _ticket = null;
         private C航班訂單Detail _ticketDetail = null;
+        private CMember _member = null;
         private DialogResult _isOk;
         public DialogResult isOk
         {
             get { return _isOk; }
         }
 
+        public CMember member
+        {
+            get
+            {
+                if (_member == null)
+                    _member = new CMember();
+                _member.會員名稱 = member.會員名稱;
+
+                return _member;
+            }
+        }
         public C航班訂單資料 ticket
         {
             get
@@ -65,22 +78,13 @@ namespace slnJapanTravel.View
                 //fbCommentStatus.fieldValue = Convert.ToString(_itineraryorder.評論狀態);
             }
         }
-        //public C航班訂單Detail ticketDetail
-        //{
-        //    get
-        //    {
-        //        if(_ticketDetail == null)
-        //            _ticketDetail = new C航班訂單Detail();
-
-        //    }
-        //}
 
         public FrmTicketOrderEditor()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
             string errMsg = "";
             if (!isNumber(fbMemberId.fieldValue))

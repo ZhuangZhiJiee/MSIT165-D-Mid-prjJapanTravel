@@ -75,7 +75,7 @@
             this.btnOk.TabIndex = 30;
             this.btnOk.Text = "新增";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.button1_Click);
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // label2
             // 

@@ -23,15 +23,15 @@ namespace slnJapanTravel.View
         }
         private void FrmItineraryCart_Load(object sender, EventArgs e)
         {
-            // TODO: 這行程式碼會將資料載入 'japanTravelDataSet.付款方式' 資料表。您可以視需要進行移動或移除。
-            this.付款方式TableAdapter.Fill(this.japanTravelDataSet.付款方式);
-            this.cbPaymentMethod.SelectedIndex = -1;
-            // TODO: 這行程式碼會將資料載入 'japanTravelDataSet.Area地區' 資料表。您可以視需要進行移動或移除。
-            this.area地區TableAdapter.Fill(this.japanTravelDataSet.Area地區);
-            this.cbArea.SelectedIndex = -1;
-            // TODO: 這行程式碼會將資料載入 'japanTravelDataSet.Theme主題' 資料表。您可以視需要進行移動或移除。
-            this.theme主題TableAdapter.Fill(this.japanTravelDataSet.Theme主題);
-            this.cbTheme.SelectedIndex = -1;
+            //// TODO: 這行程式碼會將資料載入 'japanTravelDataSet.付款方式' 資料表。您可以視需要進行移動或移除。
+            //this.付款方式TableAdapter.Fill(this.japanTravelDataSet.付款方式);
+            //this.cbPaymentMethod.SelectedIndex = -1;
+            //// TODO: 這行程式碼會將資料載入 'japanTravelDataSet.Area地區' 資料表。您可以視需要進行移動或移除。
+            //this.area地區TableAdapter.Fill(this.japanTravelDataSet.Area地區);
+            //this.cbArea.SelectedIndex = -1;
+            //// TODO: 這行程式碼會將資料載入 'japanTravelDataSet.Theme主題' 資料表。您可以視需要進行移動或移除。
+            //this.theme主題TableAdapter.Fill(this.japanTravelDataSet.Theme主題);
+            //this.cbTheme.SelectedIndex = -1;
 
 
             displayShipBySql("SELECT * FROM Itinerary行程");

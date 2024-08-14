@@ -1,11 +1,14 @@
-﻿using slnJapanTravel.Model;
+﻿using prjCustomerSystem;
+using slnJapanTravel.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +26,7 @@ namespace slnJapanTravel.View.Order
 
         private C航班訂單Detail _detail;
         private C航班訂單資料 _order;
+        private CImage _image;
 
         public C航班訂單Detail Detail { get; set; }
         public C航班訂單資料 order
@@ -101,5 +105,42 @@ namespace slnJapanTravel.View.Order
             if (txtKeyword.Text == "請輸入航班訂單編號")
                 txtKeyword.Clear();
         }
+
+        //public CImage shipimage
+        //{
+        //    get { return _image; }
+        //    set { _image = value;
+        //        if (_image != null) 
+        //        {
+        //            Stream streamImage = new MemoryStream(_image.Image圖片);
+        //            picShipImage.Image = Bitmap.FromStream(streamImage);
+        //        }
+
+        //    }
+        //}
+
+        //private void displayShipBySql(string sql)
+        //{
+        //    SqlConnection con = new SqlConnection();
+        //    con.ConnectionString = _s;
+        //    con.Open();
+        //    SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+        //    adapter.SelectCommand.Parameters.Add(
+        //        new SqlParameter("K_KEYWORD", "%" + (object)txtKeyword.Text + "%"));
+        //    DataSet ds = new DataSet();
+        //    adapter.Fill(ds);
+        //    con.Close();
+        //    picShipImage.Controls.Clear();
+        //    foreach(DataRow r in ds.Tables[0].Rows)
+        //    {
+        //        CImage i = new CImage();
+        //        if (r["Image圖片"] != DBNull.Value)
+        //            i.Image圖片 = (byte[])r["Image圖片"];
+
+        //        picShipImage = i;
+
+        //    }
+        //}
+
     }
 }

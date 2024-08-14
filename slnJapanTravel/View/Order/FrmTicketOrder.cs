@@ -55,9 +55,24 @@ namespace slnJapanTravel.View
                 dr["評論狀態"] = f.ticket.評論狀態;
                 dt.Rows.Add(dr);
             }
+
+
+            //FrmTicketOrderEditor f = new FrmTicketOrderEditor();
+            //f.ShowDialog();
+            //if (f.isOk == DialogResult.OK)
+            //{
+            //    (new C航班訂單Manager()).create(f.ticket);
+            //    displayBySql("SELECT 航班訂單編號, mem.會員名稱, 下單時間, p.付款方式, n.訂單狀態, 優惠券ID, 總金額, 備註, 評論狀態 from 航班訂單資料 m " +
+            //    "JOIN 付款方式 p " +
+            //    "ON m.付款方式編號 = p.付款方式編號 " +
+            //    "LEFT JOIN 訂單狀態 n " +
+            //    "ON m.訂單狀態編號 = n.訂單狀態編號 " +
+            //    "JOIN Member會員 mem " +
+            //    "ON m.會員ID = mem.會員ID");
+            //}
         }
 
-        private void FrmTicketOrder_Load(object sender, EventArgs e)
+            private void FrmTicketOrder_Load(object sender, EventArgs e)
         {
             //displayBySql("SELECT 航班訂單編號, mem.會員名稱, 下單時間, p.付款方式, n.訂單狀態, 優惠券ID, 總金額, 備註, 評論狀態 from 航班訂單資料 m " +
             //    "JOIN 付款方式 p " +
