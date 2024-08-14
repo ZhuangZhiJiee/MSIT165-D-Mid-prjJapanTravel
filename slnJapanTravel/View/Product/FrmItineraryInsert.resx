@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>165, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="picbItinerary.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAABABJREFUaEPVmkeLFUEUhZ9gWJsV3RlBFyoKBvAfKIqoqLgScwIFcelOxQwK4tqw
+        DAAACwwBP0AiyAAABABJREFUaEPVmkeLFUEUhZ9gWJsV3RlBFyoKBvAfKIqoqLgScwIFcelOxQwK4tqw
         cCsG3LhSMeFSMeDCgBFzTud7zBt6ek71e1XTPaMHPhh6um9VV7j31u1XK0nDxFJxSFwQ98Qb8V18a/v7
         rjgnDojFYojoUQ0Um8R18SeB3+KKWCf6i27TSHFQfBKuYyl8EHvFcFGZ+ojNgsZcJ8qAQdkh+opSNU7c
         Fq7RKrghRolStEBUOeoh3ok5oktaI34K10AePM9hsURMFgMEyw7Y8Fzjf0fEfeFs5PkhVogk0XlnNAsN
@@ -143,5 +146,8 @@
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>81</value>
   </metadata>
 </root>

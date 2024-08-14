@@ -57,16 +57,16 @@
             // tsbAdmin
             // 
             this.tsbAdmin.AutoSize = false;
-            this.tsbAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tsbAdmin.BackgroundImage")));
             this.tsbAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsbAdmin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tsbAdmin.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdmin.Image")));
             this.tsbAdmin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbAdmin.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdmin.Margin = new System.Windows.Forms.Padding(0, 1, 0, 20);
             this.tsbAdmin.Name = "tsbAdmin";
             this.tsbAdmin.Padding = new System.Windows.Forms.Padding(10);
             this.tsbAdmin.RightToLeftAutoMirrorImage = true;
-            this.tsbAdmin.Size = new System.Drawing.Size(180, 100);
+            this.tsbAdmin.Size = new System.Drawing.Size(150, 70);
             this.tsbAdmin.Text = "管理員系統";
             this.tsbAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbAdmin.Click += new System.EventHandler(this.tsAdmin_Click);
@@ -194,7 +194,7 @@
             this.tsbLeave.Name = "tsbLeave";
             this.tsbLeave.Padding = new System.Windows.Forms.Padding(10);
             this.tsbLeave.RightToLeftAutoMirrorImage = true;
-            this.tsbLeave.Size = new System.Drawing.Size(180, 100);
+            this.tsbLeave.Size = new System.Drawing.Size(175, 50);
             this.tsbLeave.Text = "離開";
             this.tsbLeave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbLeave.Click += new System.EventHandler(this.toolStripButton2_Click);
@@ -245,10 +245,11 @@
             this.tsbBlog.Image = ((System.Drawing.Image)(resources.GetObject("tsbBlog.Image")));
             this.tsbBlog.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbBlog.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBlog.Margin = new System.Windows.Forms.Padding(0, 1, 0, 20);
             this.tsbBlog.Name = "tsbBlog";
             this.tsbBlog.Padding = new System.Windows.Forms.Padding(10);
             this.tsbBlog.RightToLeftAutoMirrorImage = true;
-            this.tsbBlog.Size = new System.Drawing.Size(180, 100);
+            this.tsbBlog.Size = new System.Drawing.Size(150, 70);
             this.tsbBlog.Text = "部落格系統";
             this.tsbBlog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbBlog.Click += new System.EventHandler(this.tsbBlog_Click);
@@ -261,10 +262,11 @@
             this.tsbCopon.Image = ((System.Drawing.Image)(resources.GetObject("tsbCopon.Image")));
             this.tsbCopon.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbCopon.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCopon.Margin = new System.Windows.Forms.Padding(0, 1, 0, 20);
             this.tsbCopon.Name = "tsbCopon";
             this.tsbCopon.Padding = new System.Windows.Forms.Padding(10);
             this.tsbCopon.RightToLeftAutoMirrorImage = true;
-            this.tsbCopon.Size = new System.Drawing.Size(180, 100);
+            this.tsbCopon.Size = new System.Drawing.Size(150, 70);
             this.tsbCopon.Text = "優惠券系統";
             this.tsbCopon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbCopon.Click += new System.EventHandler(this.tsbCopon_Click);
@@ -280,7 +282,7 @@
             this.tsbComment.Name = "tsbComment";
             this.tsbComment.Padding = new System.Windows.Forms.Padding(10);
             this.tsbComment.RightToLeftAutoMirrorImage = true;
-            this.tsbComment.Size = new System.Drawing.Size(180, 100);
+            this.tsbComment.Size = new System.Drawing.Size(150, 70);
             this.tsbComment.Text = "評論管理";
             this.tsbComment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 

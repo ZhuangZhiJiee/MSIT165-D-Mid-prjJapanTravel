@@ -10,6 +10,7 @@ namespace slnJapanTravel.Model.Product
     {
         public int 行程批次編號 { get; set; }
         public int 行程系統編號 { get; set; }
-        public DateTime 出發日期 { get; set; }
+        public string 出發日期 { get; set; }
+        
     }
 }

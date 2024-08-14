@@ -10,8 +10,8 @@ namespace slnJapanTravel.Model
     {
         public int 圖片系統編號 { get; set; }
         public int 行程系統編號 { get; set; }
+        public byte[] 圖片 { get; set; }
         public string 圖片名稱 { get; set; }
-        public string 圖片類別 { get; set; }
         public string 圖片描述 { get; set; }
     }
 }

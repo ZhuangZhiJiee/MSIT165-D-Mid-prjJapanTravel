@@ -124,7 +124,7 @@
             this.btnMainSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMainSearch.Location = new System.Drawing.Point(1136, 159);
             this.btnMainSearch.Name = "btnMainSearch";
-            this.btnMainSearch.Size = new System.Drawing.Size(46, 24);
+            this.btnMainSearch.Size = new System.Drawing.Size(60, 32);
             this.btnMainSearch.TabIndex = 28;
             this.btnMainSearch.Text = "查詢";
             this.btnMainSearch.UseVisualStyleBackColor = true;
@@ -149,10 +149,11 @@
             // 
             // textBox7
             // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(104, 120);
+            this.textBox7.Location = new System.Drawing.Point(101, 132);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(229, 27);
+            this.textBox7.Size = new System.Drawing.Size(229, 20);
             this.textBox7.TabIndex = 21;
             // 
             // label6
@@ -170,11 +171,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(54, 122);
+            this.label7.Location = new System.Drawing.Point(22, 131);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 20);
+            this.label7.Size = new System.Drawing.Size(73, 20);
             this.label7.TabIndex = 19;
-            this.label7.Text = "主題";
+            this.label7.Text = "體驗名稱";
             // 
             // label8
             // 
@@ -190,17 +191,18 @@
             // 
             // txtItineraryId
             // 
+            this.txtItineraryId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtItineraryId.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItineraryId.Location = new System.Drawing.Point(101, 22);
+            this.txtItineraryId.Location = new System.Drawing.Point(101, 25);
             this.txtItineraryId.Name = "txtItineraryId";
-            this.txtItineraryId.Size = new System.Drawing.Size(220, 27);
+            this.txtItineraryId.Size = new System.Drawing.Size(220, 20);
             this.txtItineraryId.TabIndex = 14;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 24);
+            this.label9.Location = new System.Drawing.Point(22, 25);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 20);
             this.label9.TabIndex = 12;
@@ -208,17 +210,18 @@
             // 
             // txtItineraryName
             // 
+            this.txtItineraryName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtItineraryName.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItineraryName.Location = new System.Drawing.Point(101, 71);
+            this.txtItineraryName.Location = new System.Drawing.Point(101, 77);
             this.txtItineraryName.Name = "txtItineraryName";
-            this.txtItineraryName.Size = new System.Drawing.Size(588, 27);
+            this.txtItineraryName.Size = new System.Drawing.Size(588, 20);
             this.txtItineraryName.TabIndex = 15;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 73);
+            this.label10.Location = new System.Drawing.Point(22, 77);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 20);
             this.label10.TabIndex = 13;
@@ -240,6 +243,7 @@
             // 
             this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCopy.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopy.Location = new System.Drawing.Point(158, 8);
             this.btnCopy.Name = "btnCopy";
@@ -263,6 +267,7 @@
             this.btnMainUpdate.Text = "修改";
             this.btnMainUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMainUpdate.UseVisualStyleBackColor = true;
+            this.btnMainUpdate.Click += new System.EventHandler(this.btnMainUpdate_Click);
             // 
             // btnMainDelete
             // 
@@ -299,6 +304,7 @@
             // 
             // MaindataGridView
             // 
+            this.MaindataGridView.AllowUserToAddRows = false;
             this.MaindataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MaindataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MaindataGridView.Location = new System.Drawing.Point(0, 0);
