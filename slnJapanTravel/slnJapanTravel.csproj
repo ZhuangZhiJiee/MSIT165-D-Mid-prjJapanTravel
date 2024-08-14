@@ -269,6 +269,18 @@
     <Compile Include="View\Ship\FrmShipRoute.Designer.cs">
       <DependentUpon>FrmShipRoute.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Ship\FrmShipSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipSchedule.Designer.cs">
+      <DependentUpon>FrmShipSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipScheduleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipScheduleEdit.Designer.cs">
+      <DependentUpon>FrmShipScheduleEdit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Component\Order\FieldBox.resx" />
     <EmbeddedResource Include="Component\Order\itineraryBox.resx">
       <DependentUpon>itineraryBox.cs</DependentUpon>
