@@ -341,5 +341,8 @@
     <Folder Include="Component\Member\" />
     <Folder Include="Component\Ship\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Picture\Member\AdminDefault.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

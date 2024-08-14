@@ -33,6 +33,7 @@
             this.tsAdmin = new System.Windows.Forms.ToolStrip();
             this.tsbInsert = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblAccount = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.picAdmin = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblID = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbCoupon = new System.Windows.Forms.CheckBox();
             this.cbComment = new System.Windows.Forms.CheckBox();
@@ -55,11 +56,16 @@
             this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.ofdAdminPicture = new System.Windows.Forms.OpenFileDialog();
+            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAdmin
@@ -80,7 +86,8 @@
             // 
             this.tsAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbInsert,
-            this.tsbUpdate});
+            this.tsbUpdate,
+            this.tsbDelete});
             this.tsAdmin.Location = new System.Drawing.Point(0, 0);
             this.tsAdmin.Name = "tsAdmin";
             this.tsAdmin.Size = new System.Drawing.Size(1235, 53);
@@ -109,6 +116,17 @@
             this.tsbUpdate.Text = "修改資料";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
+            // tsbDelete
+            // 
+            this.tsbDelete.AutoSize = false;
+            this.tsbDelete.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(150, 50);
+            this.tsbDelete.Text = "刪除資料";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
+            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -124,7 +142,7 @@
             this.txtName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtName.Location = new System.Drawing.Point(391, 41);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(160, 29);
+            this.txtName.Size = new System.Drawing.Size(216, 29);
             this.txtName.TabIndex = 3;
             // 
             // lblAccount
@@ -142,7 +160,7 @@
             this.txtAccount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAccount.Location = new System.Drawing.Point(391, 201);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(160, 29);
+            this.txtAccount.Size = new System.Drawing.Size(216, 29);
             this.txtAccount.TabIndex = 5;
             // 
             // lblEmail
@@ -160,7 +178,7 @@
             this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtEmail.Location = new System.Drawing.Point(391, 123);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(160, 29);
+            this.txtEmail.Size = new System.Drawing.Size(216, 29);
             this.txtEmail.TabIndex = 7;
             // 
             // lblPassword
@@ -178,22 +196,25 @@
             this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPassword.Location = new System.Drawing.Point(391, 282);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(160, 29);
+            this.txtPassword.Size = new System.Drawing.Size(216, 29);
             this.txtPassword.TabIndex = 9;
             // 
             // picAdmin
             // 
             this.picAdmin.BackColor = System.Drawing.Color.White;
             this.picAdmin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picAdmin.Location = new System.Drawing.Point(87, 23);
+            this.picAdmin.Image = ((System.Drawing.Image)(resources.GetObject("picAdmin.Image")));
+            this.picAdmin.Location = new System.Drawing.Point(87, 47);
             this.picAdmin.Name = "picAdmin";
-            this.picAdmin.Size = new System.Drawing.Size(228, 291);
+            this.picAdmin.Size = new System.Drawing.Size(223, 220);
+            this.picAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAdmin.TabIndex = 10;
             this.picAdmin.TabStop = false;
+            this.picAdmin.DoubleClick += new System.EventHandler(this.picAdmin_DoubleClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblID);
+            this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
@@ -211,13 +232,12 @@
             this.panel1.Size = new System.Drawing.Size(888, 317);
             this.panel1.TabIndex = 5;
             // 
-            // lblID
+            // txtID
             // 
-            this.lblID.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblID.Location = new System.Drawing.Point(574, 3);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(48, 43);
-            this.lblID.TabIndex = 14;
+            this.txtID.Location = new System.Drawing.Point(575, 12);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(32, 22);
+            this.txtID.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -346,12 +366,43 @@
             this.btnSave.Text = "儲存";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtKeyword.Location = new System.Drawing.Point(3, 6);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(216, 43);
+            this.txtKeyword.TabIndex = 6;
+            this.txtKeyword.Text = "關鍵字查詢";
+            this.txtKeyword.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtKeyword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtKeyword);
+            this.panel2.Location = new System.Drawing.Point(915, 309);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(264, 48);
+            this.panel2.TabIndex = 8;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Location = new System.Drawing.Point(220, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(42, 42);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(1235, 706);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tsAdmin);
             this.Controls.Add(this.dgvAdmin);
             this.Controls.Add(this.panel1);
@@ -367,6 +418,8 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,7 +431,6 @@
         private System.Windows.Forms.ToolStrip tsAdmin;
         private System.Windows.Forms.ToolStripButton tsbInsert;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.PictureBox picAdmin;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtName;
@@ -399,6 +451,12 @@
         private System.Windows.Forms.CheckBox cbBlog;
         private System.Windows.Forms.CheckBox cbCoupon;
         private System.Windows.Forms.ToolStripButton tsbUpdate;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.OpenFileDialog ofdAdminPicture;
+        private System.Windows.Forms.PictureBox picAdmin;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
