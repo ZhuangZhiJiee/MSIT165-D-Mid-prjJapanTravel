@@ -16,7 +16,7 @@ namespace slnJapanTravel.View.Ship
 {
     public partial class FrmShipPhoto : Form
     {
-        string CS =
+        public string CS =
         //本機
         //"Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
         //連線
@@ -125,7 +125,7 @@ namespace slnJapanTravel.View.Ship
 
             FrmShipPhotoEdit f = new FrmShipPhotoEdit();
             f.titleIcon = btnCreate.Image;
-            f.title = "新增航線圖片";
+            f.title = "編輯航線圖片";
             f.image = m;
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
@@ -151,7 +151,7 @@ namespace slnJapanTravel.View.Ship
 
             FrmShipPhotoEdit f = new FrmShipPhotoEdit();
             f.titleIcon = btnCreate.Image;
-            f.title = "新增航線圖片";
+            f.title = "複製航線圖片";
             f.image = m;
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
