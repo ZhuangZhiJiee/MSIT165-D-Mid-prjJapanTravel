@@ -1,6 +1,6 @@
 ﻿namespace slnJapanTravel.View
 {
-    partial class FrmShipREdit
+    partial class FrmShipRouteEdit
     {
         /// <summary>
         /// Required designer variable.

@@ -88,12 +88,12 @@ namespace slnJapanTravel.View.Ship
             DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow dr = dt.Rows[_position];
             CPort p = new CPort();
+if (dr["PortID港口ID"] != DBNull.Value)
             p.PortID港口ID = (int)dr["PortID港口ID"];
             p.PortName港口名稱 = dr["PortName港口名稱"].ToString();
             p.City城市名稱 = dr["City城市名稱"].ToString();
-            if (dr["PortID港口ID"] != DBNull.Value)
-                p.PortID港口ID = (int)dr["PortID港口ID"];
-                p.PortName港口名稱 = dr["PortName港口名稱"].ToString();
+            
+             ;
 
             FrmShipPortEdit f = new FrmShipPortEdit();
             f.titleIcon = btnCreate.Image;

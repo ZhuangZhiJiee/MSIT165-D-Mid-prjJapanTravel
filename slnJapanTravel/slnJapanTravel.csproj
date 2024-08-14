@@ -237,17 +237,29 @@
     <Compile Include="View\Ship\FrmShipPortEdit.Designer.cs">
       <DependentUpon>FrmShipPortEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Ship\FrmShipREdit.cs">
+    <Compile Include="View\Ship\FrmShipRouteEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Ship\FrmShipREdit.Designer.cs">
-      <DependentUpon>FrmShipREdit.cs</DependentUpon>
+    <Compile Include="View\Ship\FrmShipRouteEdit.Designer.cs">
+      <DependentUpon>FrmShipRouteEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Ship\FrmShipRoute.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Ship\FrmShipRoute.Designer.cs">
       <DependentUpon>FrmShipRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipSchedule.Designer.cs">
+      <DependentUpon>FrmShipSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipScheduleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipScheduleEdit.Designer.cs">
+      <DependentUpon>FrmShipScheduleEdit.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Component\Order\FieldBox.resx" />
     <EmbeddedResource Include="Component\Order\itineraryBox.resx">
@@ -333,11 +345,17 @@
     <EmbeddedResource Include="View\Ship\FrmShipPortEdit.resx">
       <DependentUpon>FrmShipPortEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Ship\FrmShipREdit.resx">
-      <DependentUpon>FrmShipREdit.cs</DependentUpon>
+    <EmbeddedResource Include="View\Ship\FrmShipRouteEdit.resx">
+      <DependentUpon>FrmShipRouteEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Ship\FrmShipRoute.resx">
       <DependentUpon>FrmShipRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipSchedule.resx">
+      <DependentUpon>FrmShipSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipScheduleEdit.resx">
+      <DependentUpon>FrmShipScheduleEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="JapanTravelDataSet.xsc">
       <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>

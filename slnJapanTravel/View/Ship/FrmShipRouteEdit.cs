@@ -17,7 +17,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace slnJapanTravel.View
 {
-    public partial class FrmShipREdit : Form
+    public partial class FrmShipRouteEdit : Form
     {
         public CRoute _cRoute = null;
         public CRoute Route
@@ -54,7 +54,7 @@ namespace slnJapanTravel.View
         }
         
         public DialogResult isOk { get; set; }
-        public FrmShipREdit()
+        public FrmShipRouteEdit()
         {
             InitializeComponent();
         }

@@ -66,7 +66,7 @@ namespace slnJapanTravel.View
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            FrmShipREdit f = new FrmShipREdit();
+            FrmShipRouteEdit f = new FrmShipRouteEdit();
             f.titleIcon = btnCreate.Image;
             f.title = "新增航線作業";
             f.ShowDialog();
@@ -132,6 +132,35 @@ namespace slnJapanTravel.View
 
         private void FrmShipRoute_FormClosed(object sender, FormClosedEventArgs e)
         {
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                con.Open();
+
+                // 手動配置 UpdateCommand
+                _adapter.UpdateCommand = new SqlCommand(
+                    @"UPDATE 渡輪航線 
+              SET OriginPortID出發港ID = @OriginPortID, 
+                  DestinationPortID目的地ID = @DestinationPortID, 
+                  RouteDescription航線敘述 = @RouteDescription
+              WHERE RouteID渡輪航線ID = @RouteID", con);
+
+                // 添加參數
+                _adapter.UpdateCommand.Parameters.Add("@OriginPortID", SqlDbType.Int, 4, "出發港");
+                _adapter.UpdateCommand.Parameters.Add("@DestinationPortID", SqlDbType.Int, 4, "目的地");
+                _adapter.UpdateCommand.Parameters.Add("@RouteDescription", SqlDbType.NVarChar, 255, "航線敘述");
+                _adapter.UpdateCommand.Parameters.Add("@RouteID", SqlDbType.Int, 4, "渡輪航線");
+
+                // 更新資料
+                try
+                {
+                    _adapter.Update(dataGridView1.DataSource as DataTable);
+                    MessageBox.Show("資料已成功更新至資料庫。");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("更新資料時發生錯誤：" + ex.Message);
+                }
+            }
             //_adapter.Update(dataGridView1.DataSource as DataTable);
             Refresh();
         }

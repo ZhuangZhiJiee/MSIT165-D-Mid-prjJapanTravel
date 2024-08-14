@@ -43,8 +43,8 @@ namespace slnJapanTravel.View.Ship
             {
                 _Image = value;
                 tbRouteID.Text=_Image.RouteID渡輪航線ID.ToString();
-                tbPhoytoID.Text=image.ImageID渡輪圖片ID.ToString();
-                tbDesc.Text = image.Description圖片描述;
+                tbPhoytoID.Text= _Image.ImageID渡輪圖片ID.ToString();
+                tbDesc.Text = _Image.Description圖片描述;
                 if(_Image.Image圖片 != null)
                 {
                     Stream streamImage = new MemoryStream(_Image.Image圖片);

@@ -40,8 +40,8 @@ namespace slnJapanTravel.View.Ship
             set
             {
                 _Port = value;
-                tbPortName.Text = port.PortName港口名稱;
-                tbCity.Text = port.City城市名稱;
+                tbPortName.Text = _Port.PortName港口名稱;
+                tbCity.Text = _Port.City城市名稱;
                 tbPortID.Text = port.PortID港口ID.ToString();
                 
             }
