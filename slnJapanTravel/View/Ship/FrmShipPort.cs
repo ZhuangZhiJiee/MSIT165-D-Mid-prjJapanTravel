@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,9 +21,9 @@ namespace slnJapanTravel.View.Ship
         }
         public string CS =
         //本機
-        //"Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
+        "Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
         //連線
-        "Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
+        //"Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
 
 
         private SqlDataAdapter _adapter;
@@ -88,13 +89,11 @@ namespace slnJapanTravel.View.Ship
             DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow dr = dt.Rows[_position];
             CPort p = new CPort();
-if (dr["PortID港口ID"] != DBNull.Value)
+            if (dr["PortID港口ID"] != DBNull.Value)
             p.PortID港口ID = (int)dr["PortID港口ID"];
             p.PortName港口名稱 = dr["PortName港口名稱"].ToString();
             p.City城市名稱 = dr["City城市名稱"].ToString();
             
-             ;
-
             FrmShipPortEdit f = new FrmShipPortEdit();
             f.titleIcon = btnCreate.Image;
             f.title = "編輯港口資料";
@@ -102,7 +101,7 @@ if (dr["PortID港口ID"] != DBNull.Value)
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
             {
-                dr["PortID港口IDPortID港口"] = f.port.PortID港口ID;
+                dr["PortID港口"] = f.port.PortID港口ID;
                 dr["PortName港口名稱"] = f.port.PortName港口名稱;
                 dr["City城市名稱"] = f.port.City城市名稱;
             }
@@ -118,7 +117,37 @@ if (dr["PortID港口ID"] != DBNull.Value)
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+            CPort p = new CPort();
+            p.PortID港口ID = (int)dr["PortID港口ID"];
+            p.PortName港口名稱 = dr["PortName港口名稱"].ToString() + " (複製)";
+            p.City城市名稱 = dr["City城市名稱"].ToString() + " (複製)";
 
+            FrmShipPortEdit f = new FrmShipPortEdit();
+            f.titleIcon = btnCreate.Image;
+            f.title = "編輯港口資料";
+            f.port = p;
+            f.ShowDialog();
+            if (f.isOk == DialogResult.OK)
+            {
+                dr = dt.NewRow();
+                dr["PortID港口ID"] = f.port.PortID港口ID;
+                dr["PortName港口名稱"] = f.port.PortName港口名稱;
+                dr["City城市名稱"] = f.port.City城市名稱;
+
+                dt.Rows.Add(dr);
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT * FROM Port港口";
+            sql += " WHERE PortName港口名稱 LIKE @K_KEYWORD";
+            sql += " OR City城市名稱 LIKE @K_KEYWORD";
+            sql += " OR PortID港口ID LIKE @K_KEYWORD";
+
+            displaysql(sql);
         }
     }
 }

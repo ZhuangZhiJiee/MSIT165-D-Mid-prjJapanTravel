@@ -112,6 +112,7 @@
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(67, 36);
             this.btnFind.Text = "搜尋";
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txtKeyword
             // 

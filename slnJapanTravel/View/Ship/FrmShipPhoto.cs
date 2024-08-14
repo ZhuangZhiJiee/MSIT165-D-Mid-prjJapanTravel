@@ -18,9 +18,9 @@ namespace slnJapanTravel.View.Ship
     {
         public string CS =
         //本機
-        //"Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
+               "Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
         //連線
-        "Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
+        //"Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
 
 
         private SqlDataAdapter _adapter;
@@ -182,7 +182,7 @@ namespace slnJapanTravel.View.Ship
         private void resetGridStyle()
         {
             dataGridView1.Columns[0].Width = 100;
-            dataGridView1.Columns[1].HeaderText = "圖片編號";
+            dataGridView1.Columns[0].HeaderText = "圖片編號";
             dataGridView1.Columns[1].Width = 100;
             dataGridView1.Columns[1].HeaderText = "航線編號";
             dataGridView1.Columns[2].Width = 1600;

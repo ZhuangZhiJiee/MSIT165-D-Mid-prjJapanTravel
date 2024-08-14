@@ -15,9 +15,9 @@ namespace slnJapanTravel.View.Ship
     {
         public string CS =
         //本機
-        //"Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
+        "Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
         //連線
-        "Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
+        //"Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
 
 
         private SqlDataAdapter _adapter;
