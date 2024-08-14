@@ -24,5 +24,12 @@ namespace slnJapanTravel.View
             //h.MdiParent = this;
             h.Show();
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Frmarticlelist a = new Frmarticlelist();
+            //h.MdiParent = this;
+            a.Show();
+        }
     }
 }

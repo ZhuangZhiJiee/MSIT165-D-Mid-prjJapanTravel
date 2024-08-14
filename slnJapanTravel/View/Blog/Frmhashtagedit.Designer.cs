@@ -39,17 +39,21 @@
             // 
             // txtfId
             // 
-            this.txtfId.Location = new System.Drawing.Point(171, 104);
+            this.txtfId.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtfId.Location = new System.Drawing.Point(128, 83);
+            this.txtfId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtfId.Name = "txtfId";
             this.txtfId.ReadOnly = true;
-            this.txtfId.Size = new System.Drawing.Size(306, 25);
+            this.txtfId.Size = new System.Drawing.Size(230, 30);
             this.txtfId.TabIndex = 0;
+            this.txtfId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnadd
             // 
-            this.btnadd.Location = new System.Drawing.Point(416, 348);
+            this.btnadd.Location = new System.Drawing.Point(312, 278);
+            this.btnadd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(183, 67);
+            this.btnadd.Size = new System.Drawing.Size(137, 54);
             this.btnadd.TabIndex = 2;
             this.btnadd.Text = "加入";
             this.btnadd.UseVisualStyleBackColor = true;
@@ -58,18 +62,20 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("新細明體", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(33, 90);
+            this.label1.Location = new System.Drawing.Point(25, 72);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 60);
+            this.label1.Size = new System.Drawing.Size(99, 48);
             this.label1.TabIndex = 2;
             this.label1.Text = "編號";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(605, 348);
+            this.button2.Location = new System.Drawing.Point(454, 278);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 67);
+            this.button2.Size = new System.Drawing.Size(137, 54);
             this.button2.TabIndex = 3;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
@@ -78,18 +84,20 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("新細明體", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(33, 189);
+            this.label2.Location = new System.Drawing.Point(25, 151);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 60);
+            this.label2.Size = new System.Drawing.Size(99, 48);
             this.label2.TabIndex = 4;
             this.label2.Text = "名稱";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtfName
             // 
-            this.txtfName.Location = new System.Drawing.Point(171, 203);
+            this.txtfName.Location = new System.Drawing.Point(128, 162);
+            this.txtfName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtfName.Name = "txtfName";
-            this.txtfName.Size = new System.Drawing.Size(306, 25);
+            this.txtfName.Size = new System.Drawing.Size(230, 22);
             this.txtfName.TabIndex = 1;
             // 
             // label3
@@ -97,18 +105,18 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(525, 201);
+            this.label3.Location = new System.Drawing.Point(394, 161);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 34);
+            this.label3.Size = new System.Drawing.Size(25, 27);
             this.label3.TabIndex = 34;
             this.label3.Text = "*";
             // 
             // Frmhashtagedit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 360);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtfName);
             this.Controls.Add(this.label2);
@@ -116,6 +124,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.txtfId);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Frmhashtagedit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frmhashtagedit";

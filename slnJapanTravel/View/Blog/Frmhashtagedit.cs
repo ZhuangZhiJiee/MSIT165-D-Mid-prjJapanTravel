@@ -15,22 +15,22 @@ namespace slnJapanTravel.View.Blog
 {
     public partial class Frmhashtagedit : Form
     {
-        private Chashtag _ht = null;
+        private Chashtag _Cht = null;
         public DialogResult isOK { get; set; }
 
-        public Chashtag ht
+        public Chashtag Cht
         {
             get
             {
-                if (_ht == null)
-                    _ht = new Chashtag();
-                _ht.fHashtag = txtfName.Text;
-                return _ht;
+                if (_Cht == null)
+                    _Cht = new Chashtag();
+                _Cht.fHashtag = txtfName.Text;
+                return _Cht;
             }
             set
             {
-                _ht = value;
-                txtfName.Text = _ht.fHashtag.ToString();
+                _Cht = value;
+                txtfName.Text = _Cht.fHashtag.ToString();
                 
             }
         }

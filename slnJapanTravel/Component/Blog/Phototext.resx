@@ -117,40 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="area地區BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>287, 62</value>
-  </metadata>
-  <metadata name="japanTravelDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="theme主題BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>248, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAdlJREFUWEft1r8rhVEcx/ErpIQY2AxsxMZmw8jAgIwGg4WJhQXFP8BiNLD4bWAz
-        ShkoCpOibBSDBe/P8K1vt3uv85x73Sifeg0O53vO85zznCP1n7+SeozjADd4wwuusIkRVKHgUdF5vOLz
-        G0+YQBkKkkacI9NguRyjDnmlCXoiX/gRy+hFK9rQj1VoOfzfXqAGUdFrv4QV+8ACKpEt2iPr8JPYQwkS
-        R2vuBx9FaDRRP4khJEoD/IZTwSTRE+/A+t+hFMHRp2adH5DrtWdLM95hdboQHH3n1lEbLjbRdW5hHbXb
-        YzMJq7OrhtD49W9RQ2QGYXXO1BCaZ1jHdjVEZhhW51QNobmGdexTQ2RmYHV0HgRnA9ZxRQ2ROYHVmVVD
-        aHSrWUcdrzrhkqYDOsCsTieCo2PY3wE6XpOkAlpz659oA1p0pVoBWUTIma7B/RJKDxJH9/kRfCF9yzrh
-        skWv3T+56B+XckSlFrpSfUEdr4eYwgB00UxDG86vubeN6ElUQ59QpsK56Mn9z3lNQmuvJ9Wt5otmog3X
-        DQ2mQf3v8pqEoitVt9oStB80mNZ8H3NI/9R+ZBJJo8G24CehPaSvpWjJ9CbWUNSkT+IeRY8moSfX4GNq
-        +M8vSSr1BXtO0uxi/sZ2AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="付款方式BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>269, 107</value>
-  </metadata>
-  <metadata name="theme主題TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 62</value>
-  </metadata>
-  <metadata name="area地區TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 107</value>
-  </metadata>
-  <metadata name="付款方式TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 152</value>
-  </metadata>
 </root>
