@@ -326,12 +326,12 @@ namespace slnJapanTravel.View
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string searchstr = "select * from Admin管理員 where 管理員姓名 = @keyword or 帳號 = @keyword or Email = @keyword";
-            SqlDataAdapter adapter = new SqlDataAdapter();
+            string searchstr = "select * from Admin管理員 where 管理員姓名 like @keyword";
+            SqlDataAdapter adapter = new SqlDataAdapter(searchstr,_con);
             adapter.SelectCommand.Parameters.Add(new SqlParameter("keyword", (object)"%" + txtKeyword.Text + "%"));
             adapter.Fill(_ds, "查詢管理員資料表");
-            dgvAdmin.DataSource = _ds;
-            dgvAdmin.DataMember = "查詢管理員資料表";
+            dgvAdmin.DataSource = _ds.Tables["查詢管理員資料表"];
+            //dgvAdmin.DataMember = "查詢管理員資料表";
         }
     }
 }       
