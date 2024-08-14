@@ -280,6 +280,7 @@
             this.cbPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbPaymentMethod.FormattingEnabled = true;
             this.cbPaymentMethod.Location = new System.Drawing.Point(73, 0);
+            this.cbPaymentMethod.Margin = new System.Windows.Forms.Padding(4);
             this.cbPaymentMethod.Name = "cbPaymentMethod";
             this.cbPaymentMethod.Size = new System.Drawing.Size(339, 28);
             this.cbPaymentMethod.TabIndex = 2;
@@ -290,20 +291,31 @@
             this.付款方式BindingSource.DataMember = "付款方式";
             this.付款方式BindingSource.DataSource = this.japanTravelDataSet;
             // 
+            // lblPaymentMethod
+            // 
+            this.lblPaymentMethod.AutoSize = true;
+            this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblPaymentMethod.Location = new System.Drawing.Point(0, 64);
+            this.lblPaymentMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPaymentMethod.Name = "lblPaymentMethod";
+            this.lblPaymentMethod.Size = new System.Drawing.Size(73, 20);
+            this.lblPaymentMethod.TabIndex = 4;
+            this.lblPaymentMethod.Text = "付款方式";
+            // 
             // fbQuantity
             // 
             this.fbQuantity.Dock = System.Windows.Forms.DockStyle.Top;
             this.fbQuantity.fieldName = "數　　量";
             this.fbQuantity.fieldValue = "1";
             this.fbQuantity.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbQuantity.Location = new System.Drawing.Point(0, 48);
-            this.fbQuantity.Margin = new System.Windows.Forms.Padding(6);
+            this.fbQuantity.Location = new System.Drawing.Point(0, 32);
+            this.fbQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fbQuantity.Name = "fbQuantity";
-            this.fbQuantity.Size = new System.Drawing.Size(617, 48);
+            this.fbQuantity.Size = new System.Drawing.Size(412, 32);
             this.fbQuantity.TabIndex = 1;
             // 
             // fbMemberId
-            // 
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -313,6 +325,7 @@
             this.lblPaymentMethod.Size = new System.Drawing.Size(73, 20);
             this.lblPaymentMethod.TabIndex = 4;
             this.lblPaymentMethod.Text = "付款方式";
+            this.fbMemberId.TabIndex = 0;
             // 
             // label2
             // 

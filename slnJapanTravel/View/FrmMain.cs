@@ -31,9 +31,10 @@ namespace slnJapanTravel.View
             tsbItinerary.Enabled = false;
             tsbShip.Enabled = false;
             tsbOrder.Enabled = false;
-            tsbCart.Enabled = false;
+            //tsbCart.Enabled = false;
             tsbBlog.Enabled = false;
             tsbCopon.Enabled = false;
+            tsbComment.Enabled = false;
         }
         private void ButtonEnable()
         {
@@ -47,14 +48,26 @@ namespace slnJapanTravel.View
                 tsbShip.Enabled = true;
             if (_admin.訂單管理權限 == true)
                 tsbOrder.Enabled = true;
-                tsbCart.Enabled = true;
+                //tsbCart.Enabled = true;
             if (_admin.部落格管理權限 == true)
                 tsbBlog.Enabled = true;
             if (_admin.優惠券管理權限 == true)
                 tsbCopon.Enabled = true;
+            if (_admin.評論管理權限 == true)
+                tsbComment.Enabled = true;
             tslLogin.Text = _admin.管理員姓名;
         }
-
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            //Buttondisable();
+            //FrmLogin flg = new FrmLogin();
+            //flg.ShowDialog();
+            //if (flg._isok == DialogResult.OK)
+            //{
+            //    _admin = flg.loginAdmin;
+            //    ButtonEnable();
+            //}
+        }
         private void tsAdmin_Click(object sender, EventArgs e)
         {
             while (this.ActiveMdiChild != null)
@@ -77,7 +90,6 @@ namespace slnJapanTravel.View
             fm.Show();
             tslTitle.Text = "會員管理系統";
         }
-
         private void tsbLtinerary_Click(object sender, EventArgs e)
         {
             while (this.ActiveMdiChild != null)
@@ -99,8 +111,6 @@ namespace slnJapanTravel.View
             fs.Show();
             tslTitle.Text = "航線管理系統";
         }
-
-
         private void tsbBlog_Click(object sender, EventArgs e)
         {
             while (this.ActiveMdiChild != null)
@@ -133,7 +143,6 @@ namespace slnJapanTravel.View
             fb.Show();
             tslTitle.Text = "行程購買系統";
         }
-
         private void 行程ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             while (this.ActiveMdiChild != null)
@@ -155,22 +164,20 @@ namespace slnJapanTravel.View
             fb.Show();
             tslTitle.Text = "船票訂單管理系統";
         }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void tsbCopon_Click(object sender, EventArgs e)
         {
-            Close();
+            while (this.ActiveMdiChild != null)
+                this.ActiveMdiChild.Close();
+
+            FrmCoupon fb = new FrmCoupon();
+            fb.MdiParent = this;
+            fb.Show();
+            tslTitle.Text = "優惠券管理系統";
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
+        private void tsbLeave_Click(object sender, EventArgs e)
         {
-            //Buttondisable();
-            //FrmLogin flg = new FrmLogin();
-            //flg.ShowDialog();
-            //if (flg._isok == DialogResult.OK)
-            //{
-            //    _admin = flg.loginAdmin;
-            //    ButtonEnable();
-            //}
+            Close();
         }
 
         private void tsbLogin_Click(object sender, EventArgs e)
@@ -192,17 +199,6 @@ namespace slnJapanTravel.View
             while (this.ActiveMdiChild != null)
                 this.ActiveMdiChild.Close();
             Buttondisable();
-        }
-
-        private void tsbCopon_Click(object sender, EventArgs e)
-        {
-            while (this.ActiveMdiChild != null)
-                this.ActiveMdiChild.Close();
-
-            FrmCoupon fb = new FrmCoupon();
-            fb.MdiParent = this;
-            fb.Show();
-            tslTitle.Text = "優惠券管理系統";
         }
     }
 }

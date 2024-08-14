@@ -53,7 +53,7 @@
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(237, 29);
             this.txtAccount.TabIndex = 1;
-            this.txtAccount.Text = "china11";
+            this.txtAccount.Text = "chinaking1949";
             // 
             // txtPassword
             // 

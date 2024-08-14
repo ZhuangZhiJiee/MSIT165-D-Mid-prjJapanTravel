@@ -18,7 +18,7 @@ namespace slnJapanTravel.View
         {
             InitializeComponent();
         }
-        string _constr = "Data Source=192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
+        string _constr = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public DialogResult _isok;
         private CLoginAdmin _loginAdmin;
         public CLoginAdmin loginAdmin
