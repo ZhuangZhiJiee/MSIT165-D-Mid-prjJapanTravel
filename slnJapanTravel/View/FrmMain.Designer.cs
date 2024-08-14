@@ -290,9 +290,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslLogin,
+            this.toolStripSeparator1,
             this.tsbLogout,
             this.tsbLogin,
-            this.toolStripSeparator1,
             this.tslTitle});
             this.toolStrip1.Location = new System.Drawing.Point(167, 0);
             this.toolStrip1.Name = "toolStrip1";

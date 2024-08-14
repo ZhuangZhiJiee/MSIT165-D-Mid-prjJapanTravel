@@ -86,21 +86,13 @@ namespace slnJapanTravel.View
             cbComment.Checked = false;
             cbCoupon.Checked = false;
         }
-        public Image bytetoimage() 
+        public static Image bytetoimage(byte[] bt) 
         {
-            string selectstr = "select * from Admin管理員 where 管理員ID=1011";
-            SqlConnection con = new SqlConnection(_constr);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(selectstr, con);
-            SqlDataReader reader =  cmd.ExecuteReader();
-            if (reader.Read()) 
-            {
-                byte[] imgdata = (byte[])reader["照片"];
-            }
+            MemoryStream ms = new MemoryStream(bt);
 
+            Image img = Image.FromStream(ms);
 
-
-            return null;
+            return img;
         }
         private void displayonDatagridview()
         {
@@ -146,16 +138,75 @@ namespace slnJapanTravel.View
                 {
                     byte[] imgdata = (byte[])e.Value;
                     _selectimg = imgdata;
-                    using (MemoryStream ms = new MemoryStream(imgdata))
-                    {
+                    MemoryStream ms = new MemoryStream(imgdata);
+                    
                         e.Value = Image.FromStream(ms);
-                    }
+                    
                 }
             };
             picAdmin.DataBindings.Add(imgbinding);
 
             dgvAdmin.DataSource = _ds;
             dgvAdmin.DataMember = "管理員資料表";
+
+            dgvAdmin.Columns[0].Visible = false;
+            dgvAdmin.Columns[5].Visible = false;
+        }
+        private void SearchandDisplayonDatagridview()
+        {
+            string searchstr = "select * from Admin管理員 where 管理員姓名 like @keyword or 帳號 like @keyword or Email like @keyword";
+            _con = new SqlConnection(_constr);
+            _con.Open();
+            _ds = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter(searchstr, _con);
+            adapter.SelectCommand.Parameters.Add(new SqlParameter("keyword", (object)"%" + txtKeyword.Text + "%"));
+            adapter.Fill(_ds, "管理員資料表");
+            dgvAdmin.DataSource = _ds;
+            dgvAdmin.DataMember = "管理員資料表";
+
+            txtID.DataBindings.Clear();
+            txtName.DataBindings.Clear();
+            txtEmail.DataBindings.Clear();
+            txtAccount.DataBindings.Clear();
+            txtPassword.DataBindings.Clear();
+            picAdmin.DataBindings.Clear();
+            cbAdmin.DataBindings.Clear();
+            cbMember.DataBindings.Clear();
+            cbItinerary.DataBindings.Clear();
+            cbShip.DataBindings.Clear();
+            cbOrder.DataBindings.Clear();
+            cbBlog.DataBindings.Clear();
+            cbComment.DataBindings.Clear();
+            cbCoupon.DataBindings.Clear();
+
+            txtID.DataBindings.Add("Text", _ds, "管理員資料表.管理員ID");
+            txtName.DataBindings.Add("Text", _ds, "管理員資料表.管理員姓名");
+            txtEmail.DataBindings.Add("Text", _ds, "管理員資料表.Email");
+            txtAccount.DataBindings.Add("Text", _ds, "管理員資料表.帳號");
+            txtPassword.DataBindings.Add("Text", _ds, "管理員資料表.密碼");
+            cbAdmin.DataBindings.Add("Checked", _ds, "管理員資料表.管理員管理權限");
+            cbMember.DataBindings.Add("Checked", _ds, "管理員資料表.會員管理權限");
+            cbItinerary.DataBindings.Add("Checked", _ds, "管理員資料表.行程管理權限");
+            cbShip.DataBindings.Add("Checked", _ds, "管理員資料表.航線管理權限");
+            cbOrder.DataBindings.Add("Checked", _ds, "管理員資料表.訂單管理權限");
+            cbBlog.DataBindings.Add("Checked", _ds, "管理員資料表.部落格管理權限");
+            cbComment.DataBindings.Add("Checked", _ds, "管理員資料表.評論管理權限");
+            cbCoupon.DataBindings.Add("Checked", _ds, "管理員資料表.優惠券管理權限");
+
+            Binding imgbinding = new Binding("Image", _ds, "管理員資料表.照片");
+            imgbinding.Format += (sender2, e2) =>
+            {
+                if (e2.Value != null && e2.Value is byte[])
+                {
+                    byte[] imgdata = (byte[])e2.Value;
+                    _selectimg = imgdata;
+                    MemoryStream ms = new MemoryStream(imgdata);
+
+                    e2.Value = Image.FromStream(ms);
+
+                }
+            };
+            picAdmin.DataBindings.Add(imgbinding);
 
             dgvAdmin.Columns[0].Visible = false;
             dgvAdmin.Columns[5].Visible = false;
@@ -318,20 +369,32 @@ namespace slnJapanTravel.View
                 displayonDatagridview();
             }
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchandDisplayonDatagridview();
+        }
 
+        private void txtKeyword_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKeyword.Text == "") 
+            {
+                displayonDatagridview();
+            }
+        }
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SearchandDisplayonDatagridview();
+            }
+        }
         private void txtSearch_Enter(object sender, EventArgs e)
         {
             txtKeyword.Text = "";
         }
-
-        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtKeyword_Leave(object sender, EventArgs e)
         {
-            string searchstr = "select * from Admin管理員 where 管理員姓名 like @keyword";
-            SqlDataAdapter adapter = new SqlDataAdapter(searchstr,_con);
-            adapter.SelectCommand.Parameters.Add(new SqlParameter("keyword", (object)"%" + txtKeyword.Text + "%"));
-            adapter.Fill(_ds, "查詢管理員資料表");
-            dgvAdmin.DataSource = _ds.Tables["查詢管理員資料表"];
-            //dgvAdmin.DataMember = "查詢管理員資料表";
+            txtKeyword.Text = "關鍵字查詢";
         }
     }
 }       

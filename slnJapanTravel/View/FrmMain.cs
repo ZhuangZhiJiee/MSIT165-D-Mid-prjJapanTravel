@@ -56,17 +56,21 @@ namespace slnJapanTravel.View
             if (_admin.評論管理權限 == true)
                 tsbComment.Enabled = true;
             tslLogin.Text = _admin.管理員姓名;
+            tslLogin.Image = FrmAdmin.bytetoimage(_admin.管理員照片);
+            
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //Buttondisable();
-            //FrmLogin flg = new FrmLogin();
-            //flg.ShowDialog();
-            //if (flg._isok == DialogResult.OK)
-            //{
-            //    _admin = flg.loginAdmin;
-            //    ButtonEnable();
-            //}
+            Buttondisable();
+            FrmLogin flg = new FrmLogin();
+            flg.ShowDialog();
+            if (flg._isok == DialogResult.OK)
+            {
+                _admin = flg.loginAdmin;
+               
+                ButtonEnable();
+
+            }
         }
         private void tsAdmin_Click(object sender, EventArgs e)
         {
