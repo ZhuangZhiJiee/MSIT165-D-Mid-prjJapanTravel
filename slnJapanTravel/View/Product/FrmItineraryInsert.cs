@@ -1,4 +1,5 @@
-﻿using slnJapanTravel.Model;
+﻿using slnJapanTravel.Component.Product;
+using slnJapanTravel.Model;
 using slnJapanTravel.Model.Product;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace slnJapanTravel.View
         public DialogResult isOK { get; set; }
         private CItineraryMain _main;
         private CPic _pic;
+        private ImageList _imageList = new ImageList();
 
         public FrmItineraryInsert()
         {
@@ -39,7 +41,10 @@ namespace slnJapanTravel.View
                 _main.總團位 = Convert.ToInt32(txtItinerarySpace.Text);
                 _main.價格 = Convert.ToInt32(txtItineraryPrice.Text);
                 _main.地區名稱 = cbAreaInsert.Text;
-                _main.date.出發日期 = InsertdateTimePicker.Value;
+                _main.date.出發日期 = txtDateTimeInsert.Text;
+                _main.pic.圖片名稱 = txtPictureName.Text;
+                _main.pic.圖片描述 = txtPictureDescription.Text;
+                //_main.圖片 =Bitmap.FromStream(picbItinerary.Image);
 
                 return _main;
             }
@@ -52,7 +57,9 @@ namespace slnJapanTravel.View
                 txtItinerarySpace.Text = _main.總團位.ToString();
                 txtItineraryPrice.Text = _main.價格.ToString();
                 cbAreaInsert.Text = _main.地區名稱;
-                //InsertdateTimePicker.Value = _main.date.出發日期;
+                txtDateTimeInsert.Text = _main.date.出發日期;
+                txtPictureName.Text = _main.pic.圖片名稱;
+                txtPictureDescription.Text = _main.pic.圖片描述;
                 //if (_pic.圖片系統編號 != 0)
                 //{
                 //    Stream streamImage = new MemoryStream(_pic.圖片系統編號);
@@ -114,6 +121,7 @@ namespace slnJapanTravel.View
             }
             main.體驗 = GetActivityIdByName(main.體驗名稱);
             main.地區 = GeAreaIdByName(main.地區名稱);
+            CProductManager.DepartureDate.Add(main.date.出發日期);
 
             isOK = DialogResult.OK;
             this.Close();
@@ -128,7 +136,7 @@ namespace slnJapanTravel.View
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "Area地區");
-
+            
             cbAreaInsert.Items.Clear();
             foreach (DataRow r in ds.Tables["Area地區"].Rows)
             {
@@ -136,6 +144,15 @@ namespace slnJapanTravel.View
                 area.地區名稱 = r["地區名稱"].ToString();
 
                 cbAreaInsert.Items.Add(area.地區名稱);
+            }
+            if (main != null && main.date != null)
+            {
+                DatelistBox.Items.Clear();
+                // 添加出發日期到 ListBox
+                foreach (string date in CProductManager.DepartureDate)
+                {
+                    DatelistBox.Items.Add(date);
+                }
             }
 
             con.Close();
@@ -177,7 +194,35 @@ namespace slnJapanTravel.View
             this.Close();
         }
 
-        private void picbItinerary_DoubleClick(object sender, EventArgs e)
+        private void btnDateAdd_Click(object sender, EventArgs e)
+        {
+            DateTime parsedDate;
+            if (DateTime.TryParse(txtDateTimeInsert.Text, out parsedDate))
+            {
+                
+                CProductManager.DepartureDate.Add(parsedDate.ToString("yyyy-MM-dd"));
+                DatelistBox.Items.Add(parsedDate);
+            }
+            else
+            {
+                MessageBox.Show("請輸入有效的日期格式。");
+            }
+        }
+
+        private void btnDateDelete_Click(object sender, EventArgs e)
+        {
+            if (DatelistBox.SelectedItem != null)
+            {
+                // 從 DataList 中移除選中的項目
+                DatelistBox.Items.Remove(DatelistBox.SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("請選擇要刪除的日期");
+            }
+        }
+
+        private void picbItinerary_DoubleClick_1(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "體驗圖片(*.jpg)|*.jpg|體驗圖片(*.png)|*.png"; //用過濾器 用|隔開，左邊給人看右邊給電腦看
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
@@ -188,20 +233,24 @@ namespace slnJapanTravel.View
 
             FileStream imgstream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read); //先把檔案變成串流
             BinaryReader reader = new BinaryReader(imgstream); //串流放到讀取器
-            this.main.圖片 = reader.ReadBytes /*轉成byte陣列的方法叫做ReadBytes*/((int)imgstream.Length); //轉成byte陣列，因為是陣列所以用Length
-            reader.Close(); //讀完的東西會占掉記憶體所以要關閉，釋放記憶體
+            main.pic.圖片 = reader.ReadBytes /*轉成byte陣列的方法叫做ReadBytes*/((int)imgstream.Length); //轉成byte陣列，因為是陣列所以用Length
+            CProductManager.Picture.Add(main.pic.圖片);
+
+            if (_imageList.Images.Count == 0)
+            {
+                _imageList.ImageSize = new Size(32, 32); // 設置圖片大小
+                PiclistView.LargeImageList = _imageList;
+            }
+
+            // 新增圖片到 ImageList 和 ListView
+            _imageList.Images.Add(img);
+            PiclistView.Items.Add(new ListViewItem { ImageIndex = _imageList.Images.Count - 1 });
+
+            // 清空 PictureBox
+            picbItinerary.Image = null;
+
+            reader.Close();//讀完的東西會占掉記憶體所以要關閉，釋放記憶體
             imgstream.Close();
-        }
-
-        private void InsertdateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            if (_main == null)
-                _main = new CItineraryMain();
-
-            if (_main.date == null)
-               _main.date = new CItineraryDate();
-
-            _main.date.出發日期 = InsertdateTimePicker.Value;
         }
     }
 }

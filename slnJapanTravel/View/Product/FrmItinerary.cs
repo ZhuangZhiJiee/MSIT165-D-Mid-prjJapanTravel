@@ -38,7 +38,7 @@ namespace slnJapanTravel.View
 
         private void DataGridRefresh()
         {
-            displayBySql("SELECT [行程編號], [行程名稱], [體驗名稱], [可預約人數], [總團位], [價格], [主題], [地區名稱]"
+            displayBySql("SELECT [行程編號], [行程名稱], [體驗名稱], [總團位], [價格], [主題], [地區名稱]"
                             + "\r\nFROM [Itinerary行程]"
                             + "\r\nJOIN [Activity體驗]\r\nON[體驗編號]=[體驗]"
                             + "\r\nJOIN [Area地區]\r\nON[地區編號]=[地區]");
@@ -89,6 +89,7 @@ namespace slnJapanTravel.View
 
                 SqlConnection con = new SqlConnection(_s);
                 con.Open();
+
                 string sql = "SELECT 出發日期 FROM ItineraryTime行程批次 WHERE 行程系統編號 = (SELECT 行程系統編號 FROM Itinerary行程 WHERE 行程編號 = @K_FID)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add(new SqlParameter("K_FID", ItineraryId));
@@ -108,6 +109,10 @@ namespace slnJapanTravel.View
         f.ShowDialog();
         if (f.isOK == DialogResult.OK)
         {
+            if (f.main.date == null)
+            {
+                f.main.date = new CItineraryDate();
+            }
             CProductManager p = new CProductManager();
             p.create(f.main);
 
@@ -122,14 +127,13 @@ namespace slnJapanTravel.View
            
             maindt.Rows.Add(dr);
 
-            //DataTable dtTime = TimedataGridView.DataSource as DataTable;
-            //foreach (var date in f.main.date.行程系統編號.ToString())
-            //{
-            //    DataRow drTime = dtTime.NewRow();
-            //    drTime["行程系統編號"] = f.main.行程系統編號;
-            //    drTime["出發日期"] = f.main.date.出發日期;
-            //    dtTime.Rows.Add(drTime);
-            //}
+            DataTable dtTime = TimedataGridView.DataSource as DataTable;
+            foreach (var date in f.main.date.行程系統編號.ToString())
+            {
+                DataRow drTime = dtTime.NewRow();
+                drTime["出發日期"] = f.main.date.出發日期;
+                dtTime.Rows.Add(drTime);
+            }
 
             DataGridRefresh();
         }
@@ -197,7 +201,6 @@ namespace slnJapanTravel.View
             if (dt != null && _position >= 0 && _position < dt.Rows.Count)
             {
                 DataRow dr = dt.Rows[_position];
-
                 CItineraryMain main = new CItineraryMain();
                 main.行程編號 = dr["行程編號"].ToString(); // 假設行程編號可以轉為字串
 
@@ -221,7 +224,6 @@ namespace slnJapanTravel.View
             main.價格 = Convert.ToInt32(dr["價格"]);
 
             FrmItineraryInsert f = new FrmItineraryInsert();
-            f.main = main;
             f.ShowDialog();
             CProductManager p = new CProductManager();
             p.copy(f.main);
@@ -240,41 +242,49 @@ namespace slnJapanTravel.View
 
             DataGridRefresh();
         }
+        private void btnMainUpdate_Click(object sender, EventArgs e)
+        {
+            DataTable dt = MaindataGridView.DataSource as DataTable;
+            DataRow dr = dt.Rows[_position];
+            
+            CItineraryMain main = new CItineraryMain();
+            main.行程編號 = dr["行程編號"].ToString();
+            main.行程名稱 = dr["行程名稱"].ToString();
+            main.體驗名稱 = dr["體驗名稱"].ToString();
+            main.總團位 = (int)dr["總團位"];
+            main.價格 = Convert.ToInt32(dr["價格"]);
 
 
-        
+            FrmItineraryInsert f = new FrmItineraryInsert();
+            f.main = main;
+            f.ShowDialog();
+            CProductManager p = new CProductManager();
+            p.update(f.main);
+
+            DataGridRefresh();
+        }
+
 
         private void resetMainGridStyle()
         {
-            MaindataGridView.Columns[0].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
-            MaindataGridView.Columns[0].Width = 100;
-            MaindataGridView.Columns[1].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[0].Width = 150;
             MaindataGridView.Columns[1].Width = 800;
-            MaindataGridView.Columns[2].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
             MaindataGridView.Columns[2].Width = 150;
-            MaindataGridView.Columns[3].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
             MaindataGridView.Columns[3].Width = 50;
-            MaindataGridView.Columns[4].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
-            MaindataGridView.Columns[4].Width = 50;
-            MaindataGridView.Columns[5].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            MaindataGridView.Columns[4].Width = 100;
             MaindataGridView.Columns[5].Width = 100;
-            MaindataGridView.Columns[6].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
             MaindataGridView.Columns[6].Width = 100;
-            MaindataGridView.Columns[7].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
-            MaindataGridView.Columns[7].Width = 100;
+            
 
-            //int count = 0;
-            //bool isColorChanged = false;
-            //foreach (DataGridViewRow r in MaindataGridView.Rows)
-            //{
-            //    count++;
-            //    isColorChanged = !isColorChanged;
-            //    if (isColorChanged)
-            //        r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-            //    r.DefaultCellStyle.Font = new Font("Meiryo UI", 11);
-            //    r.Height = 50;
-            //    r.HeaderCell.Value = count.ToString();
-            //}
+
+            foreach (DataGridViewRow r in MaindataGridView.Rows)
+            {
+                
+                r.DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+                r.Height = 40;
+                
+            }
         }
         private void MaindataGridView_Paint_1(object sender, PaintEventArgs e)
         {
@@ -283,12 +293,12 @@ namespace slnJapanTravel.View
 
         private void resetTimeGridStyle()
         {
+            TimedataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Meiryo UI", 11);
             if (TimedataGridView.Rows.Count > 0)
             {
                 TimedataGridView.Columns[0].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
                 TimedataGridView.Columns[0].Width = this.Width;
             }
-            
         }
 
         private void TimedataGridView_Paint(object sender, PaintEventArgs e)
@@ -300,6 +310,7 @@ namespace slnJapanTravel.View
         {
             _position = e.RowIndex;
         }
+        
     }
     
 
