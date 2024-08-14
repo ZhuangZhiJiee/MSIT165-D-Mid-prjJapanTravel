@@ -69,6 +69,7 @@
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(91, 36);
             this.btnSchedule.Text = "航班管理";
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // btnPort
             // 
@@ -77,6 +78,7 @@
             this.btnPort.Name = "btnPort";
             this.btnPort.Size = new System.Drawing.Size(91, 36);
             this.btnPort.Text = "港口管理";
+            this.btnPort.Click += new System.EventHandler(this.btnPort_Click);
             // 
             // btnRoutePhoto
             // 

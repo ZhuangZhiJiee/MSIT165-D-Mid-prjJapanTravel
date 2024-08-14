@@ -1,6 +1,6 @@
-﻿namespace slnJapanTravel.View
+﻿namespace slnJapanTravel.View.Ship
 {
-    partial class FrmShipRoute
+    partial class FrmShipSchedule
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShipRoute));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShipSchedule));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnCreate = new System.Windows.Forms.ToolStripButton();
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +56,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 39);
-            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnCreate
@@ -66,7 +66,6 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(67, 36);
             this.btnCreate.Text = "新增";
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnEdit
             // 
@@ -99,7 +98,6 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(91, 36);
             this.btnClose.Text = "關閉視窗";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnFind
             // 
@@ -109,12 +107,10 @@
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(67, 36);
             this.btnFind.Text = "搜尋";
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txtKeyword
             // 
             this.txtKeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.txtKeyword.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(100, 39);
             // 
@@ -126,22 +122,19 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(800, 411);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
-            // FrmShipRoute
+            // FrmShipSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "FrmShipRoute";
-            this.Text = "航線管理";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmShipRoute_FormClosed);
-            this.Load += new System.EventHandler(this.FrmShip_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmShipRoute_Paint);
-            this.Resize += new System.EventHandler(this.FrmShip_Resize);
+            this.Name = "FrmShipSchedule";
+            this.Text = "FrmShipSchedule";
+            this.Load += new System.EventHandler(this.FrmShipSchedule_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -153,13 +146,13 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnClose;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton btnCreate;
         private System.Windows.Forms.ToolStripButton btnEdit;
         private System.Windows.Forms.ToolStripButton btnCopy;
+        private System.Windows.Forms.ToolStripButton btnDelete;
+        private System.Windows.Forms.ToolStripButton btnClose;
         private System.Windows.Forms.ToolStripButton btnFind;
         private System.Windows.Forms.ToolStripTextBox txtKeyword;
-        private System.Windows.Forms.ToolStripButton btnDelete;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

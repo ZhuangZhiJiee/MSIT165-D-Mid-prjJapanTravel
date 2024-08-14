@@ -43,8 +43,8 @@ namespace slnJapanTravel.View.Ship
             {
                 _Image = value;
                 tbRouteID.Text=_Image.RouteID渡輪航線ID.ToString();
-                tbPhoytoID.Text=image.ImageID渡輪圖片ID.ToString();
-                tbDesc.Text = image.Description圖片描述;
+                tbPhoytoID.Text= _Image.ImageID渡輪圖片ID.ToString();
+                tbDesc.Text = _Image.Description圖片描述;
                 if(_Image.Image圖片 != null)
                 {
                     Stream streamImage = new MemoryStream(_Image.Image圖片);
@@ -69,7 +69,7 @@ namespace slnJapanTravel.View.Ship
             if (string.IsNullOrEmpty(tbRouteID.Text))
                 errMsg += "\r\n航線ID必須輸入";
             if (string.IsNullOrEmpty(tbPhoytoID.Text))
-                errMsg += "\r\n圖片必須輸入";
+                errMsg += "\r\n圖片ID必須輸入";
             
             if (!string.IsNullOrEmpty(errMsg))
             {
@@ -98,6 +98,11 @@ namespace slnJapanTravel.View.Ship
         private void FrmShipPhotoEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void FrmShipPhotoEdit_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -74,6 +74,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="JapanTravelDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JapanTravelDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JapanTravelDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JapanTravelDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Blog\Carticle.cs" />
     <Compile Include="Model\Blog\Carticlepic.cs" />
     <Compile Include="Model\Blog\Chashtag.cs" />
@@ -235,11 +245,23 @@
     <Compile Include="View\Ship\FrmShipPhotoEdit.Designer.cs">
       <DependentUpon>FrmShipPhotoEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Ship\FrmShipREdit.cs">
+    <Compile Include="View\Ship\FrmShipPort.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Ship\FrmShipREdit.Designer.cs">
-      <DependentUpon>FrmShipREdit.cs</DependentUpon>
+    <Compile Include="View\Ship\FrmShipPort.Designer.cs">
+      <DependentUpon>FrmShipPort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipPortEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipPortEdit.Designer.cs">
+      <DependentUpon>FrmShipPortEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipRouteEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ship\FrmShipRouteEdit.Designer.cs">
+      <DependentUpon>FrmShipRouteEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Ship\FrmShipRoute.cs">
       <SubType>Form</SubType>
@@ -247,9 +269,6 @@
     <Compile Include="View\Ship\FrmShipRoute.Designer.cs">
       <DependentUpon>FrmShipRoute.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Component\Blog\Phototext.resx">
-      <DependentUpon>Phototext.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Component\Order\FieldBox.resx" />
     <EmbeddedResource Include="Component\Order\itineraryBox.resx">
       <DependentUpon>itineraryBox.cs</DependentUpon>
@@ -334,11 +353,23 @@
     <EmbeddedResource Include="View\Ship\FrmShipPhotoEdit.resx">
       <DependentUpon>FrmShipPhotoEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Ship\FrmShipREdit.resx">
-      <DependentUpon>FrmShipREdit.cs</DependentUpon>
+    <EmbeddedResource Include="View\Ship\FrmShipPort.resx">
+      <DependentUpon>FrmShipPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipPortEdit.resx">
+      <DependentUpon>FrmShipPortEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipRouteEdit.resx">
+      <DependentUpon>FrmShipRouteEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Ship\FrmShipRoute.resx">
       <DependentUpon>FrmShipRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipSchedule.resx">
+      <DependentUpon>FrmShipSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ship\FrmShipScheduleEdit.resx">
+      <DependentUpon>FrmShipScheduleEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="JapanTravelDataSet.xsc">
       <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
@@ -350,6 +381,28 @@
     </None>
     <None Include="JapanTravelDataSet.xss">
       <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet1.xsc">
+      <DependentUpon>JapanTravelDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JapanTravelDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JapanTravelDataSet1.xss">
+      <DependentUpon>JapanTravelDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet2.xsc">
+      <DependentUpon>JapanTravelDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JapanTravelDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JapanTravelDataSet2.xss">
+      <DependentUpon>JapanTravelDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\slnJapanTravel.Model.C付款方式.datasource" />
     <None Include="Properties\Settings.settings">

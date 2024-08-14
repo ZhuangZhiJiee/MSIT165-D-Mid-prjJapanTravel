@@ -1,6 +1,6 @@
 ﻿namespace slnJapanTravel.View
 {
-    partial class FrmShipREdit
+    partial class FrmShipRouteEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbID = new System.Windows.Forms.TextBox();
             this.lbRouteID = new System.Windows.Forms.Label();
             this.lbDeparture = new System.Windows.Forms.Label();
-            this.tbDep = new System.Windows.Forms.TextBox();
             this.lbDestibation = new System.Windows.Forms.Label();
-            this.tbDest = new System.Windows.Forms.TextBox();
             this.lbDescription = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,9 +40,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbOri = new System.Windows.Forms.ComboBox();
+            this.port港口BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.japanTravelDataSet1 = new slnJapanTravel.JapanTravelDataSet1();
+            this.cbDest = new System.Windows.Forms.ComboBox();
+            this.port港口BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.japanTravelDataSet = new slnJapanTravel.JapanTravelDataSet();
+            this.port港口TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Port港口TableAdapter();
+            this.port港口TableAdapter1 = new slnJapanTravel.JapanTravelDataSet1TableAdapters.Port港口TableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tbID
@@ -75,13 +85,6 @@
             this.lbDeparture.TabIndex = 4;
             this.lbDeparture.Text = "出發港";
             // 
-            // tbDep
-            // 
-            this.tbDep.Location = new System.Drawing.Point(102, 161);
-            this.tbDep.Name = "tbDep";
-            this.tbDep.Size = new System.Drawing.Size(686, 22);
-            this.tbDep.TabIndex = 3;
-            // 
             // lbDestibation
             // 
             this.lbDestibation.AutoSize = true;
@@ -91,13 +94,6 @@
             this.lbDestibation.Size = new System.Drawing.Size(67, 24);
             this.lbDestibation.TabIndex = 6;
             this.lbDestibation.Text = "到達港";
-            // 
-            // tbDest
-            // 
-            this.tbDest.Location = new System.Drawing.Point(102, 207);
-            this.tbDest.Name = "tbDest";
-            this.tbDest.Size = new System.Drawing.Size(686, 22);
-            this.tbDest.TabIndex = 5;
             // 
             // lbDescription
             // 
@@ -178,35 +174,79 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
-            // comboBox1
+            // cbOri
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 499);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 16;
+            this.cbOri.DataSource = this.port港口BindingSource1;
+            this.cbOri.DisplayMember = "PortName港口名稱";
+            this.cbOri.FormattingEnabled = true;
+            this.cbOri.Location = new System.Drawing.Point(102, 165);
+            this.cbOri.Name = "cbOri";
+            this.cbOri.Size = new System.Drawing.Size(686, 20);
+            this.cbOri.TabIndex = 17;
+            // 
+            // port港口BindingSource1
+            // 
+            this.port港口BindingSource1.DataMember = "Port港口";
+            this.port港口BindingSource1.DataSource = this.japanTravelDataSet1;
+            // 
+            // japanTravelDataSet1
+            // 
+            this.japanTravelDataSet1.DataSetName = "JapanTravelDataSet1";
+            this.japanTravelDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cbDest
+            // 
+            this.cbDest.DataSource = this.port港口BindingSource;
+            this.cbDest.DisplayMember = "PortName港口名稱";
+            this.cbDest.FormattingEnabled = true;
+            this.cbDest.Location = new System.Drawing.Point(102, 207);
+            this.cbDest.Name = "cbDest";
+            this.cbDest.Size = new System.Drawing.Size(686, 20);
+            this.cbDest.TabIndex = 17;
+            // 
+            // port港口BindingSource
+            // 
+            this.port港口BindingSource.DataMember = "Port港口";
+            this.port港口BindingSource.DataSource = this.japanTravelDataSet;
+            // 
+            // japanTravelDataSet
+            // 
+            this.japanTravelDataSet.DataSetName = "JapanTravelDataSet";
+            this.japanTravelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // port港口TableAdapter
+            // 
+            this.port港口TableAdapter.ClearBeforeFill = true;
+            // 
+            // port港口TableAdapter1
+            // 
+            this.port港口TableAdapter1.ClearBeforeFill = true;
             // 
             // FrmShipREdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 540);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbDest);
+            this.Controls.Add(this.cbOri);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.lbDestibation);
-            this.Controls.Add(this.tbDest);
             this.Controls.Add(this.lbDeparture);
-            this.Controls.Add(this.tbDep);
             this.Controls.Add(this.lbRouteID);
             this.Controls.Add(this.tbID);
             this.Name = "FrmShipREdit";
             this.Text = "FrmShipEdit";
+            this.Load += new System.EventHandler(this.FrmShipREdit_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,9 +256,7 @@
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label lbRouteID;
         private System.Windows.Forms.Label lbDeparture;
-        private System.Windows.Forms.TextBox tbDep;
         private System.Windows.Forms.Label lbDestibation;
-        private System.Windows.Forms.TextBox tbDest;
         private System.Windows.Forms.Label lbDescription;
         private System.Windows.Forms.TextBox tbDesc;
         private System.Windows.Forms.Button button1;
@@ -226,6 +264,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbOri;
+        private System.Windows.Forms.ComboBox cbDest;
+        private JapanTravelDataSet japanTravelDataSet;
+        private System.Windows.Forms.BindingSource port港口BindingSource;
+        private JapanTravelDataSetTableAdapters.Port港口TableAdapter port港口TableAdapter;
+        private JapanTravelDataSet1 japanTravelDataSet1;
+        private System.Windows.Forms.BindingSource port港口BindingSource1;
+        private JapanTravelDataSet1TableAdapters.Port港口TableAdapter port港口TableAdapter1;
     }
 }

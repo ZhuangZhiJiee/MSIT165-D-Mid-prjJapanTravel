@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="JapanTravelDataSet1" targetNamespace="http://tempuri.org/JapanTravelDataSet1.xsd" xmlns:mstns="http://tempuri.org/JapanTravelDataSet1.xsd" xmlns="http://tempuri.org/JapanTravelDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JapanTravelConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JapanTravelConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.slnJapanTravel.Properties.Settings.GlobalReference.Default.JapanTravelConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Port港口TableAdapter" GeneratorDataComponentClassName="Port港口TableAdapter" Name="Port港口" UserDataComponentName="Port港口TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JapanTravelConnectionString (Settings)" DbObjectName="JapanTravel.dbo.Port港口" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PortName港口名稱 FROM dbo.Port港口</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PortName港口名稱" DataSetColumn="PortName港口名稱" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="JapanTravelDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="JapanTravelDataSet1" msprop:Generator_DataSetName="JapanTravelDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Port港口" msprop:Generator_RowEvHandlerName="Port港口RowChangeEventHandler" msprop:Generator_RowDeletedName="Port港口RowDeleted" msprop:Generator_RowDeletingName="Port港口RowDeleting" msprop:Generator_RowEvArgName="Port港口RowChangeEvent" msprop:Generator_TablePropName="Port港口" msprop:Generator_RowChangedName="Port港口RowChanged" msprop:Generator_RowChangingName="Port港口RowChanging" msprop:Generator_TableClassName="Port港口DataTable" msprop:Generator_RowClassName="Port港口Row" msprop:Generator_TableVarName="tablePort港口" msprop:Generator_UserTableName="Port港口">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PortName港口名稱" msprop:Generator_ColumnPropNameInRow="PortName港口名稱" msprop:Generator_ColumnPropNameInTable="PortName港口名稱Column" msprop:Generator_ColumnVarNameInTable="columnPortName港口名稱" msprop:Generator_UserColumnName="PortName港口名稱">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -41,5 +41,19 @@ namespace slnJapanTravel.View
             fs.MdiParent = MdiParent;
             fs.Show();
         }
+
+        private void btnPort_Click(object sender, EventArgs e)
+        {
+            FrmShipPort fs = new FrmShipPort();
+            fs.MdiParent = MdiParent;
+            fs.Show();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            FrmShipSchedule fs = new FrmShipSchedule();
+            fs.MdiParent = MdiParent;
+            fs.Show();
+        }
     }
 }
