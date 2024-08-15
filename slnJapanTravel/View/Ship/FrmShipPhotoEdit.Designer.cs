@@ -96,7 +96,7 @@
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDesc.Size = new System.Drawing.Size(450, 188);
-            this.tbDesc.TabIndex = 19;
+            this.tbDesc.TabIndex = 1;
             // 
             // lbRouteID
             // 
@@ -113,7 +113,7 @@
             this.tbRouteID.Location = new System.Drawing.Point(102, 133);
             this.tbRouteID.Name = "tbRouteID";
             this.tbRouteID.Size = new System.Drawing.Size(450, 22);
-            this.tbRouteID.TabIndex = 21;
+            this.tbRouteID.TabIndex = 0;
             // 
             // tbPhoytoID
             // 
@@ -152,7 +152,7 @@
             this.button2.Location = new System.Drawing.Point(695, 404);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 34);
-            this.button2.TabIndex = 24;
+            this.button2.TabIndex = 3;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -165,7 +165,7 @@
             this.button1.Location = new System.Drawing.Point(581, 404);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 34);
-            this.button1.TabIndex = 25;
+            this.button1.TabIndex = 2;
             this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

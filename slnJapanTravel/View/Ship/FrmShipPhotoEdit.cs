@@ -123,7 +123,7 @@ namespace slnJapanTravel.View.Ship
 
         private void pictureBox2_DoubleClick(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "圖片|*.png|圖片|*.jpg|圖片|*.bmp";
+            openFileDialog1.Filter = "圖片|*.jpg|圖片|*.png|圖片|*.bmp";
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
             Image img = Bitmap.FromFile(openFileDialog1.FileName);
