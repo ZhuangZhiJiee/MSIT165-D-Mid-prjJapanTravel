@@ -84,6 +84,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JapanTravelDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="JapanTravelDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JapanTravelDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JapanTravelDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JapanTravelDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Blog\Carticle.cs" />
     <Compile Include="Model\Blog\Carticlepic.cs" />
     <Compile Include="Model\Blog\Chashtag.cs" />
@@ -416,6 +426,29 @@
     <None Include="JapanTravelDataSet2.xss">
       <DependentUpon>JapanTravelDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="JapanTravelDataSet3.xsc">
+      <DependentUpon>JapanTravelDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JapanTravelDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JapanTravelDataSet3.xss">
+      <DependentUpon>JapanTravelDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet4.xsc">
+      <DependentUpon>JapanTravelDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravelDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JapanTravelDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JapanTravelDataSet4.xss">
+      <DependentUpon>JapanTravelDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\JapanTravelDataSet4.datasource" />
     <None Include="Properties\DataSources\slnJapanTravel.Model.C付款方式.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
