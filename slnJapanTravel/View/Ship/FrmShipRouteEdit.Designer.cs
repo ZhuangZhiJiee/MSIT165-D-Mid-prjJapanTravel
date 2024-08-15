@@ -178,8 +178,6 @@
             // 
             // cbOri
             // 
-            this.cbOri.DataSource = this.port港口BindingSource1;
-            this.cbOri.DisplayMember = "PortName港口名稱";
             this.cbOri.FormattingEnabled = true;
             this.cbOri.Location = new System.Drawing.Point(102, 165);
             this.cbOri.Name = "cbOri";
@@ -198,8 +196,6 @@
             // 
             // cbDest
             // 
-            this.cbDest.DataSource = this.port港口BindingSource;
-            this.cbDest.DisplayMember = "PortName港口名稱";
             this.cbDest.FormattingEnabled = true;
             this.cbDest.Location = new System.Drawing.Point(102, 207);
             this.cbDest.Name = "cbDest";
