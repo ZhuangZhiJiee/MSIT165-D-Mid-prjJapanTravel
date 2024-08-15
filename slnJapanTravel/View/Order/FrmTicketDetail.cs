@@ -18,8 +18,8 @@ namespace slnJapanTravel.View.Order
 {
     public partial class FrmTicketDetail : Form
     {
-        string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
-        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";  //本機ConnectionString
+        //string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";  //本機ConnectionString
         private SqlDataAdapter _adapter;
         private SqlCommandBuilder _builder;
         private int _position;
@@ -252,6 +252,7 @@ namespace slnJapanTravel.View.Order
             refresh();
 
         }
+
 
 
         //public CImage shipimage

@@ -154,7 +154,7 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(562, 815);
+            this.btnExit.Location = new System.Drawing.Point(544, 786);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(60, 60);
             this.btnExit.TabIndex = 8;
@@ -173,14 +173,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(653, 681);
+            this.panel3.Size = new System.Drawing.Size(653, 600);
             this.panel3.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(24, 579);
+            this.label2.Location = new System.Drawing.Point(33, 432);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 30);
             this.label2.TabIndex = 7;
@@ -190,7 +190,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(24, 521);
+            this.label3.Location = new System.Drawing.Point(33, 374);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 30);
             this.label3.TabIndex = 8;
@@ -200,7 +200,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(24, 463);
+            this.label1.Location = new System.Drawing.Point(33, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 30);
             this.label1.TabIndex = 9;
@@ -209,7 +209,7 @@
             // tbQuantity
             // 
             this.tbQuantity.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbQuantity.Location = new System.Drawing.Point(199, 572);
+            this.tbQuantity.Location = new System.Drawing.Point(208, 425);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(377, 45);
             this.tbQuantity.TabIndex = 6;
@@ -218,19 +218,19 @@
             // tbShipId
             // 
             this.tbShipId.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbShipId.Location = new System.Drawing.Point(199, 514);
+            this.tbShipId.Location = new System.Drawing.Point(208, 367);
             this.tbShipId.Name = "tbShipId";
             this.tbShipId.Size = new System.Drawing.Size(377, 45);
-            this.tbShipId.TabIndex = 4;
+            this.tbShipId.TabIndex = 5;
             this.tbShipId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbTicketOrderId
             // 
             this.tbTicketOrderId.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbTicketOrderId.Location = new System.Drawing.Point(199, 456);
+            this.tbTicketOrderId.Location = new System.Drawing.Point(208, 309);
             this.tbTicketOrderId.Name = "tbTicketOrderId";
             this.tbTicketOrderId.Size = new System.Drawing.Size(377, 45);
-            this.tbTicketOrderId.TabIndex = 5;
+            this.tbTicketOrderId.TabIndex = 4;
             this.tbTicketOrderId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // picShipImage
@@ -238,7 +238,7 @@
             this.picShipImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.picShipImage.Location = new System.Drawing.Point(0, 0);
             this.picShipImage.Name = "picShipImage";
-            this.picShipImage.Size = new System.Drawing.Size(653, 374);
+            this.picShipImage.Size = new System.Drawing.Size(653, 238);
             this.picShipImage.TabIndex = 2;
             this.picShipImage.TabStop = false;
             // 
@@ -246,7 +246,7 @@
             // 
             this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEdit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnEdit.Location = new System.Drawing.Point(257, 735);
+            this.btnEdit.Location = new System.Drawing.Point(257, 680);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(143, 49);
             this.btnEdit.TabIndex = 6;
@@ -258,7 +258,7 @@
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnAdd.Location = new System.Drawing.Point(433, 735);
+            this.btnAdd.Location = new System.Drawing.Point(433, 680);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(143, 49);
             this.btnAdd.TabIndex = 6;
@@ -269,7 +269,7 @@
             // btnAllClear
             // 
             this.btnAllClear.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnAllClear.Location = new System.Drawing.Point(81, 735);
+            this.btnAllClear.Location = new System.Drawing.Point(81, 680);
             this.btnAllClear.Name = "btnAllClear";
             this.btnAllClear.Size = new System.Drawing.Size(143, 49);
             this.btnAllClear.TabIndex = 4;

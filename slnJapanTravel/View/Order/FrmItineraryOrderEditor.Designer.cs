@@ -53,13 +53,19 @@
             this.fbRemark = new prjCustomerSystem.FieldBox();
             this.fbQuantity = new prjCustomerSystem.FieldBox();
             this.fbAmount = new prjCustomerSystem.FieldBox();
-            this.fbMemberId = new prjCustomerSystem.FieldBox();
+            this.cbMember = new System.Windows.Forms.ComboBox();
+            this.member會員BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memberDataset = new slnJapanTravel.MemberDataset();
+            this.lblMember = new System.Windows.Forms.Label();
+            this.member會員TableAdapter = new slnJapanTravel.MemberDatasetTableAdapters.Member會員TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.訂單狀態BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itineraryTime行程批次BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.member會員BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberDataset)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOk
@@ -243,7 +249,7 @@
             this.fbRemark.fieldName = "備　註";
             this.fbRemark.fieldValue = "";
             this.fbRemark.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbRemark.Location = new System.Drawing.Point(534, 221);
+            this.fbRemark.Location = new System.Drawing.Point(534, 287);
             this.fbRemark.Margin = new System.Windows.Forms.Padding(8);
             this.fbRemark.Name = "fbRemark";
             this.fbRemark.Size = new System.Drawing.Size(385, 44);
@@ -265,22 +271,49 @@
             this.fbAmount.fieldName = "總金額";
             this.fbAmount.fieldValue = "";
             this.fbAmount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbAmount.Location = new System.Drawing.Point(534, 153);
+            this.fbAmount.Location = new System.Drawing.Point(534, 219);
             this.fbAmount.Margin = new System.Windows.Forms.Padding(8);
             this.fbAmount.Name = "fbAmount";
             this.fbAmount.Size = new System.Drawing.Size(385, 44);
             this.fbAmount.TabIndex = 7;
             // 
-            // fbMemberId
+            // cbMember
             // 
-            this.fbMemberId.fieldName = "會員ID";
-            this.fbMemberId.fieldValue = "";
-            this.fbMemberId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbMemberId.Location = new System.Drawing.Point(477, 63);
-            this.fbMemberId.Margin = new System.Windows.Forms.Padding(8);
-            this.fbMemberId.Name = "fbMemberId";
-            this.fbMemberId.Size = new System.Drawing.Size(442, 44);
-            this.fbMemberId.TabIndex = 0;
+            this.cbMember.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.member會員BindingSource, "會員ID", true));
+            this.cbMember.DataSource = this.member會員BindingSource;
+            this.cbMember.DisplayMember = "會員名稱";
+            this.cbMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMember.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbMember.FormattingEnabled = true;
+            this.cbMember.Location = new System.Drawing.Point(617, 62);
+            this.cbMember.Name = "cbMember";
+            this.cbMember.Size = new System.Drawing.Size(302, 38);
+            this.cbMember.TabIndex = 40;
+            this.cbMember.ValueMember = "會員ID";
+            // 
+            // member會員BindingSource
+            // 
+            this.member會員BindingSource.DataMember = "Member會員";
+            this.member會員BindingSource.DataSource = this.memberDataset;
+            // 
+            // memberDataset
+            // 
+            this.memberDataset.DataSetName = "MemberDataset";
+            this.memberDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblMember
+            // 
+            this.lblMember.AutoSize = true;
+            this.lblMember.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMember.Location = new System.Drawing.Point(525, 62);
+            this.lblMember.Name = "lblMember";
+            this.lblMember.Size = new System.Drawing.Size(86, 30);
+            this.lblMember.TabIndex = 41;
+            this.lblMember.Text = "會員ID";
+            // 
+            // member會員TableAdapter
+            // 
+            this.member會員TableAdapter.ClearBeforeFill = true;
             // 
             // FrmOrderItineraryEditor
             // 
@@ -288,8 +321,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 612);
             this.Controls.Add(this.lblItineraryId);
+            this.Controls.Add(this.lblMember);
             this.Controls.Add(this.lblPaymentMethodId);
             this.Controls.Add(this.cbItineraryId);
+            this.Controls.Add(this.cbMember);
             this.Controls.Add(this.cbPaymentMethodId);
             this.Controls.Add(this.lblPaymentStatusId);
             this.Controls.Add(this.cbPaymentStatusId);
@@ -301,7 +336,6 @@
             this.Controls.Add(this.fbRemark);
             this.Controls.Add(this.fbQuantity);
             this.Controls.Add(this.fbAmount);
-            this.Controls.Add(this.fbMemberId);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmOrderItineraryEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -313,14 +347,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itineraryTime行程批次BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.member會員BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberDataset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private prjCustomerSystem.FieldBox fbMemberId;
         private prjCustomerSystem.FieldBox fbQuantity;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
@@ -345,5 +379,10 @@
         private JapanTravelDataSet4 japanTravelDataSet4;
         private System.Windows.Forms.BindingSource itineraryTime行程批次BindingSource;
         private JapanTravelDataSet4TableAdapters.ItineraryTime行程批次TableAdapter itineraryTime行程批次TableAdapter;
+        private System.Windows.Forms.ComboBox cbMember;
+        private System.Windows.Forms.Label lblMember;
+        private MemberDataset memberDataset;
+        private System.Windows.Forms.BindingSource member會員BindingSource;
+        private MemberDatasetTableAdapters.Member會員TableAdapter member會員TableAdapter;
     }
 }

@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JapanTravelDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MemberDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Blog\Carticle.cs" />
     <Compile Include="Model\Blog\Carticlepic.cs" />
     <Compile Include="Model\Blog\Carticlestatus.cs" />
@@ -468,6 +473,17 @@
     </None>
     <None Include="JapanTravelDataSet4.xss">
       <DependentUpon>JapanTravelDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="MemberDataset.xsc">
+      <DependentUpon>MemberDataset.xsd</DependentUpon>
+    </None>
+    <None Include="MemberDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MemberDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MemberDataset.xss">
+      <DependentUpon>MemberDataset.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\JapanTravelDataSet4.datasource" />
     <None Include="Properties\DataSources\slnJapanTravel.Model.C付款方式.datasource" />

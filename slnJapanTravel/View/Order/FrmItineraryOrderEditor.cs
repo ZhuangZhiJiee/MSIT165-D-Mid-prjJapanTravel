@@ -36,7 +36,7 @@ namespace slnJapanTravel.View
             {
                 if (_itineraryorder == null)
                     _itineraryorder = new C行程訂單資料();
-                _itineraryorder.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
+                _itineraryorder.會員ID = Convert.ToInt32(cbMember.SelectedValue);
                 _itineraryorder.行程批次編號 = Convert.ToInt32(cbItineraryId.SelectedValue);
                 _itineraryorder.數量 = Convert.ToInt32(fbQuantity.fieldValue);
                 _itineraryorder.下單時間 = DateTime.Now;
@@ -60,7 +60,7 @@ namespace slnJapanTravel.View
             set
             {
                 _itineraryorder = value;
-                fbMemberId.fieldValue = Convert.ToString(_itineraryorder.會員ID);
+                cbMember.SelectedValue = Convert.ToString(_itineraryorder.會員ID);
                 cbItineraryId.SelectedValue = Convert.ToString(_itineraryorder.行程批次編號);
                 fbQuantity.fieldValue = Convert.ToString(_itineraryorder.數量);
                 cbPaymentMethodId.SelectedValue = Convert.ToString(_itineraryorder.付款方式編號);
@@ -92,7 +92,7 @@ namespace slnJapanTravel.View
         private void btnOk_Click(object sender, EventArgs e)
         {
             string errMsg = "";
-            if (!isNumber(fbMemberId.fieldValue))
+            if (cbMember.SelectedValue==null)
                 errMsg += "請輸入會員編號";
             if (cbItineraryId.SelectedValue==null)
                 errMsg += "\r請選擇行程批次編號";
@@ -130,6 +130,8 @@ namespace slnJapanTravel.View
 
         private void FrmOrderItineraryEditor_Load(object sender, EventArgs e)
         {
+            // TODO: 這行程式碼會將資料載入 'memberDataset.Member會員' 資料表。您可以視需要進行移動或移除。
+            this.member會員TableAdapter.Fill(this.memberDataset.Member會員);
 
 
 
