@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,8 @@ namespace slnJapanTravel.View
         private SqlDataAdapter _adapter;
         private int _position = -1;
         private SqlCommandBuilder _builder;
+        //List<int> _list = null;
+
         public FrmShipRoute()
         {
             InitializeComponent();
@@ -178,6 +181,22 @@ namespace slnJapanTravel.View
         {
             _position = e.RowIndex;
 
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            updateRoute();
+        }
+
+        private void updateRoute()
+        {
+            //if (_list == null)
+            //    return;
+            //if (_list.Count == 0)
+            //    return;
+            //if (listBox1.SelectedIndex < 0)
+            //    return;
+            //int fId = _list[listBox1.SelectedIndex];
         }
     }
 }

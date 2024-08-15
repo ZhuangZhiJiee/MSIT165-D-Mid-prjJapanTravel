@@ -69,6 +69,11 @@
       <DependentUpon>ticketBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Component\Product\CProductManager.cs" />
+    <Compile Include="JapanTravel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JapanTravel.xsd</DependentUpon>
+    </Compile>
     <Compile Include="JapanTravelDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -383,6 +388,17 @@
     <EmbeddedResource Include="View\Ship\FrmShipScheduleEdit.resx">
       <DependentUpon>FrmShipScheduleEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="JapanTravel.xsc">
+      <DependentUpon>JapanTravel.xsd</DependentUpon>
+    </None>
+    <None Include="JapanTravel.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JapanTravel.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JapanTravel.xss">
+      <DependentUpon>JapanTravel.xsd</DependentUpon>
+    </None>
     <None Include="JapanTravelDataSet.xsc">
       <DependentUpon>JapanTravelDataSet.xsd</DependentUpon>
     </None>

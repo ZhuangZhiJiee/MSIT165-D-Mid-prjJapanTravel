@@ -48,12 +48,14 @@
             this.japanTravelDataSet = new slnJapanTravel.JapanTravelDataSet();
             this.port港口TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Port港口TableAdapter();
             this.port港口TableAdapter1 = new slnJapanTravel.JapanTravelDataSet1TableAdapters.Port港口TableAdapter();
+            this.japanTravel = new slnJapanTravel.JapanTravel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravel)).BeginInit();
             this.SuspendLayout();
             // 
             // tbID
@@ -177,7 +179,6 @@
             // cbOri
             // 
             this.cbOri.DataSource = this.port港口BindingSource1;
-            this.cbOri.DisplayMember = "PortName港口名稱";
             this.cbOri.FormattingEnabled = true;
             this.cbOri.Location = new System.Drawing.Point(102, 165);
             this.cbOri.Name = "cbOri";
@@ -222,7 +223,12 @@
             // 
             this.port港口TableAdapter1.ClearBeforeFill = true;
             // 
-            // FrmShipREdit
+            // japanTravel
+            // 
+            this.japanTravel.DataSetName = "JapanTravel";
+            this.japanTravel.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // FrmShipRouteEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +244,7 @@
             this.Controls.Add(this.lbDeparture);
             this.Controls.Add(this.lbRouteID);
             this.Controls.Add(this.tbID);
-            this.Name = "FrmShipREdit";
+            this.Name = "FrmShipRouteEdit";
             this.Text = "FrmShipEdit";
             this.Load += new System.EventHandler(this.FrmShipREdit_Load);
             this.panel1.ResumeLayout(false);
@@ -247,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +279,6 @@
         private JapanTravelDataSet1 japanTravelDataSet1;
         private System.Windows.Forms.BindingSource port港口BindingSource1;
         private JapanTravelDataSet1TableAdapters.Port港口TableAdapter port港口TableAdapter1;
+        private JapanTravel japanTravel;
     }
 }

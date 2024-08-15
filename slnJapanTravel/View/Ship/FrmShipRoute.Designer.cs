@@ -75,6 +75,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(67, 36);
             this.btnEdit.Text = "編輯";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCopy
             // 
