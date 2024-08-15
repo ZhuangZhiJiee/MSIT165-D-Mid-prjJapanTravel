@@ -60,6 +60,7 @@
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
@@ -70,6 +71,7 @@
             // 
             // dgvAdmin
             // 
+            this.dgvAdmin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdmin.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -348,7 +350,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCancel.Location = new System.Drawing.Point(780, 273);
+            this.btnCancel.Location = new System.Drawing.Point(780, 275);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 40);
             this.btnCancel.TabIndex = 12;
@@ -359,7 +361,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(642, 274);
+            this.btnSave.Location = new System.Drawing.Point(642, 276);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(86, 40);
             this.btnSave.TabIndex = 11;
@@ -374,14 +376,16 @@
             this.txtKeyword.Size = new System.Drawing.Size(216, 43);
             this.txtKeyword.TabIndex = 6;
             this.txtKeyword.Text = "關鍵字查詢";
+            this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
             this.txtKeyword.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtKeyword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            this.txtKeyword.Leave += new System.EventHandler(this.txtKeyword_Leave);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.txtKeyword);
-            this.panel2.Location = new System.Drawing.Point(915, 309);
+            this.panel2.Location = new System.Drawing.Point(971, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(264, 48);
             this.panel2.TabIndex = 8;
@@ -395,6 +399,28 @@
             this.btnSearch.Size = new System.Drawing.Size(42, 42);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "",
+            "會員管理權限",
+            "管理員管理權限",
+            "行程管理權限",
+            "航線管理權限",
+            "訂單管理權限",
+            "部落格管理權限",
+            "評論管理權限",
+            "優惠券管理權限"});
+            this.cboStatus.Location = new System.Drawing.Point(971, 166);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(262, 43);
+            this.cboStatus.TabIndex = 9;
+            this.cboStatus.TextChanged += new System.EventHandler(this.cboStatus_TextChanged);
             // 
             // FrmAdmin
             // 
@@ -402,6 +428,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(1235, 706);
+            this.Controls.Add(this.cboStatus);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tsAdmin);
             this.Controls.Add(this.dgvAdmin);
@@ -458,5 +485,6 @@
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cboStatus;
     }
 }

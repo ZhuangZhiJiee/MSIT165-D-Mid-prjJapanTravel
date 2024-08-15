@@ -46,9 +46,9 @@
             this.tsbComment = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tslLogin = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbLogout = new System.Windows.Forms.ToolStripButton();
             this.tsbLogin = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslTitle = new System.Windows.Forms.ToolStripLabel();
             this.trs.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -290,9 +290,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslLogin,
+            this.toolStripSeparator1,
             this.tsbLogout,
             this.tsbLogin,
-            this.toolStripSeparator1,
             this.tslTitle});
             this.toolStrip1.Location = new System.Drawing.Point(167, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -310,6 +310,12 @@
             this.tslLogin.Size = new System.Drawing.Size(150, 50);
             this.tslLogin.Text = "未登入";
             this.tslLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 53);
             // 
             // tsbLogout
             // 
@@ -333,14 +339,9 @@
             this.tsbLogin.Text = "登入";
             this.tsbLogin.Click += new System.EventHandler(this.tsbLogin_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 53);
-            // 
             // tslTitle
             // 
+            this.tslTitle.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tslTitle.Name = "tslTitle";
             this.tslTitle.Size = new System.Drawing.Size(0, 50);
             // 
