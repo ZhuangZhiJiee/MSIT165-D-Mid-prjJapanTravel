@@ -253,6 +253,30 @@ namespace slnJapanTravel.View
                 dr["出發港"] = GetPortNameFromID(f.Route.OriginPortID出發港ID); // 假設您有一個方法能根據PortID獲取港口名稱
                 dr["目的地"] = GetPortNameFromID(f.Route.DestinationPortID目的地ID);
                 dr["航線敘述"] = f.Route.RouteDescription航線敘述;
+
+                UpdateRouteInDatabase(f.Route);
+
+            }
+        }
+
+        private void UpdateRouteInDatabase(CRoute route)
+        {
+            string sql = @"UPDATE 渡輪航線
+                   SET OriginPortID出發港ID = @OriginPortID, 
+                       DestinationPortID目的地ID = @DestinationPortID, 
+                       RouteDescription航線敘述 = @RouteDescription
+                   WHERE RouteID渡輪航線ID = @RouteID";
+
+            using (SqlConnection con = new SqlConnection(DbConfig.GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@OriginPortID", route.OriginPortID出發港ID);
+                cmd.Parameters.AddWithValue("@DestinationPortID", route.DestinationPortID目的地ID);
+                cmd.Parameters.AddWithValue("@RouteDescription", route.RouteDescription航線敘述);
+                cmd.Parameters.AddWithValue("@RouteID", route.RouteID渡輪航線ID);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -332,14 +356,37 @@ namespace slnJapanTravel.View
             // 如果用戶確認，將新數據插入到 DataTable 中
             if (f.isOk == DialogResult.OK)
             {
-                // 新數據來自 FrmShipRouteEdit 表單
-                DataRow newRow = dt.NewRow();
-                newRow["渡輪航線"] = f.Route.RouteID渡輪航線ID; // 需要從編輯表單獲取新的 ID
-                newRow["出發港"] = f.Route.OriginPortID出發港ID;
-                newRow["目的地"] = f.Route.DestinationPortID目的地ID;
-                newRow["航線敘述"] = f.Route.RouteDescription航線敘述;
+                InsertRouteIntoDatabase(f.Route);
 
-                dt.Rows.Add(newRow);
+                // 新數據來自 FrmShipRouteEdit 表單
+                //DataRow newRow = dt.NewRow();
+                //newRow["渡輪航線"] = f.Route.RouteID渡輪航線ID; // 需要從編輯表單獲取新的 ID
+                //newRow["出發港"] = f.Route.OriginPortID出發港ID;
+                //newRow["目的地"] = f.Route.DestinationPortID目的地ID;
+                //newRow["航線敘述"] = f.Route.RouteDescription航線敘述;
+
+
+                displaysql(@"SELECT r.RouteID渡輪航線ID AS 渡輪航線, o.PortName港口名稱 AS 出發港, d.PortName港口名稱 AS 目的地, r.RouteDescription航線敘述 AS 航線敘述
+                     FROM 渡輪航線 r
+                     JOIN Port港口 o ON r.OriginPortID出發港ID = o.PortID港口ID
+                     JOIN Port港口 d ON r.DestinationPortID目的地ID = d.PortID港口ID");
+            }
+        }
+
+        private void InsertRouteIntoDatabase(CRoute route)
+        {
+            string sql = @"INSERT INTO 渡輪航線 (OriginPortID出發港ID, DestinationPortID目的地ID, RouteDescription航線敘述)
+                   VALUES (@OriginPortID, @DestinationPortID, @RouteDescription)";
+
+            using (SqlConnection con = new SqlConnection(DbConfig.GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@OriginPortID", route.OriginPortID出發港ID);
+                cmd.Parameters.AddWithValue("@DestinationPortID", route.DestinationPortID目的地ID);
+                cmd.Parameters.AddWithValue("@RouteDescription", route.RouteDescription航線敘述);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }

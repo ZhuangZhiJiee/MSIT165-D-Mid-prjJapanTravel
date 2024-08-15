@@ -113,22 +113,24 @@ namespace slnJapanTravel.View.Ship
             m.Capacity售出座位數 = (int)dr["Capacity售出座位數"];
             if (dr["ScheduleID渡輪航班ID"] != DBNull.Value)
                 m.ScheduleID渡輪航班ID = (int)dr["ScheduleID渡輪航班ID"];
-            m.RouteID渡輪航線ID = (int)dr["ScheduleID渡輪航班ID"];
+            m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"]; // 更正：應該是 RouteID
 
             FrmShipScheduleEdit f = new FrmShipScheduleEdit();
             f.titleIcon = btnEdit.Image;
-            f.title = "編輯電影作業";
+            f.title = "編輯航班資料";
             f.Schedule = m;
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
             {
                 dr["ScheduleID渡輪航班ID"] = f.Schedule.ScheduleID渡輪航班ID;
-                dr["ScheduleID渡輪航班ID"] = f.Schedule.ScheduleID渡輪航班ID;
+                dr["RouteID渡輪航線ID"] = f.Schedule.RouteID渡輪航線ID;
                 dr["DepartureTime出發時間"] = f.Schedule.DepartureTime出發時間;
                 dr["ArrivalTime到達時間"] = f.Schedule.ArrivalTime到達時間;
                 dr["Seats總座位數"] = f.Schedule.Seats總座位數;
                 dr["Capacity售出座位數"] = f.Schedule.Capacity售出座位數;
 
+                // 確保更新 DataTable
+                dt.AcceptChanges();
             }
         }
 
@@ -141,24 +143,24 @@ namespace slnJapanTravel.View.Ship
             m.ArrivalTime到達時間 = (DateTime)dr["ArrivalTime到達時間"];
             m.Seats總座位數 = (int)dr["Seats總座位數"];
             m.Capacity售出座位數 = (int)dr["Capacity售出座位數"];
-            if (dr["ScheduleID渡輪航班ID"] != DBNull.Value)
-                m.ScheduleID渡輪航班ID = (int)dr["ScheduleID渡輪航班ID"];
-            m.RouteID渡輪航線ID = (int)dr["ScheduleID渡輪航班ID"];
+            // 獲取 RouteID
+            m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"];
 
-            FrmShipScheduleEdit f = new FrmShipScheduleEdit();
-            f.Schedule = m;
+            FrmShipScheduleEdit f = new FrmShipScheduleEdit(m);
+            f.titleIcon = btnCopy.Image;
+            f.title = "複製航班資料";
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
             {
-                dr = dt.NewRow();
-                dr["ScheduleID渡輪航班ID"] = f.Schedule.ScheduleID渡輪航班ID;
-                dr["RouteID渡輪航線ID"] = f.Schedule.RouteID渡輪航線ID;
-                dr["DepartureTime出發時間"] = f.Schedule.DepartureTime出發時間;
-                dr["ArrivalTime到達時間"] = f.Schedule.ArrivalTime到達時間;
-                dr["Seats總座位數"] = f.Schedule.Seats總座位數;
-                dr["Capacity售出座位數"] = f.Schedule.Capacity售出座位數;
+                DataRow newDr = dt.NewRow();
+                newDr["ScheduleID渡輪航班ID"] = f.Schedule.ScheduleID渡輪航班ID;
+                newDr["RouteID渡輪航線ID"] = f.Schedule.RouteID渡輪航線ID;
+                newDr["DepartureTime出發時間"] = f.Schedule.DepartureTime出發時間;
+                newDr["ArrivalTime到達時間"] = f.Schedule.ArrivalTime到達時間;
+                newDr["Seats總座位數"] = f.Schedule.Seats總座位數;
+                newDr["Capacity售出座位數"] = f.Schedule.Capacity售出座位數;
 
-                dt.Rows.Add(dr);
+                dt.Rows.Add(newDr);
             }
         }
     }

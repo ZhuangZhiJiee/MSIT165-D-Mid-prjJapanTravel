@@ -121,6 +121,7 @@
             // 
             // tbScheduleID
             // 
+            this.tbScheduleID.Enabled = false;
             this.tbScheduleID.Location = new System.Drawing.Point(114, 143);
             this.tbScheduleID.Name = "tbScheduleID";
             this.tbScheduleID.Size = new System.Drawing.Size(450, 22);
@@ -233,6 +234,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmShipScheduleEdit";
             this.Text = "FrmShipScheduleEdit";
+            this.Load += new System.EventHandler(this.FrmShipScheduleEdit_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

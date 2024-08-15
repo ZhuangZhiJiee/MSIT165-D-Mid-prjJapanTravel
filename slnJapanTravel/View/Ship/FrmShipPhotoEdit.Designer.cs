@@ -188,6 +188,7 @@
             this.Name = "FrmShipPhotoEdit";
             this.Text = "FrmShipPhoto";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmShipPhotoEdit_FormClosed);
+            this.Load += new System.EventHandler(this.FrmShipPhotoEdit_Load_1);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

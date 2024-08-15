@@ -178,6 +178,7 @@
             // 
             // cbOri
             // 
+            this.cbOri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOri.FormattingEnabled = true;
             this.cbOri.Location = new System.Drawing.Point(102, 165);
             this.cbOri.Name = "cbOri";
@@ -196,6 +197,7 @@
             // 
             // cbDest
             // 
+            this.cbDest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDest.FormattingEnabled = true;
             this.cbDest.Location = new System.Drawing.Point(102, 207);
             this.cbDest.Name = "cbDest";

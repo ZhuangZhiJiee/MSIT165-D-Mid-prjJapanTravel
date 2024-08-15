@@ -36,14 +36,6 @@ namespace slnJapanTravel.View.Ship
         private void FrmShipPhoto_Load(object sender, EventArgs e)
         {
             displaysql(@"SELECT * FROM 渡輪圖片");
-            //displaysql(@"SELECT 渡輪圖片.ImageID渡輪圖片ID AS 渡輪圖片ID ,r.RouteID渡輪航線ID AS 渡輪航線, 
-            //            o.PortName港口名稱 AS 出發港, d.PortName港口名稱 AS 目的地,i.Image圖片 AS 圖片, i.Description圖片描述 AS 圖片描述
-             //FROM 渡輪圖片 i
-             //JOIN 渡輪航線 r ON i.RouteID渡輪航線ID = r.RouteID渡輪航線ID
-             //JOIN Port港口 o ON r.OriginPortID出發港ID = o.PortID港口ID
-             //   JOIN Port港口 d ON r.DestinationPortID目的地ID = d.PortID港口ID
-             //");
-
         }
         public void displaysql(string sql)
         {
@@ -69,10 +61,14 @@ namespace slnJapanTravel.View.Ship
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            int newImageID = GetNewImageID(); // 從資料庫獲取新 ImageID
+
             FrmShipPhotoEdit f = new FrmShipPhotoEdit();
             f.titleIcon = btnCreate.Image;
             f.title = "新增航線圖片";
+            f.image = new CImage { ImageID渡輪圖片ID = newImageID }; // 傳遞新ID
             f.ShowDialog();
+
             if (f.isOk == DialogResult.OK)
             {
                 DataTable dt = dataGridView1.DataSource as DataTable;
@@ -83,7 +79,26 @@ namespace slnJapanTravel.View.Ship
                 dr["RouteID渡輪航線ID"] = f.image.RouteID渡輪航線ID;
                 dt.Rows.Add(dr);
             }
-         }
+        }
+
+        private int GetNewImageID()
+        {
+            int newImageID = 1; // 默認為1
+            try
+            {
+                using (SqlConnection con = new SqlConnection(DbConfig.GetConnectionString()))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT ISNULL(MAX(ImageID渡輪圖片ID), 0) + 1 FROM 渡輪圖片", con);
+                    newImageID = (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("獲取新ImageID時發生錯誤: " + ex.Message);
+            }
+            return newImageID;
+        }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -100,8 +115,17 @@ namespace slnJapanTravel.View.Ship
 
         private void FrmShipPhoto_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _adapter.Update(dataGridView1.DataSource as DataTable);
-
+            try
+            {
+                if (_adapter != null && dataGridView1.DataSource != null)
+                {
+                    _adapter.Update(dataGridView1.DataSource as DataTable);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("關閉視窗時發生錯誤: " + ex.Message);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -134,21 +158,24 @@ namespace slnJapanTravel.View.Ship
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
+            int newImageID = GetNewImageID(); // 獲取新的 ImageID
+
             DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow dr = dt.Rows[_position];
-            CImage m = new CImage();
-            m.ImageID渡輪圖片ID = (int)dr["ImageID渡輪圖片ID"];
-            m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"];
-            m.Description圖片描述 = dr["Description圖片描述"].ToString() + " (複製)";
-            m.ImageID渡輪圖片ID = (int)dr["ImageID渡輪圖片ID"];
-            m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"];
-            m.Image圖片 = (byte[])dr["Image圖片"];
+            CImage m = new CImage
+            {
+                ImageID渡輪圖片ID = newImageID, // 使用新ID
+                RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"],
+                Description圖片描述 = dr["Description圖片描述"].ToString() + " (複製)",
+                Image圖片 = (byte[])dr["Image圖片"]
+            };
 
             FrmShipPhotoEdit f = new FrmShipPhotoEdit();
             f.titleIcon = btnCreate.Image;
             f.title = "複製航線圖片";
             f.image = m;
             f.ShowDialog();
+
             if (f.isOk == DialogResult.OK)
             {
                 dr = dt.NewRow();
@@ -157,8 +184,24 @@ namespace slnJapanTravel.View.Ship
                 dr["Description圖片描述"] = f.image.Description圖片描述;
                 dr["RouteID渡輪航線ID"] = f.image.RouteID渡輪航線ID;
                 dt.Rows.Add(dr);
-
             }
+        }
+
+        private int GetMaxPortID()
+        {
+            int maxPortID = 0;
+            string sql = "SELECT MAX(ImageID渡輪圖片ID) FROM 渡輪圖片";
+            using (SqlConnection con = new SqlConnection(DbConfig.GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    maxPortID = Convert.ToInt32(result);
+                }
+            }
+            return maxPortID;
         }
 
         private void btnFind_Click(object sender, EventArgs e)
