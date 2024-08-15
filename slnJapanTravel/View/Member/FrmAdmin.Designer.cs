@@ -61,6 +61,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.btnShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
@@ -198,6 +199,7 @@
             this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPassword.Location = new System.Drawing.Point(391, 282);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(216, 29);
             this.txtPassword.TabIndex = 9;
             // 
@@ -216,6 +218,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnShow);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnCancel);
@@ -350,7 +353,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCancel.Location = new System.Drawing.Point(780, 275);
+            this.btnCancel.Location = new System.Drawing.Point(799, 276);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 40);
             this.btnCancel.TabIndex = 12;
@@ -361,7 +364,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(642, 276);
+            this.btnSave.Location = new System.Drawing.Point(707, 277);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(86, 40);
             this.btnSave.TabIndex = 11;
@@ -421,6 +424,17 @@
             this.cboStatus.Size = new System.Drawing.Size(262, 43);
             this.cboStatus.TabIndex = 9;
             this.cboStatus.TextChanged += new System.EventHandler(this.cboStatus_TextChanged);
+            // 
+            // btnShow
+            // 
+            this.btnShow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnShow.Location = new System.Drawing.Point(617, 278);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(86, 40);
+            this.btnShow.TabIndex = 15;
+            this.btnShow.Text = "顯示密碼";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // FrmAdmin
             // 
@@ -486,5 +500,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.Button btnShow;
     }
 }

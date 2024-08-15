@@ -128,6 +128,7 @@ namespace slnJapanTravel.View
             picMember.DataBindings.Add(imgbinding);
 
             dgvMember.Columns[0].Visible = false;
+            dgvMember.Columns[7].Visible = false;
             dgvMember.Columns[10].Visible = false;
         }
         private void SearchandDisplayonDatagridview()
@@ -184,6 +185,7 @@ namespace slnJapanTravel.View
             picMember.DataBindings.Add(imgbinding);
 
             dgvMember.Columns[0].Visible = false;
+            dgvMember.Columns[7].Visible = false;
             dgvMember.Columns[10].Visible = false;
         }
 
@@ -369,6 +371,22 @@ namespace slnJapanTravel.View
             ControllerDisable();
             this.btnSave.Click -= new System.EventHandler(this.btnInsertSave_Click);
             this.btnSave.Click -= new System.EventHandler(this.btnUpdateSave_Click);
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+                btnShow.Text = "隱藏密碼";
+                return;
+            }
+            if (txtPassword.PasswordChar == '\0')
+            {
+                txtPassword.PasswordChar = '*';
+                btnShow.Text = "顯示密碼";
+                return;
+            }
         }
     }    
 }

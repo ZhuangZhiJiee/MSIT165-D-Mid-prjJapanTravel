@@ -434,6 +434,7 @@ namespace slnJapanTravel.View
                 picAdmin.DataBindings.Add(imgbinding);
             }
             dgvAdmin.Columns[0].Visible = false;
+            dgvAdmin.Columns[3].Visible = false;
             dgvAdmin.Columns[5].Visible = false;
         }
         private void SearchandDisplayonDatagridview()
@@ -493,6 +494,7 @@ namespace slnJapanTravel.View
             picAdmin.DataBindings.Add(imgbinding);
 
             dgvAdmin.Columns[0].Visible = false;
+            dgvAdmin.Columns[3].Visible = false;
             dgvAdmin.Columns[5].Visible = false;
         }
         private void FrmAdmin_Load(object sender, EventArgs e)
@@ -696,6 +698,22 @@ namespace slnJapanTravel.View
         private void cboStatus_TextChanged(object sender, EventArgs e)
         {
             displayonDatagridview();
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+                btnShow.Text = "隱藏密碼";
+                return;
+            }
+            if (txtPassword.PasswordChar == '\0')
+            {
+                txtPassword.PasswordChar = '*';
+                btnShow.Text = "顯示密碼";
+                return;
+            }
         }
     }
 }       

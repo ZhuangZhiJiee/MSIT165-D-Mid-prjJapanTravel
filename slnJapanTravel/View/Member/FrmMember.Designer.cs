@@ -61,6 +61,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.ofdMemberPicture = new System.Windows.Forms.OpenFileDialog();
+            this.btnShow = new System.Windows.Forms.Button();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.panel1.SuspendLayout();
@@ -129,6 +130,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnShow);
             this.panel1.Controls.Add(this.cbbStatus);
             this.panel1.Controls.Add(this.cbbGender);
             this.panel1.Controls.Add(this.cbbCity);
@@ -161,7 +163,7 @@
             // 
             this.cbbStatus.AutoSize = true;
             this.cbbStatus.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbbStatus.Location = new System.Drawing.Point(684, 276);
+            this.cbbStatus.Location = new System.Drawing.Point(237, 279);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(73, 30);
             this.cbbStatus.TabIndex = 26;
@@ -176,7 +178,7 @@
             this.cbbGender.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbbGender.Location = new System.Drawing.Point(87, 279);
+            this.cbbGender.Location = new System.Drawing.Point(87, 281);
             this.cbbGender.Name = "cbbGender";
             this.cbbGender.Size = new System.Drawing.Size(68, 29);
             this.cbbGender.TabIndex = 25;
@@ -423,6 +425,17 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "姓名:";
             // 
+            // btnShow
+            // 
+            this.btnShow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnShow.Location = new System.Drawing.Point(684, 274);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(86, 40);
+            this.btnShow.TabIndex = 27;
+            this.btnShow.Text = "顯示密碼";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // FrmMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -483,5 +496,6 @@
         private System.Windows.Forms.ComboBox cbbGender;
         private System.Windows.Forms.CheckBox cbbStatus;
         private System.Windows.Forms.OpenFileDialog ofdMemberPicture;
+        private System.Windows.Forms.Button btnShow;
     }
 }
