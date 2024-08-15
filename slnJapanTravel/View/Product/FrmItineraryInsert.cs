@@ -18,8 +18,8 @@ namespace slnJapanTravel.View
 {
     public partial class FrmItineraryInsert : Form
     {
-        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
+        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public DialogResult isOK { get; set; }
         private CItineraryMain _main = null;
         private CPic _pic;
@@ -282,6 +282,9 @@ namespace slnJapanTravel.View
 
         private void btnDEMO_Click(object sender, EventArgs e)
         {
+            DatelistBox.Items.Clear();
+            CProductManager.DepartureDate.Clear();
+
             txtItineraryId.Text = "24CAR0924";
             txtItineraryName.Text = "倉敷~人力車導覽江戶時代城鎮";
             txtItineraryPrice.Text = "7000";
@@ -289,6 +292,19 @@ namespace slnJapanTravel.View
             txtDateTimeInsert.Text = "2024-09-24";
             txtPictureName.Text = "人力車";
             txtPictureDescription.Text = "人力車的力與美";
+
+        }
+
+        private void ActivitydataGridView_Paint(object sender, PaintEventArgs e)
+        {
+            ActivitydataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Meiryo UI", 11);
+            if (ActivitydataGridView.Rows.Count > 0)
+            {
+                ActivitydataGridView.Columns[0].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+                ActivitydataGridView.Columns[0].Width = 120;
+                ActivitydataGridView.Columns[1].DefaultCellStyle.Font = new Font("Meiryo UI", 11);
+                ActivitydataGridView.Columns[1].Width = this.Width-150;
+            }
         }
     }
 }

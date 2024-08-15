@@ -15,8 +15,8 @@ namespace slnJapanTravel.Component.Product
     {
         public static List<string> DepartureDate { get; set; } = new List<string>();
         public static List<byte[]> Picture { get; set; } = new List<byte[]>();
-        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
+        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public void create(CItineraryMain main)
         {
             string sqlItinerary = "INSERT INTO Itinerary行程 (";
