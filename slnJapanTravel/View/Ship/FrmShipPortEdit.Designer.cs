@@ -39,6 +39,7 @@
             this.tbCity = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.DEMO = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -154,12 +155,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // DEMO
+            // 
+            this.DEMO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DEMO.AutoSize = true;
+            this.DEMO.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DEMO.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.DEMO.Location = new System.Drawing.Point(467, 404);
+            this.DEMO.Name = "DEMO";
+            this.DEMO.Size = new System.Drawing.Size(93, 34);
+            this.DEMO.TabIndex = 30;
+            this.DEMO.Text = "DEMO";
+            this.DEMO.UseVisualStyleBackColor = true;
+            this.DEMO.Click += new System.EventHandler(this.DEMO_Click);
+            // 
             // FrmShipPortEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.DEMO);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbCity);
             this.Controls.Add(this.tbCity);
@@ -191,5 +207,6 @@
         private System.Windows.Forms.TextBox tbCity;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DEMO;
     }
 }

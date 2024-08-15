@@ -118,7 +118,7 @@ namespace slnJapanTravel.View.Ship
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
             {
-                dr["PortID港口"] = f.port.PortID港口ID;
+                dr["PortID港口ID"] = f.port.PortID港口ID;
                 dr["PortName港口名稱"] = f.port.PortName港口名稱;
                 dr["City城市名稱"] = f.port.City城市名稱;
             }

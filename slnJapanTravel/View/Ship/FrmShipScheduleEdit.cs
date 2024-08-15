@@ -142,6 +142,15 @@ namespace slnJapanTravel.View.Ship
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tbRouteID.Text = "14";
+            tbDepTime.Text = "2024-07-01 14:30:00.000";
+            tbArrTime.Text = "2024-07-01 16:30:00.000";
+            tbSeat.Text = "81000";
+            tbCapacity.Text = "125";
+        }
     }
 }
     

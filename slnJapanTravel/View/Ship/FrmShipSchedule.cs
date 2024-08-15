@@ -67,9 +67,18 @@ namespace slnJapanTravel.View.Ship
             f.titleIcon = btnCreate.Image;
             f.title = "新增航班資料";
             f.ShowDialog();
+
             if (f.isOk == DialogResult.OK)
             {
                 DataTable dt = dataGridView1.DataSource as DataTable;
+
+                // 檢查 DataTable 是否為 null
+                if (dt == null)
+                {
+                    MessageBox.Show("無法取得資料表格。");
+                    return;
+                }
+
                 DataRow dr = dt.NewRow();
                 dr["ScheduleID渡輪航班ID"] = f.Schedule.ScheduleID渡輪航班ID;
                 dr["RouteID渡輪航線ID"] = f.Schedule.RouteID渡輪航線ID;
@@ -79,8 +88,20 @@ namespace slnJapanTravel.View.Ship
                 dr["Capacity售出座位數"] = f.Schedule.Capacity售出座位數;
 
                 dt.Rows.Add(dr);
+
+                // 將更改提交到資料庫
+                try
+                {
+                    _adapter.Update(dt);
+                    displaysql(@"SELECT * FROM 渡輪航班"); // 重新加載資料
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"新增資料時出錯: {ex.Message}");
+                }
             }
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -113,7 +134,7 @@ namespace slnJapanTravel.View.Ship
             m.Capacity售出座位數 = (int)dr["Capacity售出座位數"];
             if (dr["ScheduleID渡輪航班ID"] != DBNull.Value)
                 m.ScheduleID渡輪航班ID = (int)dr["ScheduleID渡輪航班ID"];
-            m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"]; // 更正：應該是 RouteID
+            m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"];
 
             FrmShipScheduleEdit f = new FrmShipScheduleEdit();
             f.titleIcon = btnEdit.Image;
@@ -129,10 +150,13 @@ namespace slnJapanTravel.View.Ship
                 dr["Seats總座位數"] = f.Schedule.Seats總座位數;
                 dr["Capacity售出座位數"] = f.Schedule.Capacity售出座位數;
 
-                // 確保更新 DataTable
-                dt.AcceptChanges();
+                // 更新 DataTable 並提交到資料庫
+                _adapter.Update(dt);
+                dt.AcceptChanges();  // 確保 DataTable 狀態更新
             }
         }
+
+
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
@@ -143,7 +167,6 @@ namespace slnJapanTravel.View.Ship
             m.ArrivalTime到達時間 = (DateTime)dr["ArrivalTime到達時間"];
             m.Seats總座位數 = (int)dr["Seats總座位數"];
             m.Capacity售出座位數 = (int)dr["Capacity售出座位數"];
-            // 獲取 RouteID
             m.RouteID渡輪航線ID = (int)dr["RouteID渡輪航線ID"];
 
             FrmShipScheduleEdit f = new FrmShipScheduleEdit(m);
@@ -161,7 +184,12 @@ namespace slnJapanTravel.View.Ship
                 newDr["Capacity售出座位數"] = f.Schedule.Capacity售出座位數;
 
                 dt.Rows.Add(newDr);
+
+                // 將更改提交到資料庫
+                _adapter.Update(dt);
+                displaysql(@"SELECT * FROM 渡輪航班");
             }
         }
+
     }
 }

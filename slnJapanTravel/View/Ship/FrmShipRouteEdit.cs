@@ -185,5 +185,10 @@ namespace slnJapanTravel.View
 
             return dt;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tbDesc.Text = "此航線為沖繩地區的交通船，往返石垣島及竹富島";
+        }
     }
 }

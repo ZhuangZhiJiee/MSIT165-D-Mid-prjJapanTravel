@@ -168,5 +168,11 @@ namespace slnJapanTravel.View.Ship
             }
             return nextId;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tbRouteID.Text = "10";
+            tbDesc.Text = "這是一張渡輪圖片";
+        }
     }
 }

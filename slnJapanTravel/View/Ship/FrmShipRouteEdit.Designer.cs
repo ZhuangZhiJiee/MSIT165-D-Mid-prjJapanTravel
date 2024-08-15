@@ -49,6 +49,7 @@
             this.port港口TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Port港口TableAdapter();
             this.port港口TableAdapter1 = new slnJapanTravel.JapanTravelDataSet1TableAdapters.Port港口TableAdapter();
             this.japanTravel = new slnJapanTravel.JapanTravel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.port港口BindingSource1)).BeginInit();
@@ -227,6 +228,19 @@
             this.japanTravel.DataSetName = "JapanTravel";
             this.japanTravel.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.AutoSize = true;
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(473, 494);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 34);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "DEMO";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FrmShipRouteEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -236,6 +250,7 @@
             this.Controls.Add(this.cbOri);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.tbDesc);
@@ -279,5 +294,6 @@
         private System.Windows.Forms.BindingSource port港口BindingSource1;
         private JapanTravelDataSet1TableAdapters.Port港口TableAdapter port港口TableAdapter1;
         private JapanTravel japanTravel;
+        private System.Windows.Forms.Button button3;
     }
 }

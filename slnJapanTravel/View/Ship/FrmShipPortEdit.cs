@@ -82,5 +82,11 @@ namespace slnJapanTravel.View.Ship
         {
 
         }
+
+        private void DEMO_Click(object sender, EventArgs e)
+        {
+            tbPortName.Text = "東京港";
+            tbCity.Text = "東京";
+        }
     }
 }
