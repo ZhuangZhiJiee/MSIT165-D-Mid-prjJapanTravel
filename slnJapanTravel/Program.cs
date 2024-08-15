@@ -17,7 +17,7 @@ namespace slnJapanTravel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmBlog());
+            Application.Run(new FrmMain());
         }
     }
 }
