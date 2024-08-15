@@ -555,8 +555,7 @@ namespace slnJapanTravel.View
 
                 displayonDatagridview();
                 ControllerDisable();
-                _reader.Close();
-                _imgstream.Close();
+
                 this.btnSave.Click -= new System.EventHandler(this.btnInsertSave_Click);
             }
             catch { }
@@ -649,6 +648,8 @@ namespace slnJapanTravel.View
                 _reader = new BinaryReader(_imgstream);
                 _admin.管理員照片 = _reader.ReadBytes((int)_imgstream.Length);
                 _selectimg = _admin.管理員照片;
+                _reader.Close();
+                _imgstream.Close();
             }
         }
 
