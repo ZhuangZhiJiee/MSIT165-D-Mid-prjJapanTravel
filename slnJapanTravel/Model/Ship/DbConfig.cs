@@ -19,18 +19,18 @@ namespace slnJapanTravel.Model.Ship
 
         static DbConfig()
         {
-            if (TestConnection(RemoteConnectionString))
-            {
-                _connectionString = RemoteConnectionString;
-            }
-            else if (TestConnection(LocalConnectionString))
-            {
+            //if (TestConnection(RemoteConnectionString))
+            //{
+            //    _connectionString = RemoteConnectionString;
+            //}
+            //else if (TestConnection(LocalConnectionString))
+            //{
                 _connectionString = LocalConnectionString;
-            }
-            else
-            {
-                throw new Exception("無法連接到任何資料庫。");
-            }
+            //}
+            //else
+            //{
+            //    throw new Exception("無法連接到任何資料庫。");
+            //}
         }
 
         public static string GetConnectionString()
