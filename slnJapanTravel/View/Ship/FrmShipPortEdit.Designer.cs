@@ -170,6 +170,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmShipPortEdit";
             this.Text = "FrmShipPortEdit";
+            this.Load += new System.EventHandler(this.FrmShipPortEdit_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

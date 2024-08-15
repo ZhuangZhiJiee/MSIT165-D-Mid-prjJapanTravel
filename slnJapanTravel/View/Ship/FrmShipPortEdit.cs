@@ -42,7 +42,7 @@ namespace slnJapanTravel.View.Ship
                 _Port = value;
                 tbPortName.Text = _Port.PortName港口名稱;
                 tbCity.Text = _Port.City城市名稱;
-                tbPortID.Text = port.PortID港口ID.ToString();
+                tbPortID.Text = _Port.PortID港口ID.ToString();
                 
             }
         }
@@ -50,6 +50,8 @@ namespace slnJapanTravel.View.Ship
         public FrmShipPortEdit()
         {
             InitializeComponent();
+            tbPortID.ReadOnly = true;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -76,6 +78,9 @@ namespace slnJapanTravel.View.Ship
             Close();
         }
 
-       
+        private void FrmShipPortEdit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

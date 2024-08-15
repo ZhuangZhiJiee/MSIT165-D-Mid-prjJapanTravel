@@ -66,6 +66,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(67, 36);
             this.btnCreate.Text = "新增";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnEdit
             // 
@@ -74,6 +75,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(67, 36);
             this.btnEdit.Text = "編輯";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCopy
             // 
@@ -82,6 +84,7 @@
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(67, 36);
             this.btnCopy.Text = "複製";
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnDelete
             // 
@@ -90,6 +93,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(67, 36);
             this.btnDelete.Text = "刪除";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
@@ -98,6 +102,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(91, 36);
             this.btnClose.Text = "關閉視窗";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnFind
             // 
@@ -111,6 +116,7 @@
             // txtKeyword
             // 
             this.txtKeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.txtKeyword.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(100, 39);
             // 
@@ -134,6 +140,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmShipSchedule";
             this.Text = "FrmShipSchedule";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmShipSchedule_FormClosed);
             this.Load += new System.EventHandler(this.FrmShipSchedule_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
