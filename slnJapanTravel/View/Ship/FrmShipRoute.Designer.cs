@@ -84,6 +84,7 @@
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(67, 36);
             this.btnCopy.Text = "複製";
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnDelete
             // 

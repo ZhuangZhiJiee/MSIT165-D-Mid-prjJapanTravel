@@ -1,4 +1,5 @@
 ﻿using slnJapanTravel.Model;
+using slnJapanTravel.Model.Ship;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,7 @@ namespace slnJapanTravel.View.Ship
 {
     public partial class FrmShipPhoto : Form
     {
-        public string CS =
-        //本機
-               "Data Source =.; Initial Catalog = JapanTravel; Integrated Security = True; Encrypt = False";
-        //連線
-        //"Data Source = 192.168.35.188; Initial Catalog = JapanTravel;Persist Security Info = True; User ID = jojo; Password = 0000; Encrypt = False;";
-
-
+      
         private SqlDataAdapter _adapter;
         private int _position = -1;
         private SqlCommandBuilder _builder;
@@ -52,7 +47,7 @@ namespace slnJapanTravel.View.Ship
         }
         public void displaysql(string sql)
         {
-            SqlConnection con = new SqlConnection(CS);
+            SqlConnection con = new SqlConnection(DbConfig.GetConnectionString());
             con.Open();
             _adapter = new SqlDataAdapter(sql, con);
 

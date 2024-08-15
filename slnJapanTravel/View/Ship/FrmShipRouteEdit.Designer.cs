@@ -179,6 +179,7 @@
             // cbOri
             // 
             this.cbOri.DataSource = this.port港口BindingSource1;
+            this.cbOri.DisplayMember = "PortName港口名稱";
             this.cbOri.FormattingEnabled = true;
             this.cbOri.Location = new System.Drawing.Point(102, 165);
             this.cbOri.Name = "cbOri";
