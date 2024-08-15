@@ -19,15 +19,13 @@ namespace slnJapanTravel.Model.Ship
 
         static DbConfig()
         {
-            // 嘗試使用本機資料庫連接字串
-            if (TestConnection(LocalConnectionString))
+            if (TestConnection(RemoteConnectionString))
+            {
+                _connectionString = RemoteConnectionString;
+            }
+            else if (TestConnection(LocalConnectionString))
             {
                 _connectionString = LocalConnectionString;
-            }
-            else if (TestConnection(RemoteConnectionString))
-            {
-                // 如果本機資料庫連接失敗，則使用遠端資料庫連接字串
-                _connectionString = RemoteConnectionString;
             }
             else
             {
