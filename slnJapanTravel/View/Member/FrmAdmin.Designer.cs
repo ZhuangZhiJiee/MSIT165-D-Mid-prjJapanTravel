@@ -71,6 +71,7 @@
             // 
             // dgvAdmin
             // 
+            this.dgvAdmin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdmin.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -349,7 +350,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCancel.Location = new System.Drawing.Point(780, 273);
+            this.btnCancel.Location = new System.Drawing.Point(780, 275);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 40);
             this.btnCancel.TabIndex = 12;
@@ -360,7 +361,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(642, 274);
+            this.btnSave.Location = new System.Drawing.Point(642, 276);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(86, 40);
             this.btnSave.TabIndex = 11;
@@ -384,7 +385,7 @@
             // 
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.txtKeyword);
-            this.panel2.Location = new System.Drawing.Point(962, 309);
+            this.panel2.Location = new System.Drawing.Point(971, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(264, 48);
             this.panel2.TabIndex = 8;
@@ -415,10 +416,11 @@
             "部落格管理權限",
             "評論管理權限",
             "優惠券管理權限"});
-            this.cboStatus.Location = new System.Drawing.Point(962, 218);
+            this.cboStatus.Location = new System.Drawing.Point(971, 166);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(262, 43);
             this.cboStatus.TabIndex = 9;
+            this.cboStatus.TextChanged += new System.EventHandler(this.cboStatus_TextChanged);
             // 
             // FrmAdmin
             // 

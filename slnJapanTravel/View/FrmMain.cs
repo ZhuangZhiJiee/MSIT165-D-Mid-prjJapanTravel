@@ -61,16 +61,16 @@ namespace slnJapanTravel.View
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            Buttondisable();
-            FrmLogin flg = new FrmLogin();
-            flg.ShowDialog();
-            if (flg._isok == DialogResult.OK)
-            {
-                _admin = flg.loginAdmin;
+            //Buttondisable();
+            //FrmLogin flg = new FrmLogin();
+            //flg.ShowDialog();
+            //if (flg._isok == DialogResult.OK)
+            //{
+            //    _admin = flg.loginAdmin;
                
-                ButtonEnable();
+            //    ButtonEnable();
 
-            }
+            //}
         }
         private void tsAdmin_Click(object sender, EventArgs e)
         {
