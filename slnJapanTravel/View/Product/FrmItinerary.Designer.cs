@@ -252,6 +252,7 @@
             this.btnCopy.Text = "複製";
             this.btnCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Visible = false;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnMainUpdate

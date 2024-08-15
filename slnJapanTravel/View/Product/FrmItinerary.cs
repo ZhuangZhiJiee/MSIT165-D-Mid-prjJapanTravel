@@ -20,10 +20,9 @@ namespace slnJapanTravel.View
         private SqlCommandBuilder _builder;
         CItineraryDate _date;
         private int _position;
-        
 
-        string _s = "Data Source=.;Initial Catalog = JapanTravel; Integrated Security = True; Encrypt=False";
-        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        //string _s = "Data Source=.;Initial Catalog = JapanTravel; Integrated Security = True; Encrypt=False";
+        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
 
         public FrmItinerary()
         {
@@ -87,6 +86,7 @@ namespace slnJapanTravel.View
                 DataRow selectedRow = ((DataTable)MaindataGridView.DataSource).Rows[e.RowIndex];
                 string ItineraryId = selectedRow["行程編號"].ToString();  // 使用行程編號來篩選
 
+                //將出發日期顯示在TimedataGridView上
                 SqlConnection con = new SqlConnection(_s);
                 con.Open();
 
@@ -121,8 +121,8 @@ namespace slnJapanTravel.View
             dr["行程編號"] = f.main.行程編號;
             dr["體驗名稱"] = GetActivityNameById(f.main.體驗);
             dr["行程名稱"] = f.main.行程名稱;
-            dr["總團位"] = f.main.總團位.ToString();
-            dr["價格"] = f.main.價格.ToString();
+            dr["總團位"] = f.main.總團位;
+            dr["價格"] = f.main.價格;
             dr["地區名稱"] = GetAreaNameById(f.main.地區);
            
             maindt.Rows.Add(dr);
@@ -202,7 +202,7 @@ namespace slnJapanTravel.View
             {
                 DataRow dr = dt.Rows[_position];
                 CItineraryMain main = new CItineraryMain();
-                main.行程編號 = dr["行程編號"].ToString(); // 假設行程編號可以轉為字串
+                main.行程編號 = dr["行程編號"].ToString();
 
                 dr.Delete();
 
@@ -246,7 +246,7 @@ namespace slnJapanTravel.View
         {
             DataTable dt = MaindataGridView.DataSource as DataTable;
             DataRow dr = dt.Rows[_position];
-            
+
             CItineraryMain main = new CItineraryMain();
             main.行程編號 = dr["行程編號"].ToString();
             main.行程名稱 = dr["行程名稱"].ToString();
@@ -254,10 +254,23 @@ namespace slnJapanTravel.View
             main.總團位 = (int)dr["總團位"];
             main.價格 = Convert.ToInt32(dr["價格"]);
 
+            // 查詢行程系統編號
+            SqlConnection con = new SqlConnection(_s);
+            con.Open();
+            string sql = "SELECT 行程系統編號 FROM Itinerary行程 WHERE 行程編號 = @K_FID";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.Add(new SqlParameter("K_FID", main.行程編號));
+            object result = cmd.ExecuteScalar();
+            if (result != null)
+            {
+                main.行程系統編號 = Convert.ToInt32(result);
+            }
+            con.Close();
 
             FrmItineraryInsert f = new FrmItineraryInsert();
             f.main = main;
             f.ShowDialog();
+
             CProductManager p = new CProductManager();
             p.update(f.main);
 
