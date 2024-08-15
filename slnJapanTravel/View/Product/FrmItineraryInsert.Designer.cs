@@ -65,6 +65,7 @@
             this.btnCancelMain = new System.Windows.Forms.Button();
             this.btnInsertMain = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnDEMO = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.Picpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbItinerary)).BeginInit();
@@ -75,6 +76,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDEMO);
             this.panel1.Controls.Add(this.PiclistView);
             this.panel1.Controls.Add(this.Picpanel);
             this.panel1.Controls.Add(this.btnDateDelete);
@@ -455,6 +457,17 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnDEMO
+            // 
+            this.btnDEMO.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDEMO.Location = new System.Drawing.Point(1099, 12);
+            this.btnDEMO.Name = "btnDEMO";
+            this.btnDEMO.Size = new System.Drawing.Size(75, 33);
+            this.btnDEMO.TabIndex = 38;
+            this.btnDEMO.Text = "DEMO";
+            this.btnDEMO.UseVisualStyleBackColor = true;
+            this.btnDEMO.Click += new System.EventHandler(this.btnDEMO_Click);
+            // 
             // FrmItineraryInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -518,5 +531,6 @@
         private System.Windows.Forms.PictureBox picbItinerary;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListView PiclistView;
+        private System.Windows.Forms.Button btnDEMO;
     }
 }

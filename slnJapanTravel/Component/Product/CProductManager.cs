@@ -15,8 +15,8 @@ namespace slnJapanTravel.Component.Product
     {
         public static List<string> DepartureDate { get; set; } = new List<string>();
         public static List<byte[]> Picture { get; set; } = new List<byte[]>();
-        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
+        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public void create(CItineraryMain main)
         {
             string sqlItinerary = "INSERT INTO Itinerary行程 (";
@@ -118,11 +118,18 @@ namespace slnJapanTravel.Component.Product
                 cmdTime.Parameters.Add(new SqlParameter("K_FSID", itinerarySystemId));
                 cmdTime.ExecuteNonQuery();
 
+                //刪除 Picture圖片的資料
+                string sqlDeletePic = "DELETE FROM Picture圖片 WHERE 行程系統編號 = @K_FSID";
+                SqlCommand cmdPic = new SqlCommand(sqlDeletePic, con);
+                cmdPic.Parameters.Add(new SqlParameter("K_FSID", itinerarySystemId));
+                cmdPic.ExecuteNonQuery();
+
                 // 刪除 Itinerary行程表的資料
                 string sqlDeleteItinerary = "DELETE FROM Itinerary行程 WHERE 行程編號 = @K_FID";
                 SqlCommand cmdItinerary = new SqlCommand(sqlDeleteItinerary, con);
                 cmdItinerary.Parameters.Add(new SqlParameter("K_FID", main.行程編號));
                 cmdItinerary.ExecuteNonQuery();
+                
             }
 
             con.Close();
@@ -187,12 +194,12 @@ namespace slnJapanTravel.Component.Product
         public void update(CItineraryMain main)
         {
             string sqlItinerary = "UPDATE Itinerary行程 SET";
-            sqlItinerary += " 行程名稱=@K_FNAME, ";
-            sqlItinerary += " 體驗=@K_FACT, ";
-            sqlItinerary += " 總團位=@K_FSPACE, ";
-            sqlItinerary += " 價格=@K_FPRICE, ";
-            sqlItinerary += " 地區=@K_FAREA ";
-            sqlItinerary += " WHERE 行程編號=@K_FID ";
+            sqlItinerary += " 行程名稱= @K_FNAME, ";
+            sqlItinerary += " 體驗= @K_FACT, ";
+            sqlItinerary += " 總團位= @K_FSPACE, ";
+            sqlItinerary += " 價格= @K_FPRICE, ";
+            sqlItinerary += " 地區= @K_FAREA ";
+            sqlItinerary += " WHERE 行程編號= @K_FID ";
 
             string sqlTimeDelete = "DELETE FROM ItineraryTime行程批次 WHERE 行程系統編號 = @K_FSID";
             string sqlTimeInsert = "INSERT INTO ItineraryTime行程批次 (";
@@ -214,40 +221,52 @@ namespace slnJapanTravel.Component.Product
             sqlPicInsert += "@K_PNAME,";
             sqlPicInsert += "@K_PDES)";
 
-            SqlConnection con = new SqlConnection(); //new類別
+            int itinerarySystemId = -1; // 初始化為 -1
+            string sqlSelectSystemId = "SELECT 行程系統編號 FROM Itinerary行程 WHERE 行程編號 = @K_FID";
+            SqlConnection con = new SqlConnection(_s);
+            SqlCommand cmdSelect = new SqlCommand(sqlSelectSystemId, con);
+            cmdSelect.Parameters.Add(new SqlParameter("K_FID", main.行程編號));
+
             con.ConnectionString = _s; //連接自來水廠
             con.Open();
-
-            SqlCommand cmdItinerary = new SqlCommand(sqlItinerary, con);
+            object result = cmdSelect.ExecuteScalar();
+            if (result != null)
+            {
+                itinerarySystemId = Convert.ToInt32(result);
+            }
+            SqlCommand cmdItinerary = new SqlCommand();
+            cmdItinerary.Connection = con;
+            cmdItinerary.CommandText = sqlItinerary;
             cmdItinerary.Parameters.Add(new SqlParameter("K_FID", main.行程編號));
             cmdItinerary.Parameters.Add(new SqlParameter("K_FNAME", main.行程名稱));
             cmdItinerary.Parameters.Add(new SqlParameter("K_FACT", main.體驗));
             cmdItinerary.Parameters.Add(new SqlParameter("K_FSPACE", main.總團位));
             cmdItinerary.Parameters.Add(new SqlParameter("K_FPRICE", main.價格));
             cmdItinerary.Parameters.Add(new SqlParameter("K_FAREA", main.地區));
-            // 插入新的出發日期
-            if (main.行程系統編號 > 0)
+            cmdItinerary.ExecuteNonQuery();
+
+            if (itinerarySystemId > 0)
             {
                 // 刪除舊的出發日期
-                using (SqlCommand cmdTimeDelete = new SqlCommand(sqlTimeDelete, con))
-                {
-                    cmdTimeDelete.Parameters.Add(new SqlParameter("K_FSID", main.行程系統編號));
-                    cmdTimeDelete.ExecuteNonQuery();
-                }
+                
+                SqlCommand cmdTimeDelete = new SqlCommand(sqlTimeDelete, con);
+                cmdTimeDelete.Parameters.Add(new SqlParameter("K_FSID", itinerarySystemId));
+                cmdTimeDelete.ExecuteNonQuery();
 
                 // 插入新的出發日期
                 foreach (string date in CProductManager.DepartureDate)
                 {
-                    using (SqlCommand cmdTimeInsert = new SqlCommand(sqlTimeInsert, con))
-                    {
-                        cmdTimeInsert.Parameters.Add(new SqlParameter("K_FSID", main.行程系統編號));
-                        cmdTimeInsert.Parameters.Add(new SqlParameter("K_DATE", date));
-                        cmdTimeInsert.ExecuteNonQuery();
-                    }
+                    SqlCommand cmdTimeInsert = new SqlCommand(sqlTimeInsert, con);
+                    cmdTimeInsert.Parameters.Add(new SqlParameter("K_FSID", itinerarySystemId));
+                    cmdTimeInsert.Parameters.Add(new SqlParameter("K_DATE", date));
+                    cmdTimeInsert.ExecuteNonQuery();
+
                 }
+
+                //刪除舊的圖片
                 using (SqlCommand cmdPicDelete = new SqlCommand(sqlPicDelete, con))
                 {
-                    cmdPicDelete.Parameters.Add(new SqlParameter("K_FSID", main.行程系統編號));
+                    cmdPicDelete.Parameters.Add(new SqlParameter("K_FSID", itinerarySystemId));
                     cmdPicDelete.ExecuteNonQuery();
                 }
 
@@ -256,7 +275,7 @@ namespace slnJapanTravel.Component.Product
                 {
                     using (SqlCommand cmdPicInsert = new SqlCommand(sqlPicInsert, con))
                     {
-                        cmdPicInsert.Parameters.Add(new SqlParameter("K_FSID", main.行程系統編號));
+                        cmdPicInsert.Parameters.Add(new SqlParameter("K_FSID", itinerarySystemId));
                         cmdPicInsert.Parameters.Add(new SqlParameter("K_PIC", main.pic.圖片));
                         cmdPicInsert.Parameters.Add(new SqlParameter("K_PNAME", main.pic.圖片名稱));
                         cmdPicInsert.Parameters.Add(new SqlParameter("K_PDES", main.pic.圖片描述));
@@ -264,6 +283,7 @@ namespace slnJapanTravel.Component.Product
                     }
                 }
             }
+            con.Close();
         }
 
     }

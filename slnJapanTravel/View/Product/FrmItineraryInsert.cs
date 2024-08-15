@@ -18,32 +18,35 @@ namespace slnJapanTravel.View
 {
     public partial class FrmItineraryInsert : Form
     {
-        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
-        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
+        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";
         public DialogResult isOK { get; set; }
-        private CItineraryMain _main;
+        private CItineraryMain _main = null;
         private CPic _pic;
         private ImageList _imageList = new ImageList();
-
         public FrmItineraryInsert()
         {
             InitializeComponent();
         }
+
         public CItineraryMain main
         {
             get
             {
                 if (_main == null)
                     _main = new CItineraryMain(); //若類別為null，要用的話要new
+
                 _main.行程編號 = txtItineraryId.Text;
                 _main.行程名稱 = txtItineraryName.Text;
                 _main.體驗名稱 = txtActivitySearch.Text;
-                _main.總團位 = Convert.ToInt32(txtItinerarySpace.Text);
-                _main.價格 = Convert.ToInt32(txtItineraryPrice.Text);
-                _main.地區名稱 = cbAreaInsert.Text;
+                if (txtItinerarySpace.Text != "")
+                    _main.總團位 = Convert.ToInt32(txtItinerarySpace.Text);
+                if (txtItineraryPrice.Text != "")
+                    _main.價格 = Convert.ToInt32(txtItineraryPrice.Text);
                 _main.date.出發日期 = txtDateTimeInsert.Text;
                 _main.pic.圖片名稱 = txtPictureName.Text;
                 _main.pic.圖片描述 = txtPictureDescription.Text;
+                _main.地區名稱 = cbAreaInsert.Text;
                 //_main.圖片 =Bitmap.FromStream(picbItinerary.Image);
 
                 return _main;
@@ -56,10 +59,11 @@ namespace slnJapanTravel.View
                 txtActivitySearch.Text = _main.體驗名稱;
                 txtItinerarySpace.Text = _main.總團位.ToString();
                 txtItineraryPrice.Text = _main.價格.ToString();
-                cbAreaInsert.Text = _main.地區名稱;
                 txtDateTimeInsert.Text = _main.date.出發日期;
                 txtPictureName.Text = _main.pic.圖片名稱;
                 txtPictureDescription.Text = _main.pic.圖片描述;
+                cbAreaInsert.Text = _main.地區名稱;
+
                 //if (_pic.圖片系統編號 != 0)
                 //{
                 //    Stream streamImage = new MemoryStream(_pic.圖片系統編號);
@@ -67,6 +71,7 @@ namespace slnJapanTravel.View
                 //}
             }
         }
+
         private int GetActivityIdByName(string activityName)
         {
             int activityId = 0;
@@ -111,7 +116,7 @@ namespace slnJapanTravel.View
             if (string.IsNullOrEmpty(txtItineraryPrice.Text))
                 errMsg = " \r\n 請輸入價格";
             if (!CNumberUtility.isNumber(txtItinerarySpace.Text))
-                errMsg += " \r\n 請輸入剩餘團位數量";
+                errMsg += " \r\n 請輸入團位數量";
             if (!CNumberUtility.isNumber(txtItineraryPrice.Text))
                 errMsg += "\r\n 請輸入價格數字";
             if (!string.IsNullOrEmpty(errMsg))
@@ -121,7 +126,8 @@ namespace slnJapanTravel.View
             }
             main.體驗 = GetActivityIdByName(main.體驗名稱);
             main.地區 = GeAreaIdByName(main.地區名稱);
-            CProductManager.DepartureDate.Add(main.date.出發日期);
+
+
 
             isOK = DialogResult.OK;
             this.Close();
@@ -136,7 +142,7 @@ namespace slnJapanTravel.View
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "Area地區");
-            
+
             cbAreaInsert.Items.Clear();
             foreach (DataRow r in ds.Tables["Area地區"].Rows)
             {
@@ -145,18 +151,31 @@ namespace slnJapanTravel.View
 
                 cbAreaInsert.Items.Add(area.地區名稱);
             }
-            if (main != null && main.date != null)
-            {
-                DatelistBox.Items.Clear();
-                // 添加出發日期到 ListBox
-                foreach (string date in CProductManager.DepartureDate)
+
+            string sqlTime = "SELECT 出發日期 FROM ItineraryTime行程批次 WHERE 行程系統編號=@K_FSID";
+            SqlDataAdapter adapterTime = new SqlDataAdapter(sqlTime, con);
+            adapterTime.SelectCommand.Parameters.Add(new SqlParameter("K_FSID", main.行程系統編號));
+
+            DataSet dsTime = new DataSet();
+            adapterTime.Fill(dsTime, "ItineraryTime行程批次");
+
+            if (main != null || main.date != null)
+                // 將查詢到的出發日期添加到集合中
+                foreach (DataRow row in dsTime.Tables["ItineraryTime行程批次"].Rows)
                 {
-                    DatelistBox.Items.Add(date);
+                    CProductManager.DepartureDate.Add(row["出發日期"].ToString());
                 }
+
+            // 將集合中的出發日期填充到ListBox
+            DatelistBox.Items.Clear();
+            foreach (string date in CProductManager.DepartureDate)
+            {
+                DatelistBox.Items.Add(date);
             }
 
             con.Close();
         }
+        
         private void displaySpot(string sql)
         {
             SqlConnection con = new SqlConnection();
@@ -189,10 +208,7 @@ namespace slnJapanTravel.View
             }
         }
 
-        private void btnCancelMain_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void btnDateAdd_Click(object sender, EventArgs e)
         {
@@ -202,6 +218,7 @@ namespace slnJapanTravel.View
                 
                 CProductManager.DepartureDate.Add(parsedDate.ToString("yyyy-MM-dd"));
                 DatelistBox.Items.Add(parsedDate);
+                txtDateTimeInsert.Clear();
             }
             else
             {
@@ -213,8 +230,13 @@ namespace slnJapanTravel.View
         {
             if (DatelistBox.SelectedItem != null)
             {
+                string selectedDate = DatelistBox.SelectedItem.ToString();
                 // 從 DataList 中移除選中的項目
                 DatelistBox.Items.Remove(DatelistBox.SelectedItem);
+                if (CProductManager.DepartureDate.Contains(selectedDate))
+                {
+                    CProductManager.DepartureDate.Remove(selectedDate);
+                }
             }
             else
             {
@@ -251,6 +273,22 @@ namespace slnJapanTravel.View
 
             reader.Close();//讀完的東西會占掉記憶體所以要關閉，釋放記憶體
             imgstream.Close();
+        }
+
+        private void btnCancelMain_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDEMO_Click(object sender, EventArgs e)
+        {
+            txtItineraryId.Text = "24CAR0924";
+            txtItineraryName.Text = "倉敷~人力車導覽江戶時代城鎮";
+            txtItineraryPrice.Text = "7000";
+            txtItinerarySpace.Text = "10";
+            txtDateTimeInsert.Text = "2024-09-24";
+            txtPictureName.Text = "人力車";
+            txtPictureDescription.Text = "人力車的力與美";
         }
     }
 }
