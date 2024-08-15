@@ -47,29 +47,48 @@ namespace slnJapanTravel.View
                     _ticket = new C航班訂單資料();
                 _ticket.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
                 _ticket.下單時間 = DateTime.Now;
-                _ticket.付款方式編號 = Convert.ToInt32(fbPaymentMethodId.fieldValue);
-                _ticket.付款狀態編號 = 1;
+                _ticket.付款方式編號 = Convert.ToInt32(cbPaymentMethodId.SelectedValue);
+                _ticket.付款狀態編號 = Convert.ToInt32(cbPaymentStatusId.SelectedValue);
                 _ticket.付款時間 = DateTime.Now;
-                _ticket.訂單狀態編號 = 1;
-                if (isNumber(fbCouponId.fieldValue))
-                    _ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                _ticket.訂單狀態編號 = Convert.ToInt32(cbOrderStatusId.SelectedValue);
+                //if (isNumber(fbCouponId.fieldValue))
+                //    _ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
                 _ticket.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
                 _ticket.備註 = fbRemark.fieldValue;
                 //_ticket.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
                 //_ticket.評論內容 = fbCommentContent.fieldValue;
                 //_ticket.評論日期 = Convert.ToDateTime(fbCommentDate.fieldValue);
-                _ticket.評論狀態 = true;
+                //_ticket.評論狀態 = true;
 
                 return _ticket;
+
+                //if (_ticket == null)
+                //    _ticket = new C航班訂單資料();
+                //_ticket.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
+                //_ticket.下單時間 = DateTime.Now;
+                //_ticket.付款方式編號 = Convert.ToInt32(fbPaymentMethodId.fieldValue);
+                //_ticket.付款狀態編號 = 1;
+                //_ticket.付款時間 = DateTime.Now;
+                //_ticket.訂單狀態編號 = 1;
+                //if (isNumber(fbCouponId.fieldValue))
+                //    _ticket.優惠券ID = Convert.ToInt32(fbCouponId.fieldValue);
+                //_ticket.總金額 = Convert.ToDecimal(fbAmount.fieldValue);
+                //_ticket.備註 = fbRemark.fieldValue;
+                ////_ticket.評論星級 = Convert.ToInt32(fbCommentStar.fieldValue);
+                ////_ticket.評論內容 = fbCommentContent.fieldValue;
+                ////_ticket.評論日期 = Convert.ToDateTime(fbCommentDate.fieldValue);
+                //_ticket.評論狀態 = true;
+
+                //return _ticket;
             }
             set
             {
                 _ticket = value;
                 fbMemberId.fieldValue = Convert.ToString(_ticket.會員ID);
-                fbPaymentMethodId.fieldValue = Convert.ToString(_ticket.付款方式編號);
-                fbPaymentStatusId.fieldValue = Convert.ToString(_ticket.付款狀態編號);
-                fbPaymentTime.fieldValue = Convert.ToString(_ticket.付款時間);
-                fbCouponId.fieldValue = Convert.ToString(_ticket.優惠券ID);
+                cbPaymentMethodId.SelectedValue = Convert.ToString(_ticket.付款方式編號);
+                cbPaymentStatusId.SelectedValue = Convert.ToString(_ticket.付款狀態編號);
+                //fbPaymentTime.fieldValue = Convert.ToString(_ticket.付款時間);
+                //fbCouponId.fieldValue = Convert.ToString(_ticket.優惠券ID);
                 fbAmount.fieldValue = Convert.ToString(_ticket.總金額);
                 fbRemark.fieldValue = Convert.ToString(_ticket.備註);
                 //fbCommentStar.fieldValue = Convert.ToString(_itineraryorder.評論星級);
@@ -89,8 +108,8 @@ namespace slnJapanTravel.View
             string errMsg = "";
             if (!isNumber(fbMemberId.fieldValue))
                 errMsg += "請輸入會員編號";
-            if (!isNumber(fbPaymentMethodId.fieldValue))
-                errMsg += "\r請輸入付款方式編號";
+            if ( cbPaymentMethodId.SelectedValue == null)
+                errMsg += "\r請選擇付款方式";
             if (!isNumber(fbAmount.fieldValue))
                 errMsg += "\r請輸入總金額";
 
@@ -132,5 +151,17 @@ namespace slnJapanTravel.View
             set { btnOk.Text = value; }
         }
 
+        private void FrmTicketOrderEditor_Load(object sender, EventArgs e)
+        {
+            // TODO: 這行程式碼會將資料載入 'japanTravelDataSet3.訂單狀態' 資料表。您可以視需要進行移動或移除。
+            this.訂單狀態TableAdapter.Fill(this.japanTravelDataSet3.訂單狀態);
+            this.cbOrderStatusId.SelectedIndex = 0;
+            // TODO: 這行程式碼會將資料載入 'japanTravelDataSet3.付款狀態' 資料表。您可以視需要進行移動或移除。
+            this.付款狀態TableAdapter.Fill(this.japanTravelDataSet3.付款狀態);
+            this.cbPaymentStatusId.SelectedIndex = 0;
+            // TODO: 這行程式碼會將資料載入 'japanTravelDataSet3.付款方式' 資料表。您可以視需要進行移動或移除。
+            this.付款方式TableAdapter1.Fill(this.japanTravelDataSet3.付款方式);
+
+        }
     }
 }

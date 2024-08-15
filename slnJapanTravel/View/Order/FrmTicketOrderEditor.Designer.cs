@@ -28,26 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.fbPaymentStatusId = new prjCustomerSystem.FieldBox();
-            this.fbPaymentTime = new prjCustomerSystem.FieldBox();
-            this.fbPaymentMethodId = new prjCustomerSystem.FieldBox();
+            this.cbOrderStatusId = new System.Windows.Forms.ComboBox();
+            this.訂單狀態BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.japanTravelDataSet3 = new slnJapanTravel.JapanTravelDataSet3();
+            this.lblOrderStatusId = new System.Windows.Forms.Label();
+            this.cbPaymentStatusId = new System.Windows.Forms.ComboBox();
+            this.付款狀態BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblPaymentStatusId = new System.Windows.Forms.Label();
+            this.cbPaymentMethodId = new System.Windows.Forms.ComboBox();
+            this.付款方式BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.lblPaymentMethodId = new System.Windows.Forms.Label();
             this.fbRemark = new prjCustomerSystem.FieldBox();
             this.fbAmount = new prjCustomerSystem.FieldBox();
-            this.fbCouponId = new prjCustomerSystem.FieldBox();
             this.fbMemberId = new prjCustomerSystem.FieldBox();
+            this.japanTravelDataSet = new slnJapanTravel.JapanTravelDataSet();
+            this.付款方式BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.付款方式TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.付款方式TableAdapter();
+            this.付款方式TableAdapter1 = new slnJapanTravel.JapanTravelDataSet3TableAdapters.付款方式TableAdapter();
+            this.付款狀態TableAdapter = new slnJapanTravel.JapanTravelDataSet3TableAdapters.付款狀態TableAdapter();
+            this.付款狀態BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.訂單狀態TableAdapter = new slnJapanTravel.JapanTravelDataSet3TableAdapters.訂單狀態TableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.訂單狀態BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(63, 53);
+            this.label1.Location = new System.Drawing.Point(69, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(284, 76);
             this.label1.TabIndex = 32;
@@ -77,80 +95,104 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // label2
+            // cbOrderStatusId
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(416, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 31);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "*";
+            this.cbOrderStatusId.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.訂單狀態BindingSource, "訂單狀態編號", true));
+            this.cbOrderStatusId.DataSource = this.訂單狀態BindingSource;
+            this.cbOrderStatusId.DisplayMember = "訂單狀態";
+            this.cbOrderStatusId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrderStatusId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbOrderStatusId.FormattingEnabled = true;
+            this.cbOrderStatusId.Location = new System.Drawing.Point(185, 322);
+            this.cbOrderStatusId.Name = "cbOrderStatusId";
+            this.cbOrderStatusId.Size = new System.Drawing.Size(289, 38);
+            this.cbOrderStatusId.TabIndex = 34;
+            this.cbOrderStatusId.ValueMember = "訂單狀態編號";
             // 
-            // label4
+            // 訂單狀態BindingSource
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(38, 211);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 31);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "*";
+            this.訂單狀態BindingSource.DataMember = "訂單狀態";
+            this.訂單狀態BindingSource.DataSource = this.japanTravelDataSet3;
             // 
-            // label5
+            // japanTravelDataSet3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(491, 211);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 31);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "*";
+            this.japanTravelDataSet3.DataSetName = "JapanTravelDataSet3";
+            this.japanTravelDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // fbPaymentStatusId
+            // lblOrderStatusId
             // 
-            this.fbPaymentStatusId.fieldName = "付款狀態編號";
-            this.fbPaymentStatusId.fieldValue = "";
-            this.fbPaymentStatusId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbPaymentStatusId.Location = new System.Drawing.Point(17, 485);
-            this.fbPaymentStatusId.Margin = new System.Windows.Forms.Padding(8);
-            this.fbPaymentStatusId.Name = "fbPaymentStatusId";
-            this.fbPaymentStatusId.Size = new System.Drawing.Size(385, 44);
-            this.fbPaymentStatusId.TabIndex = 22;
-            this.fbPaymentStatusId.Visible = false;
+            this.lblOrderStatusId.AutoSize = true;
+            this.lblOrderStatusId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblOrderStatusId.Location = new System.Drawing.Point(70, 325);
+            this.lblOrderStatusId.Name = "lblOrderStatusId";
+            this.lblOrderStatusId.Size = new System.Drawing.Size(109, 30);
+            this.lblOrderStatusId.TabIndex = 35;
+            this.lblOrderStatusId.Text = "訂單狀態";
             // 
-            // fbPaymentTime
+            // cbPaymentStatusId
             // 
-            this.fbPaymentTime.fieldName = "付款時間";
-            this.fbPaymentTime.fieldValue = "";
-            this.fbPaymentTime.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbPaymentTime.Location = new System.Drawing.Point(17, 427);
-            this.fbPaymentTime.Margin = new System.Windows.Forms.Padding(8);
-            this.fbPaymentTime.Name = "fbPaymentTime";
-            this.fbPaymentTime.Size = new System.Drawing.Size(385, 44);
-            this.fbPaymentTime.TabIndex = 20;
-            this.fbPaymentTime.Visible = false;
+            this.cbPaymentStatusId.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.付款狀態BindingSource, "付款狀態編號", true));
+            this.cbPaymentStatusId.DataSource = this.付款狀態BindingSource;
+            this.cbPaymentStatusId.DisplayMember = "付款狀態";
+            this.cbPaymentStatusId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaymentStatusId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbPaymentStatusId.FormattingEnabled = true;
+            this.cbPaymentStatusId.Location = new System.Drawing.Point(185, 247);
+            this.cbPaymentStatusId.Name = "cbPaymentStatusId";
+            this.cbPaymentStatusId.Size = new System.Drawing.Size(289, 38);
+            this.cbPaymentStatusId.TabIndex = 34;
+            this.cbPaymentStatusId.ValueMember = "付款狀態編號";
             // 
-            // fbPaymentMethodId
+            // 付款狀態BindingSource
             // 
-            this.fbPaymentMethodId.fieldName = "付款方式編號";
-            this.fbPaymentMethodId.fieldValue = "";
-            this.fbPaymentMethodId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbPaymentMethodId.Location = new System.Drawing.Point(74, 210);
-            this.fbPaymentMethodId.Margin = new System.Windows.Forms.Padding(8);
-            this.fbPaymentMethodId.Name = "fbPaymentMethodId";
-            this.fbPaymentMethodId.Size = new System.Drawing.Size(385, 44);
-            this.fbPaymentMethodId.TabIndex = 21;
+            this.付款狀態BindingSource.DataMember = "付款狀態";
+            this.付款狀態BindingSource.DataSource = this.japanTravelDataSet3;
+            // 
+            // lblPaymentStatusId
+            // 
+            this.lblPaymentStatusId.AutoSize = true;
+            this.lblPaymentStatusId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblPaymentStatusId.Location = new System.Drawing.Point(70, 250);
+            this.lblPaymentStatusId.Name = "lblPaymentStatusId";
+            this.lblPaymentStatusId.Size = new System.Drawing.Size(109, 30);
+            this.lblPaymentStatusId.TabIndex = 35;
+            this.lblPaymentStatusId.Text = "付款狀態";
+            // 
+            // cbPaymentMethodId
+            // 
+            this.cbPaymentMethodId.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.付款方式BindingSource1, "付款方式編號", true));
+            this.cbPaymentMethodId.DataSource = this.付款方式BindingSource1;
+            this.cbPaymentMethodId.DisplayMember = "付款方式";
+            this.cbPaymentMethodId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaymentMethodId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbPaymentMethodId.FormattingEnabled = true;
+            this.cbPaymentMethodId.Location = new System.Drawing.Point(185, 172);
+            this.cbPaymentMethodId.Name = "cbPaymentMethodId";
+            this.cbPaymentMethodId.Size = new System.Drawing.Size(289, 38);
+            this.cbPaymentMethodId.TabIndex = 34;
+            this.cbPaymentMethodId.ValueMember = "付款方式編號";
+            // 
+            // 付款方式BindingSource1
+            // 
+            this.付款方式BindingSource1.DataMember = "付款方式";
+            this.付款方式BindingSource1.DataSource = this.japanTravelDataSet3;
+            // 
+            // lblPaymentMethodId
+            // 
+            this.lblPaymentMethodId.AutoSize = true;
+            this.lblPaymentMethodId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblPaymentMethodId.Location = new System.Drawing.Point(70, 175);
+            this.lblPaymentMethodId.Name = "lblPaymentMethodId";
+            this.lblPaymentMethodId.Size = new System.Drawing.Size(109, 30);
+            this.lblPaymentMethodId.TabIndex = 35;
+            this.lblPaymentMethodId.Text = "付款方式";
             // 
             // fbRemark
             // 
             this.fbRemark.fieldName = " 備  註 ";
             this.fbRemark.fieldValue = "";
             this.fbRemark.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbRemark.Location = new System.Drawing.Point(514, 308);
+            this.fbRemark.Location = new System.Drawing.Point(514, 250);
             this.fbRemark.Margin = new System.Windows.Forms.Padding(8);
             this.fbRemark.Name = "fbRemark";
             this.fbRemark.Size = new System.Drawing.Size(385, 44);
@@ -161,55 +203,82 @@
             this.fbAmount.fieldName = "總金額";
             this.fbAmount.fieldValue = "";
             this.fbAmount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbAmount.Location = new System.Drawing.Point(514, 207);
+            this.fbAmount.Location = new System.Drawing.Point(514, 172);
             this.fbAmount.Margin = new System.Windows.Forms.Padding(8);
             this.fbAmount.Name = "fbAmount";
             this.fbAmount.Size = new System.Drawing.Size(385, 44);
             this.fbAmount.TabIndex = 24;
-            // 
-            // fbCouponId
-            // 
-            this.fbCouponId.fieldName = "  優  惠  券  ID";
-            this.fbCouponId.fieldValue = "";
-            this.fbCouponId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbCouponId.Location = new System.Drawing.Point(74, 310);
-            this.fbCouponId.Margin = new System.Windows.Forms.Padding(8);
-            this.fbCouponId.Name = "fbCouponId";
-            this.fbCouponId.Size = new System.Drawing.Size(385, 44);
-            this.fbCouponId.TabIndex = 23;
             // 
             // fbMemberId
             // 
             this.fbMemberId.fieldName = "會員ID";
             this.fbMemberId.fieldValue = "";
             this.fbMemberId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbMemberId.Location = new System.Drawing.Point(435, 64);
+            this.fbMemberId.Location = new System.Drawing.Point(514, 64);
             this.fbMemberId.Margin = new System.Windows.Forms.Padding(8);
             this.fbMemberId.Name = "fbMemberId";
-            this.fbMemberId.Size = new System.Drawing.Size(464, 44);
+            this.fbMemberId.Size = new System.Drawing.Size(385, 44);
             this.fbMemberId.TabIndex = 17;
+            // 
+            // japanTravelDataSet
+            // 
+            this.japanTravelDataSet.DataSetName = "JapanTravelDataSet";
+            this.japanTravelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // 付款方式BindingSource
+            // 
+            this.付款方式BindingSource.DataMember = "付款方式";
+            this.付款方式BindingSource.DataSource = this.japanTravelDataSet;
+            // 
+            // 付款方式TableAdapter
+            // 
+            this.付款方式TableAdapter.ClearBeforeFill = true;
+            // 
+            // 付款方式TableAdapter1
+            // 
+            this.付款方式TableAdapter1.ClearBeforeFill = true;
+            // 
+            // 付款狀態TableAdapter
+            // 
+            this.付款狀態TableAdapter.ClearBeforeFill = true;
+            // 
+            // 付款狀態BindingSource1
+            // 
+            this.付款狀態BindingSource1.DataMember = "付款狀態";
+            this.付款狀態BindingSource1.DataSource = this.japanTravelDataSet3;
+            // 
+            // 訂單狀態TableAdapter
+            // 
+            this.訂單狀態TableAdapter.ClearBeforeFill = true;
             // 
             // FrmTicketOrderEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 596);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblPaymentMethodId);
+            this.Controls.Add(this.lblPaymentStatusId);
+            this.Controls.Add(this.lblOrderStatusId);
+            this.Controls.Add(this.cbPaymentMethodId);
+            this.Controls.Add(this.cbPaymentStatusId);
+            this.Controls.Add(this.cbOrderStatusId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.fbPaymentStatusId);
-            this.Controls.Add(this.fbPaymentTime);
-            this.Controls.Add(this.fbPaymentMethodId);
             this.Controls.Add(this.fbRemark);
             this.Controls.Add(this.fbAmount);
-            this.Controls.Add(this.fbCouponId);
             this.Controls.Add(this.fbMemberId);
             this.Name = "FrmTicketOrderEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "船票訂單";
+            this.Load += new System.EventHandler(this.FrmTicketOrderEditor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.訂單狀態BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,15 +289,25 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private prjCustomerSystem.FieldBox fbPaymentStatusId;
-        private prjCustomerSystem.FieldBox fbPaymentTime;
-        private prjCustomerSystem.FieldBox fbPaymentMethodId;
         private prjCustomerSystem.FieldBox fbRemark;
         private prjCustomerSystem.FieldBox fbAmount;
-        private prjCustomerSystem.FieldBox fbCouponId;
         private prjCustomerSystem.FieldBox fbMemberId;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbOrderStatusId;
+        private System.Windows.Forms.Label lblOrderStatusId;
+        private System.Windows.Forms.ComboBox cbPaymentStatusId;
+        private System.Windows.Forms.Label lblPaymentStatusId;
+        private System.Windows.Forms.ComboBox cbPaymentMethodId;
+        private System.Windows.Forms.Label lblPaymentMethodId;
+        private JapanTravelDataSet japanTravelDataSet;
+        private System.Windows.Forms.BindingSource 付款方式BindingSource;
+        private JapanTravelDataSetTableAdapters.付款方式TableAdapter 付款方式TableAdapter;
+        private JapanTravelDataSet3 japanTravelDataSet3;
+        private System.Windows.Forms.BindingSource 付款方式BindingSource1;
+        private JapanTravelDataSet3TableAdapters.付款方式TableAdapter 付款方式TableAdapter1;
+        private System.Windows.Forms.BindingSource 付款狀態BindingSource;
+        private JapanTravelDataSet3TableAdapters.付款狀態TableAdapter 付款狀態TableAdapter;
+        private System.Windows.Forms.BindingSource 付款狀態BindingSource1;
+        private System.Windows.Forms.BindingSource 訂單狀態BindingSource;
+        private JapanTravelDataSet3TableAdapters.訂單狀態TableAdapter 訂單狀態TableAdapter;
     }
 }

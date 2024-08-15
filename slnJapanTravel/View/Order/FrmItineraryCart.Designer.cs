@@ -51,9 +51,9 @@
             this.cbPaymentMethod = new System.Windows.Forms.ComboBox();
             this.付款方式BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblPaymentMethod = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.fbQuantity = new prjCustomerSystem.FieldBox();
             this.fbMemberId = new prjCustomerSystem.FieldBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.theme主題TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Theme主題TableAdapter();
             this.area地區TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.Area地區TableAdapter();
             this.付款方式TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.付款方式TableAdapter();
@@ -75,6 +75,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -89,16 +90,18 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(944, 566);
-            this.splitContainer1.SplitterDistance = 528;
+            this.splitContainer1.Size = new System.Drawing.Size(1416, 849);
+            this.splitContainer1.SplitterDistance = 792;
+            this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 157);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 235);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(528, 409);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(792, 614);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -111,19 +114,19 @@
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.txtKeyword);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 90);
+            this.panel1.Location = new System.Drawing.Point(0, 135);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(528, 67);
+            this.panel1.Size = new System.Drawing.Size(792, 100);
             this.panel1.TabIndex = 1;
             // 
             // lblTheme
             // 
             this.lblTheme.AutoSize = true;
             this.lblTheme.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblTheme.Location = new System.Drawing.Point(7, 24);
-            this.lblTheme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTheme.Location = new System.Drawing.Point(10, 36);
             this.lblTheme.Name = "lblTheme";
-            this.lblTheme.Size = new System.Drawing.Size(42, 21);
+            this.lblTheme.Size = new System.Drawing.Size(62, 31);
             this.lblTheme.TabIndex = 6;
             this.lblTheme.Text = "主題";
             // 
@@ -131,10 +134,9 @@
             // 
             this.lblArea.AutoSize = true;
             this.lblArea.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblArea.Location = new System.Drawing.Point(148, 23);
-            this.lblArea.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblArea.Location = new System.Drawing.Point(222, 34);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(42, 21);
+            this.lblArea.Size = new System.Drawing.Size(62, 31);
             this.lblArea.TabIndex = 7;
             this.lblArea.Text = "地區";
             // 
@@ -145,9 +147,10 @@
             this.cbArea.DisplayMember = "地區名稱";
             this.cbArea.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbArea.FormattingEnabled = true;
-            this.cbArea.Location = new System.Drawing.Point(193, 20);
+            this.cbArea.Location = new System.Drawing.Point(290, 30);
+            this.cbArea.Margin = new System.Windows.Forms.Padding(4);
             this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(87, 28);
+            this.cbArea.Size = new System.Drawing.Size(128, 38);
             this.cbArea.TabIndex = 4;
             this.cbArea.ValueMember = "地區編號";
             // 
@@ -168,9 +171,10 @@
             this.cbTheme.DisplayMember = "主題名稱";
             this.cbTheme.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbTheme.FormattingEnabled = true;
-            this.cbTheme.Location = new System.Drawing.Point(49, 21);
+            this.cbTheme.Location = new System.Drawing.Point(74, 32);
+            this.cbTheme.Margin = new System.Windows.Forms.Padding(4);
             this.cbTheme.Name = "cbTheme";
-            this.cbTheme.Size = new System.Drawing.Size(87, 28);
+            this.cbTheme.Size = new System.Drawing.Size(128, 38);
             this.cbTheme.TabIndex = 5;
             this.cbTheme.ValueMember = "主題編號";
             // 
@@ -183,9 +187,10 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(470, 13);
+            this.btnSearch.Location = new System.Drawing.Point(705, 20);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 42);
+            this.btnSearch.Size = new System.Drawing.Size(63, 63);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -194,9 +199,10 @@
             this.txtKeyword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKeyword.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtKeyword.Location = new System.Drawing.Point(295, 19);
+            this.txtKeyword.Location = new System.Drawing.Point(442, 28);
+            this.txtKeyword.Margin = new System.Windows.Forms.Padding(4);
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(172, 33);
+            this.txtKeyword.Size = new System.Drawing.Size(256, 45);
             this.txtKeyword.TabIndex = 1;
             this.txtKeyword.Text = "關鍵字";
             this.txtKeyword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -208,8 +214,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(528, 90);
+            this.label1.Size = new System.Drawing.Size(792, 135);
             this.label1.TabIndex = 0;
             this.label1.Text = "購物車";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,11 +225,12 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 166);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 249);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(412, 330);
+            this.dataGridView1.Size = new System.Drawing.Size(618, 495);
             this.dataGridView1.TabIndex = 3;
             // 
             // panel3
@@ -230,9 +238,10 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 496);
+            this.panel3.Location = new System.Drawing.Point(0, 744);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(412, 70);
+            this.panel3.Size = new System.Drawing.Size(618, 105);
             this.panel3.TabIndex = 2;
             // 
             // label3
@@ -242,8 +251,9 @@
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(343, 70);
+            this.label3.Size = new System.Drawing.Size(514, 105);
             this.label3.TabIndex = 1;
             this.label3.Text = "$0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -252,9 +262,10 @@
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(343, 0);
+            this.button2.Location = new System.Drawing.Point(514, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 70);
+            this.button2.Size = new System.Drawing.Size(104, 105);
             this.button2.TabIndex = 0;
             this.button2.Text = "結帳";
             this.button2.UseVisualStyleBackColor = true;
@@ -265,9 +276,10 @@
             this.panel2.Controls.Add(this.cbPaymentMethod);
             this.panel2.Controls.Add(this.lblPaymentMethod);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 68);
+            this.panel2.Location = new System.Drawing.Point(0, 102);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(412, 98);
+            this.panel2.Size = new System.Drawing.Size(618, 147);
             this.panel2.TabIndex = 1;
             // 
             // cbPaymentMethod
@@ -279,10 +291,10 @@
             this.cbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbPaymentMethod.FormattingEnabled = true;
-            this.cbPaymentMethod.Location = new System.Drawing.Point(73, 0);
-            this.cbPaymentMethod.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPaymentMethod.Location = new System.Drawing.Point(109, 0);
+            this.cbPaymentMethod.Margin = new System.Windows.Forms.Padding(6);
             this.cbPaymentMethod.Name = "cbPaymentMethod";
-            this.cbPaymentMethod.Size = new System.Drawing.Size(339, 28);
+            this.cbPaymentMethod.Size = new System.Drawing.Size(509, 38);
             this.cbPaymentMethod.TabIndex = 2;
             this.cbPaymentMethod.ValueMember = "付款方式編號";
             // 
@@ -296,12 +308,24 @@
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(0, 64);
-            this.lblPaymentMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPaymentMethod.Location = new System.Drawing.Point(0, 0);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
-            this.lblPaymentMethod.Size = new System.Drawing.Size(73, 20);
+            this.lblPaymentMethod.Size = new System.Drawing.Size(109, 30);
             this.lblPaymentMethod.TabIndex = 4;
             this.lblPaymentMethod.Text = "付款方式";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.PowderBlue;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(618, 102);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "行程名稱";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // fbQuantity
             // 
@@ -310,34 +334,20 @@
             this.fbQuantity.fieldValue = "1";
             this.fbQuantity.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.fbQuantity.Location = new System.Drawing.Point(0, 32);
-            this.fbQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fbQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.fbQuantity.Name = "fbQuantity";
             this.fbQuantity.Size = new System.Drawing.Size(412, 32);
             this.fbQuantity.TabIndex = 1;
             // 
             // fbMemberId
-            this.lblPaymentMethod.AutoSize = true;
-            this.lblPaymentMethod.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblPaymentMethod.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(0, 0);
-            this.lblPaymentMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPaymentMethod.Name = "lblPaymentMethod";
-            this.lblPaymentMethod.Size = new System.Drawing.Size(73, 20);
-            this.lblPaymentMethod.TabIndex = 4;
-            this.lblPaymentMethod.Text = "付款方式";
+            // 
+            this.fbMemberId.fieldName = "label1";
+            this.fbMemberId.fieldValue = "";
+            this.fbMemberId.Location = new System.Drawing.Point(0, 0);
+            this.fbMemberId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fbMemberId.Name = "fbMemberId";
+            this.fbMemberId.Size = new System.Drawing.Size(422, 45);
             this.fbMemberId.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.PowderBlue;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(412, 68);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "行程名稱";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // theme主題TableAdapter
             // 
@@ -353,10 +363,11 @@
             // 
             // FrmItineraryCart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 566);
+            this.ClientSize = new System.Drawing.Size(1416, 849);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmItineraryCart";
             this.Text = "行程購物車";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
