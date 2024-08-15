@@ -70,7 +70,7 @@
             this.btnhtadd.Image = ((System.Drawing.Image)(resources.GetObject("btnhtadd.Image")));
             this.btnhtadd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnhtadd.Name = "btnhtadd";
-            this.btnhtadd.Size = new System.Drawing.Size(67, 36);
+            this.btnhtadd.Size = new System.Drawing.Size(75, 36);
             this.btnhtadd.Text = "新增";
             this.btnhtadd.Click += new System.EventHandler(this.btnhtadd_Click);
             // 
@@ -79,7 +79,7 @@
             this.btnhtedit.Image = ((System.Drawing.Image)(resources.GetObject("btnhtedit.Image")));
             this.btnhtedit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnhtedit.Name = "btnhtedit";
-            this.btnhtedit.Size = new System.Drawing.Size(67, 36);
+            this.btnhtedit.Size = new System.Drawing.Size(75, 36);
             this.btnhtedit.Text = "修改";
             // 
             // btnhtdelete
@@ -87,7 +87,7 @@
             this.btnhtdelete.Image = ((System.Drawing.Image)(resources.GetObject("btnhtdelete.Image")));
             this.btnhtdelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnhtdelete.Name = "btnhtdelete";
-            this.btnhtdelete.Size = new System.Drawing.Size(67, 36);
+            this.btnhtdelete.Size = new System.Drawing.Size(75, 36);
             this.btnhtdelete.Text = "刪除";
             this.btnhtdelete.Click += new System.EventHandler(this.btnhtdelete_Click);
             // 
@@ -96,7 +96,7 @@
             this.btnhtclose.Image = ((System.Drawing.Image)(resources.GetObject("btnhtclose.Image")));
             this.btnhtclose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnhtclose.Name = "btnhtclose";
-            this.btnhtclose.Size = new System.Drawing.Size(67, 36);
+            this.btnhtclose.Size = new System.Drawing.Size(75, 36);
             this.btnhtclose.Text = "關閉";
             this.btnhtclose.Click += new System.EventHandler(this.btnhtclose_Click);
             // 
@@ -106,7 +106,7 @@
             this.btnkysearch.Image = ((System.Drawing.Image)(resources.GetObject("btnkysearch.Image")));
             this.btnkysearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnkysearch.Name = "btnkysearch";
-            this.btnkysearch.Size = new System.Drawing.Size(67, 36);
+            this.btnkysearch.Size = new System.Drawing.Size(75, 36);
             this.btnkysearch.Text = "查詢";
             this.btnkysearch.Click += new System.EventHandler(this.btnkysearch_Click);
             // 
@@ -162,6 +162,7 @@
             this.btndaysearch.TabIndex = 8;
             this.btndaysearch.Text = "查詢";
             this.btndaysearch.UseVisualStyleBackColor = true;
+            this.btndaysearch.Click += new System.EventHandler(this.btndaysearch_Click);
             // 
             // panel1
             // 
@@ -185,6 +186,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 81);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(800, 369);
             this.dataGridView1.TabIndex = 10;

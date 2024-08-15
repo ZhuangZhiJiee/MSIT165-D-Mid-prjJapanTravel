@@ -86,6 +86,7 @@
     </Compile>
     <Compile Include="Model\Blog\Carticle.cs" />
     <Compile Include="Model\Blog\Carticlepic.cs" />
+    <Compile Include="Model\Blog\Carticlestatus.cs" />
     <Compile Include="Model\Blog\Chashtag.cs" />
     <Compile Include="Model\Member\CAdmin.cs" />
     <Compile Include="Model\Member\CCoupon.cs" />
@@ -281,6 +282,9 @@
     <Compile Include="View\Ship\FrmShipScheduleEdit.Designer.cs">
       <DependentUpon>FrmShipScheduleEdit.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Component\Blog\Phototext.resx">
+      <DependentUpon>Phototext.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Component\Order\FieldBox.resx" />
     <EmbeddedResource Include="Component\Order\itineraryBox.resx">
       <DependentUpon>itineraryBox.cs</DependentUpon>

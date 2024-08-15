@@ -17,18 +17,24 @@ namespace slnJapanTravel.View.Blog
         private SqlCommandBuilder _bulider;
         private int _position;
         string str = "Data Source = 192.168.35.188,1433; Initial Catalog = JapanTravel; User ID = song; Password = 0000; Encrypt = False";
-
-        private void displayBYSql(string sql)
+        //string str = "";
+        private void Frmarticlelist_Load(object sender, EventArgs e)
+        {
+            displayBySql("SELECT * FROM Article文章");
+        }
+        private void displayBySql(string sql)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=dbDemo;Integrated Security=True;Encrypt=False";
+            con.ConnectionString = str;
             con.Open();
 
             _adapter = new SqlDataAdapter(sql, con);
             _bulider = new SqlCommandBuilder(_adapter);
 
             _adapter.SelectCommand.Parameters.Add
-                (new SqlParameter("K_KEYWORD", "%" + (object)txtkysearch.Text + "%"));
+                (new SqlParameter("StartDate", dateTimePickerstart.Value.ToString("yyyy-MM-dd")));
+            _adapter.SelectCommand.Parameters.Add
+                (new SqlParameter("EndDate", dateTimePickerend.Value.ToString("yyyy-MM-dd")));
 
             DataSet ds = new DataSet();  //水桶
             _adapter.Fill(ds);
@@ -85,10 +91,7 @@ namespace slnJapanTravel.View.Blog
             }
         }
 
-        private void Frmarticlelist_Load(object sender, EventArgs e)
-        {
-            displayBYSql("SELECT * FROM Article文章 ");
-        }
+        
 
         private void Frmarticlelist_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -110,12 +113,14 @@ namespace slnJapanTravel.View.Blog
 
         private void btnkysearch_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM Article文章";
-            sql += " WHERE 會員ID LIKE @K_KEYWORD";
-            sql += " OR 文章標題 LIKE @K_KEYWORD";
-            sql += " OR 文章狀態編號 LIKE @K_KEYWORD";
             
-            displayBYSql(sql);
+        }
+
+        private void btndaysearch_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT * FROM Article文章 WHERE 發布時間 BETWEEN @StartDate AND @EndDate";
+
+            displayBySql(sql);
         }
     }
 }

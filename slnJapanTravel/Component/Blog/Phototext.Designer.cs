@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtphoto = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtphoto = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,15 +57,6 @@
             this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 0;
             // 
-            // txtphoto
-            // 
-            this.txtphoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtphoto.Location = new System.Drawing.Point(0, 0);
-            this.txtphoto.Multiline = true;
-            this.txtphoto.Name = "txtphoto";
-            this.txtphoto.Size = new System.Drawing.Size(735, 170);
-            this.txtphoto.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -75,6 +67,21 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
+            // txtphoto
+            // 
+            this.txtphoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtphoto.Location = new System.Drawing.Point(0, 0);
+            this.txtphoto.Multiline = true;
+            this.txtphoto.Name = "txtphoto";
+            this.txtphoto.Size = new System.Drawing.Size(735, 170);
+            this.txtphoto.TabIndex = 0;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Phototext
             // 
@@ -98,5 +105,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtphoto;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

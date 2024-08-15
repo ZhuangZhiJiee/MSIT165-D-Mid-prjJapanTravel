@@ -15,8 +15,9 @@ namespace slnJapanTravel.View.Blog
 {
     public partial class Frmhashtagedit : Form
     {
-        private Chashtag _Cht = null;
         public DialogResult isOK { get; set; }
+
+        private Chashtag _Cht = null;
 
         public Chashtag Cht
         {

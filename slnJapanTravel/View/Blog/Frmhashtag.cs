@@ -91,7 +91,7 @@ namespace slnJapanTravel.View.Blog
             DataRow dr = dt.Rows[_position];
             Chashtag h = new Chashtag();
 
-            //if (dr["hashtag編號"] != DBNull.Value)  
+            if (dr["hashtag編號"] != DBNull.Value)  
             h.fId = (int)dr["hashtag編號"];
             //if (dr["hashtag名稱"] != DBNull.Value)  
             h.fHashtag = dr["hashtag名稱"].ToString();

@@ -15,5 +15,6 @@ namespace slnJapanTravel.Model.Blog
         public string 文章狀態 { get; set; }
         public Chashtag hashtag { get; set; }
         public Carticlepic pic { get; set; }
+        public Carticlestatus status { get; set; }
     }
 }
