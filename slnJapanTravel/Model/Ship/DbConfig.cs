@@ -21,11 +21,11 @@ namespace slnJapanTravel.Model.Ship
         {
             //if (TestConnection(RemoteConnectionString))
             //{
-            //    _connectionString = RemoteConnectionString;
+            _connectionString = RemoteConnectionString;
             //}
             //else if (TestConnection(LocalConnectionString))
             //{
-                _connectionString = LocalConnectionString;
+            //_connectionString = LocalConnectionString;
             //}
             //else
             //{
