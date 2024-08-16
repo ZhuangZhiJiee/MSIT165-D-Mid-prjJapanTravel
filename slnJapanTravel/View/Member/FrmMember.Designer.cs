@@ -35,6 +35,7 @@
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnShow = new System.Windows.Forms.Button();
             this.cbbStatus = new System.Windows.Forms.CheckBox();
             this.cbbGender = new System.Windows.Forms.ComboBox();
             this.cbbCity = new System.Windows.Forms.ComboBox();
@@ -61,7 +62,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.ofdMemberPicture = new System.Windows.Forms.OpenFileDialog();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.btnDemo = new System.Windows.Forms.Button();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.panel1.SuspendLayout();
@@ -130,6 +131,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDemo);
             this.panel1.Controls.Add(this.btnShow);
             this.panel1.Controls.Add(this.cbbStatus);
             this.panel1.Controls.Add(this.cbbGender);
@@ -158,6 +160,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1248, 316);
             this.panel1.TabIndex = 7;
+            // 
+            // btnShow
+            // 
+            this.btnShow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnShow.Location = new System.Drawing.Point(684, 274);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(86, 40);
+            this.btnShow.TabIndex = 27;
+            this.btnShow.Text = "顯示密碼";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // cbbStatus
             // 
@@ -276,7 +289,7 @@
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPhone.Location = new System.Drawing.Point(394, 185);
+            this.txtPhone.Location = new System.Drawing.Point(390, 185);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(216, 29);
             this.txtPhone.TabIndex = 19;
@@ -285,7 +298,7 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPhone.Location = new System.Drawing.Point(393, 156);
+            this.lblPhone.Location = new System.Drawing.Point(389, 156);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(74, 24);
             this.lblPhone.TabIndex = 18;
@@ -374,7 +387,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtEmail.Location = new System.Drawing.Point(395, 259);
+            this.txtEmail.Location = new System.Drawing.Point(391, 259);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(216, 29);
             this.txtEmail.TabIndex = 7;
@@ -383,7 +396,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblEmail.Location = new System.Drawing.Point(396, 231);
+            this.lblEmail.Location = new System.Drawing.Point(392, 231);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(65, 24);
             this.lblEmail.TabIndex = 6;
@@ -425,16 +438,17 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "姓名:";
             // 
-            // btnShow
+            // btnDemo
             // 
-            this.btnShow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnShow.Location = new System.Drawing.Point(684, 274);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(86, 40);
-            this.btnShow.TabIndex = 27;
-            this.btnShow.Text = "顯示密碼";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.btnDemo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDemo.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDemo.Location = new System.Drawing.Point(1074, 275);
+            this.btnDemo.Name = "btnDemo";
+            this.btnDemo.Size = new System.Drawing.Size(77, 35);
+            this.btnDemo.TabIndex = 11;
+            this.btnDemo.Text = "Demo";
+            this.btnDemo.UseVisualStyleBackColor = false;
+            this.btnDemo.Click += new System.EventHandler(this.btnDemo_Click);
             // 
             // FrmMember
             // 
@@ -497,5 +511,6 @@
         private System.Windows.Forms.CheckBox cbbStatus;
         private System.Windows.Forms.OpenFileDialog ofdMemberPicture;
         private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button btnDemo;
     }
 }

@@ -197,7 +197,7 @@ namespace slnJapanTravel.View
 
         private void tsbInsert_Click(object sender, EventArgs e)
         {
-            dgvMember.CurrentCell = dgvMember.Rows[dgvMember.Rows.Count - 1].Cells[1];
+            dgvMember.CurrentCell = dgvMember.Rows[dgvMember.Rows.Count - 2].Cells[1];
             ControllerEnable();
             Empty();
             this.btnSave.Click += new System.EventHandler(this.btnInsertSave_Click);
@@ -308,14 +308,21 @@ namespace slnJapanTravel.View
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
-            DialogResult _isOK = MessageBox.Show("確定要刪除此筆資料", "刪除確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (_isOK == DialogResult.Yes)
+            try
             {
-                string deletestr = "delete from Member會員 where 會員ID = @會員ID";
-                SqlCommand cmd = new SqlCommand(deletestr, _con);
-                cmd.Parameters.Add(new SqlParameter("會員ID", int.Parse(txtID.Text)));
-                cmd.ExecuteNonQuery();
-                displayonDatagridview();
+                DialogResult _isOK = MessageBox.Show("確定要刪除此筆資料", "刪除確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (_isOK == DialogResult.Yes)
+                {
+                    string deletestr = "delete from Member會員 where 會員ID = @會員ID";
+                    SqlCommand cmd = new SqlCommand(deletestr, _con);
+                    cmd.Parameters.Add(new SqlParameter("會員ID", int.Parse(txtID.Text)));
+                    cmd.ExecuteNonQuery();
+                    displayonDatagridview();
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("此筆資料無法刪除", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -387,6 +394,16 @@ namespace slnJapanTravel.View
                 btnShow.Text = "顯示密碼";
                 return;
             }
+        }
+
+        private void btnDemo_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "蔡捷運";
+            txtPhone.Text = "091231254";
+            txtEmail.Text = "Marco@outlook.com";
+            txtAccount.Text = "Marco444";
+            txtPassword.Text = "r13245";
+            txtAddress.Text = "台南市善化區";
         }
     }    
 }

@@ -77,5 +77,17 @@ namespace slnJapanTravel.View
             }
             return;
         }
+
+        private void btnDemo1_Click(object sender, EventArgs e)
+        {
+            txtAccount.Text = "chinaKing1949";
+            txtPassword.Text = "a12345";
+        }
+
+        private void btnDemo2_Click(object sender, EventArgs e)
+        {
+            txtAccount.Text = "pulin555";
+            txtPassword.Text = "a12345";
+        }
     }
 }
