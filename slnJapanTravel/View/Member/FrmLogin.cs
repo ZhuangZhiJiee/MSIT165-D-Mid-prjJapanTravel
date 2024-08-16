@@ -63,8 +63,31 @@ namespace slnJapanTravel.View
             }
             else 
             {
-                MessageBox.Show("登入失敗");
+                if (txtAccount.Text == "" && txtPassword.Text == "") 
+                {
+                    lblAccount.Text = "請輸入帳號";
+                    lblPassword.Text = "請輸入密碼";
+                }           
+                else if (txtAccount.Text == "" && txtPassword.Text != "")
+                    lblAccount.Text = "請輸入帳號";
+                else if (txtAccount.Text != "" && txtPassword.Text == "")
+                    lblAccount.Text = "請輸入密碼";
+                else
+                    lblPassword.Text = "帳號密碼不符";
             }
+            return;
+        }
+
+        private void btnDemo1_Click(object sender, EventArgs e)
+        {
+            txtAccount.Text = "chinaKing1949";
+            txtPassword.Text = "a12345";
+        }
+
+        private void btnDemo2_Click(object sender, EventArgs e)
+        {
+            txtAccount.Text = "pulin555";
+            txtPassword.Text = "a12345";
         }
     }
 }

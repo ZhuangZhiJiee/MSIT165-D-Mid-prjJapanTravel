@@ -434,6 +434,7 @@ namespace slnJapanTravel.View
                 picAdmin.DataBindings.Add(imgbinding);
             }
             dgvAdmin.Columns[0].Visible = false;
+            dgvAdmin.Columns[3].Visible = false;
             dgvAdmin.Columns[5].Visible = false;
         }
         private void SearchandDisplayonDatagridview()
@@ -493,6 +494,7 @@ namespace slnJapanTravel.View
             picAdmin.DataBindings.Add(imgbinding);
 
             dgvAdmin.Columns[0].Visible = false;
+            dgvAdmin.Columns[3].Visible = false;
             dgvAdmin.Columns[5].Visible = false;
         }
         private void FrmAdmin_Load(object sender, EventArgs e)
@@ -508,7 +510,7 @@ namespace slnJapanTravel.View
         }
         private void tsbInsert_Click(object sender, EventArgs e)
         {
-            dgvAdmin.CurrentCell = dgvAdmin.Rows[dgvAdmin.Rows.Count-1].Cells[1];
+            dgvAdmin.CurrentCell = dgvAdmin.Rows[dgvAdmin.Rows.Count - 2].Cells[1];
             ControllerEnable();
             Empty();
             this.btnSave.Click += new System.EventHandler(this.btnInsertSave_Click);
@@ -655,14 +657,21 @@ namespace slnJapanTravel.View
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
-            DialogResult _isOK = MessageBox.Show("確定要刪除此筆資料","刪除確認",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            if (_isOK == DialogResult.Yes) 
+            try
             {
-                string deletestr = "delete from Admin管理員 where 管理員ID = @管理員ID";
-                SqlCommand cmd = new SqlCommand(deletestr,_con);
-                cmd.Parameters.Add(new SqlParameter("管理員ID", int.Parse(txtID.Text)));
-                cmd.ExecuteNonQuery();
-                displayonDatagridview();
+                DialogResult _isOK = MessageBox.Show("確定要刪除此筆資料", "刪除確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (_isOK == DialogResult.Yes)
+                {
+                    string deletestr = "delete from Admin管理員 where 管理員ID = @管理員ID";
+                    SqlCommand cmd = new SqlCommand(deletestr, _con);
+                    cmd.Parameters.Add(new SqlParameter("管理員ID", int.Parse(txtID.Text)));
+                    cmd.ExecuteNonQuery();
+                    displayonDatagridview();
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("此筆資料無法刪除", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnSearch_Click(object sender, EventArgs e)
@@ -696,6 +705,30 @@ namespace slnJapanTravel.View
         private void cboStatus_TextChanged(object sender, EventArgs e)
         {
             displayonDatagridview();
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+                btnShow.Text = "隱藏密碼";
+                return;
+            }
+            if (txtPassword.PasswordChar == '\0')
+            {
+                txtPassword.PasswordChar = '*';
+                btnShow.Text = "顯示密碼";
+                return;
+            }
+        }
+
+        private void btnDemo_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "胖丁";
+            txtEmail.Text = "pulin555@outlook.com";
+            txtAccount.Text = "pulin555";
+            txtPassword.Text = "a12345";
         }
     }
 }       

@@ -44,6 +44,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.picAdmin = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnShow = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbCoupon = new System.Windows.Forms.CheckBox();
@@ -61,6 +62,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.btnDemo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
@@ -198,6 +200,7 @@
             this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPassword.Location = new System.Drawing.Point(391, 282);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(216, 29);
             this.txtPassword.TabIndex = 9;
             // 
@@ -216,6 +219,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnShow);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnCancel);
@@ -233,6 +237,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(888, 317);
             this.panel1.TabIndex = 5;
+            // 
+            // btnShow
+            // 
+            this.btnShow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnShow.Location = new System.Drawing.Point(617, 278);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(86, 40);
+            this.btnShow.TabIndex = 15;
+            this.btnShow.Text = "顯示密碼";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // txtID
             // 
@@ -350,7 +365,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCancel.Location = new System.Drawing.Point(780, 275);
+            this.btnCancel.Location = new System.Drawing.Point(799, 276);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 40);
             this.btnCancel.TabIndex = 12;
@@ -361,7 +376,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(642, 276);
+            this.btnSave.Location = new System.Drawing.Point(707, 277);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(86, 40);
             this.btnSave.TabIndex = 11;
@@ -422,12 +437,25 @@
             this.cboStatus.TabIndex = 9;
             this.cboStatus.TextChanged += new System.EventHandler(this.cboStatus_TextChanged);
             // 
+            // btnDemo
+            // 
+            this.btnDemo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDemo.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDemo.Location = new System.Drawing.Point(921, 333);
+            this.btnDemo.Name = "btnDemo";
+            this.btnDemo.Size = new System.Drawing.Size(77, 35);
+            this.btnDemo.TabIndex = 10;
+            this.btnDemo.Text = "Demo";
+            this.btnDemo.UseVisualStyleBackColor = false;
+            this.btnDemo.Click += new System.EventHandler(this.btnDemo_Click);
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(1235, 706);
+            this.Controls.Add(this.btnDemo);
             this.Controls.Add(this.cboStatus);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tsAdmin);
@@ -486,5 +514,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button btnDemo;
     }
 }
