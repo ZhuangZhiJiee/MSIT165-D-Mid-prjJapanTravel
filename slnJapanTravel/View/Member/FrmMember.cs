@@ -191,13 +191,14 @@ namespace slnJapanTravel.View
 
         private void FrmMember_Load(object sender, EventArgs e)
         {
+            txtID.Visible = false;
             ControllerDisable();
             displayonDatagridview();
         }
 
         private void tsbInsert_Click(object sender, EventArgs e)
         {
-            dgvMember.CurrentCell = dgvMember.Rows[dgvMember.Rows.Count - 2].Cells[1];
+            //dgvMember.CurrentCell = dgvMember.Rows[dgvMember.Rows.Count - 2].Cells[1];
             ControllerEnable();
             Empty();
             this.btnSave.Click += new System.EventHandler(this.btnInsertSave_Click);
@@ -228,7 +229,7 @@ namespace slnJapanTravel.View
                 cmd.Parameters.Add(new SqlParameter("Email", (object)_Member.Email));
                 cmd.Parameters.Add(new SqlParameter("帳號", _Member.會員帳號));
                 cmd.Parameters.Add(new SqlParameter("密碼", _Member.會員密碼));
-                cmd.Parameters.Add(new SqlParameter("城市", _Member.性別));
+                cmd.Parameters.Add(new SqlParameter("城市", _Member.城市));
                 cmd.Parameters.Add(new SqlParameter("地址", _Member.地址));
                 cmd.Parameters.Add(new SqlParameter("會員照片", _Member.會員照片));
                 cmd.Parameters.Add(new SqlParameter("會員狀態", _Member.會員狀態 ? 1 : 0));
@@ -338,9 +339,10 @@ namespace slnJapanTravel.View
                 _reader = new BinaryReader(_imgstream);
                 _Member.會員照片 = _reader.ReadBytes((int)_imgstream.Length);
                 _selectimg = _Member.會員照片;
+                _reader.Close();
+                _imgstream.Close();
             }
-            _reader.Close();
-            _imgstream.Close();
+
         }
 
 
@@ -376,6 +378,7 @@ namespace slnJapanTravel.View
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ControllerDisable();
+            displayonDatagridview();
             this.btnSave.Click -= new System.EventHandler(this.btnInsertSave_Click);
             this.btnSave.Click -= new System.EventHandler(this.btnUpdateSave_Click);
         }
@@ -404,6 +407,12 @@ namespace slnJapanTravel.View
             txtAccount.Text = "Marco444";
             txtPassword.Text = "r13245";
             txtAddress.Text = "台南市善化區";
+        }
+
+        private void dgvMember_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ControllerDisable();
+            //displayonDatagridview();
         }
     }    
 }

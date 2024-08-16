@@ -35,6 +35,7 @@
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDemo = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.cbbStatus = new System.Windows.Forms.CheckBox();
             this.cbbGender = new System.Windows.Forms.ComboBox();
@@ -62,7 +63,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.ofdMemberPicture = new System.Windows.Forms.OpenFileDialog();
-            this.btnDemo = new System.Windows.Forms.Button();
             this.tsAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.panel1.SuspendLayout();
@@ -128,6 +128,7 @@
             this.dgvMember.RowTemplate.Height = 24;
             this.dgvMember.Size = new System.Drawing.Size(1235, 326);
             this.dgvMember.TabIndex = 6;
+            this.dgvMember.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_RowEnter);
             // 
             // panel1
             // 
@@ -160,6 +161,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1248, 316);
             this.panel1.TabIndex = 7;
+            // 
+            // btnDemo
+            // 
+            this.btnDemo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDemo.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDemo.Location = new System.Drawing.Point(1074, 275);
+            this.btnDemo.Name = "btnDemo";
+            this.btnDemo.Size = new System.Drawing.Size(77, 35);
+            this.btnDemo.TabIndex = 11;
+            this.btnDemo.Text = "Demo";
+            this.btnDemo.UseVisualStyleBackColor = false;
+            this.btnDemo.Click += new System.EventHandler(this.btnDemo_Click);
             // 
             // btnShow
             // 
@@ -371,6 +384,7 @@
             this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPassword.Location = new System.Drawing.Point(684, 103);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(216, 29);
             this.txtPassword.TabIndex = 9;
             // 
@@ -437,18 +451,6 @@
             this.lblName.Size = new System.Drawing.Size(53, 24);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "姓名:";
-            // 
-            // btnDemo
-            // 
-            this.btnDemo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnDemo.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnDemo.Location = new System.Drawing.Point(1074, 275);
-            this.btnDemo.Name = "btnDemo";
-            this.btnDemo.Size = new System.Drawing.Size(77, 35);
-            this.btnDemo.TabIndex = 11;
-            this.btnDemo.Text = "Demo";
-            this.btnDemo.UseVisualStyleBackColor = false;
-            this.btnDemo.Click += new System.EventHandler(this.btnDemo_Click);
             // 
             // FrmMember
             // 

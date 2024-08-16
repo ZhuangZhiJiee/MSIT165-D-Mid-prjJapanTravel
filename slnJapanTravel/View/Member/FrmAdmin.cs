@@ -494,11 +494,12 @@ namespace slnJapanTravel.View
             picAdmin.DataBindings.Add(imgbinding);
 
             dgvAdmin.Columns[0].Visible = false;
-            dgvAdmin.Columns[3].Visible = false;
+            //dgvAdmin.Columns[3].Visible = false;
             dgvAdmin.Columns[5].Visible = false;
         }
         private void FrmAdmin_Load(object sender, EventArgs e)
         {
+            txtID.Visible = false;
             ControllerDisable();
             displayonDatagridview();
             //bytetoimage();
@@ -506,11 +507,12 @@ namespace slnJapanTravel.View
         private void dgvAdmin_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             ControllerDisable();
+            //displayonDatagridview();
             _position = e.RowIndex;
         }
         private void tsbInsert_Click(object sender, EventArgs e)
         {
-            dgvAdmin.CurrentCell = dgvAdmin.Rows[dgvAdmin.Rows.Count - 2].Cells[1];
+            //dgvAdmin.CurrentCell = dgvAdmin.Rows[dgvAdmin.Rows.Count-1].Cells[1];
             ControllerEnable();
             Empty();
             this.btnSave.Click += new System.EventHandler(this.btnInsertSave_Click);
@@ -633,7 +635,9 @@ namespace slnJapanTravel.View
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            
             ControllerDisable();
+            displayonDatagridview();
             this.btnSave.Click -= new System.EventHandler(this.btnInsertSave_Click);
             this.btnSave.Click -= new System.EventHandler(this.btnUpdateSave_Click);
         }
