@@ -44,7 +44,6 @@
             this.lblPaymentMethodId = new System.Windows.Forms.Label();
             this.fbRemark = new prjCustomerSystem.FieldBox();
             this.fbAmount = new prjCustomerSystem.FieldBox();
-            this.fbMemberId = new prjCustomerSystem.FieldBox();
             this.japanTravelDataSet = new slnJapanTravel.JapanTravelDataSet();
             this.付款方式BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.付款方式TableAdapter = new slnJapanTravel.JapanTravelDataSetTableAdapters.付款方式TableAdapter();
@@ -52,6 +51,11 @@
             this.付款狀態TableAdapter = new slnJapanTravel.JapanTravelDataSet3TableAdapters.付款狀態TableAdapter();
             this.付款狀態BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.訂單狀態TableAdapter = new slnJapanTravel.JapanTravelDataSet3TableAdapters.訂單狀態TableAdapter();
+            this.cbMember = new System.Windows.Forms.ComboBox();
+            this.lblMember = new System.Windows.Forms.Label();
+            this.memberDataset = new slnJapanTravel.MemberDataset();
+            this.member會員BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.member會員TableAdapter = new slnJapanTravel.MemberDatasetTableAdapters.Member會員TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.訂單狀態BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource)).BeginInit();
@@ -59,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberDataset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.member會員BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -209,17 +215,6 @@
             this.fbAmount.Size = new System.Drawing.Size(385, 44);
             this.fbAmount.TabIndex = 24;
             // 
-            // fbMemberId
-            // 
-            this.fbMemberId.fieldName = "會員ID";
-            this.fbMemberId.fieldValue = "";
-            this.fbMemberId.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fbMemberId.Location = new System.Drawing.Point(514, 64);
-            this.fbMemberId.Margin = new System.Windows.Forms.Padding(8);
-            this.fbMemberId.Name = "fbMemberId";
-            this.fbMemberId.Size = new System.Drawing.Size(385, 44);
-            this.fbMemberId.TabIndex = 17;
-            // 
             // japanTravelDataSet
             // 
             this.japanTravelDataSet.DataSetName = "JapanTravelDataSet";
@@ -251,13 +246,53 @@
             // 
             this.訂單狀態TableAdapter.ClearBeforeFill = true;
             // 
+            // cbMember
+            // 
+            this.cbMember.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.member會員BindingSource, "會員ID", true));
+            this.cbMember.DataSource = this.member會員BindingSource;
+            this.cbMember.DisplayMember = "會員名稱";
+            this.cbMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMember.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbMember.FormattingEnabled = true;
+            this.cbMember.Location = new System.Drawing.Point(599, 57);
+            this.cbMember.Name = "cbMember";
+            this.cbMember.Size = new System.Drawing.Size(300, 38);
+            this.cbMember.TabIndex = 34;
+            this.cbMember.ValueMember = "會員ID";
+            // 
+            // lblMember
+            // 
+            this.lblMember.AutoSize = true;
+            this.lblMember.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMember.Location = new System.Drawing.Point(513, 61);
+            this.lblMember.Name = "lblMember";
+            this.lblMember.Size = new System.Drawing.Size(86, 30);
+            this.lblMember.TabIndex = 35;
+            this.lblMember.Text = "會員ID";
+            // 
+            // memberDataset
+            // 
+            this.memberDataset.DataSetName = "MemberDataset";
+            this.memberDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // member會員BindingSource
+            // 
+            this.member會員BindingSource.DataMember = "Member會員";
+            this.member會員BindingSource.DataSource = this.memberDataset;
+            // 
+            // member會員TableAdapter
+            // 
+            this.member會員TableAdapter.ClearBeforeFill = true;
+            // 
             // FrmTicketOrderEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 596);
+            this.Controls.Add(this.lblMember);
             this.Controls.Add(this.lblPaymentMethodId);
             this.Controls.Add(this.lblPaymentStatusId);
+            this.Controls.Add(this.cbMember);
             this.Controls.Add(this.lblOrderStatusId);
             this.Controls.Add(this.cbPaymentMethodId);
             this.Controls.Add(this.cbPaymentStatusId);
@@ -267,7 +302,6 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.fbRemark);
             this.Controls.Add(this.fbAmount);
-            this.Controls.Add(this.fbMemberId);
             this.Name = "FrmTicketOrderEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "船票訂單";
@@ -279,6 +313,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.japanTravelDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款方式BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.付款狀態BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberDataset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.member會員BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,7 +327,6 @@
         private System.Windows.Forms.Button btnOk;
         private prjCustomerSystem.FieldBox fbRemark;
         private prjCustomerSystem.FieldBox fbAmount;
-        private prjCustomerSystem.FieldBox fbMemberId;
         private System.Windows.Forms.ComboBox cbOrderStatusId;
         private System.Windows.Forms.Label lblOrderStatusId;
         private System.Windows.Forms.ComboBox cbPaymentStatusId;
@@ -309,5 +344,10 @@
         private System.Windows.Forms.BindingSource 付款狀態BindingSource1;
         private System.Windows.Forms.BindingSource 訂單狀態BindingSource;
         private JapanTravelDataSet3TableAdapters.訂單狀態TableAdapter 訂單狀態TableAdapter;
+        private System.Windows.Forms.ComboBox cbMember;
+        private System.Windows.Forms.Label lblMember;
+        private MemberDataset memberDataset;
+        private System.Windows.Forms.BindingSource member會員BindingSource;
+        private MemberDatasetTableAdapters.Member會員TableAdapter member會員TableAdapter;
     }
 }

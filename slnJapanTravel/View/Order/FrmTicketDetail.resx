@@ -118,16 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAQZJREFUWEftlzGKwkAAReOKYLsHECxVLLfwBhbayOJtPIKVtiJYCMuy7Gm00cYT
-        CLKFWun7QUQkJBMzk1nEBw+ZCDMPJkyY4I4qTnGJW0PHaIUW/uEppb+YmSKuURPOsY7vhr5hZpqoxVeo
-        mNz5RAX8hCMP9FEB3+HIA6+Apw4oX35jcRUwRB1u7XAUg6uAAWrePcZGuAoo4Ag19xG7GInLd8AowmWA
-        SIxICpih/rdpB6/8+4Cs3G7BAVNvQRYSFxeuAowWF64CvB9E3o9i4fVjZMwrwHtADxVg5ZbzCDVUwAZL
-        epA3ul4tUBFf2MCoa1iUVq5m4gN3qIg0Wt22Ck4wp+t5EJwB8HGwx6SwaqUAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -140,6 +130,16 @@
         skWv3T+56B+XckSlFrpSfUEdr4eYwgB00UxDG86vubeN6ElUQ59QpsK56Mn9z3lNQmuvJ9Wt5otmog3X
         DQ2mQf3v8pqEoitVt9oStB80mNZ8H3NI/9R+ZBJJo8G24CehPaSvpWjJ9CbWUNSkT+IeRY8moSfX4GNq
         +M8vSSr1BXtO0uxi/sZ2AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAQZJREFUWEftlzGKwkAAReOKYLsHECxVLLfwBhbayOJtPIKVtiJYCMuy7Gm00cYT
+        CLKFWun7QUQkJBMzk1nEBw+ZCDMPJkyY4I4qTnGJW0PHaIUW/uEppb+YmSKuURPOsY7vhr5hZpqoxVeo
+        mNz5RAX8hCMP9FEB3+HIA6+Apw4oX35jcRUwRB1u7XAUg6uAAWrePcZGuAoo4Ag19xG7GInLd8AowmWA
+        SIxICpih/rdpB6/8+4Cs3G7BAVNvQRYSFxeuAowWF64CvB9E3o9i4fVjZMwrwHtADxVg5ZbzCDVUwAZL
+        epA3ul4tUBFf2MCoa1iUVq5m4gN3qIg0Wt22Ck4wp+t5EJwB8HGwx6SwaqUAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

@@ -16,8 +16,8 @@ namespace slnJapanTravel.View
 {
     public partial class FrmTicketOrderEditor : Form
     {
-        string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
-        //string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";                                                                                                                     //string _s = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";  //本機ConnectionString
+        //string _s = "Data Source=192.168.35.188,1433;Initial Catalog=JapanTravel;User ID=Luke;Password=0000;Encrypt=False";  //SQL ConnectionString
+        string _s = "Data Source=.;Initial Catalog=JapanTravel;Integrated Security=True;Encrypt=False";                                                                                                                     //string _s = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";  //本機ConnectionString
 
         private C航班訂單資料 _ticket = null;
         private C航班訂單Detail _ticketDetail = null;
@@ -45,7 +45,7 @@ namespace slnJapanTravel.View
             {
                 if (_ticket == null)
                     _ticket = new C航班訂單資料();
-                _ticket.會員ID = Convert.ToInt32(fbMemberId.fieldValue);
+                _ticket.會員ID = Convert.ToInt32(cbMember.SelectedValue);
                 _ticket.下單時間 = DateTime.Now;
                 _ticket.付款方式編號 = Convert.ToInt32(cbPaymentMethodId.SelectedValue);
                 _ticket.付款狀態編號 = Convert.ToInt32(cbPaymentStatusId.SelectedValue);
@@ -84,7 +84,7 @@ namespace slnJapanTravel.View
             set
             {
                 _ticket = value;
-                fbMemberId.fieldValue = Convert.ToString(_ticket.會員ID);
+                cbMember.SelectedValue = Convert.ToString(_ticket.會員ID);
                 cbPaymentMethodId.SelectedValue = Convert.ToString(_ticket.付款方式編號);
                 cbPaymentStatusId.SelectedValue = Convert.ToString(_ticket.付款狀態編號);
                 //fbPaymentTime.fieldValue = Convert.ToString(_ticket.付款時間);
@@ -106,7 +106,7 @@ namespace slnJapanTravel.View
         private void btnOk_Click(object sender, EventArgs e)
         {
             string errMsg = "";
-            if (!isNumber(fbMemberId.fieldValue))
+            if (cbMember.SelectedValue==null)
                 errMsg += "請輸入會員編號";
             if ( cbPaymentMethodId.SelectedValue == null)
                 errMsg += "\r請選擇付款方式";
@@ -153,6 +153,8 @@ namespace slnJapanTravel.View
 
         private void FrmTicketOrderEditor_Load(object sender, EventArgs e)
         {
+            // TODO: 這行程式碼會將資料載入 'memberDataset.Member會員' 資料表。您可以視需要進行移動或移除。
+            this.member會員TableAdapter.Fill(this.memberDataset.Member會員);
             // TODO: 這行程式碼會將資料載入 'japanTravelDataSet3.訂單狀態' 資料表。您可以視需要進行移動或移除。
             this.訂單狀態TableAdapter.Fill(this.japanTravelDataSet3.訂單狀態);
             this.cbOrderStatusId.SelectedIndex = 0;
@@ -163,5 +165,6 @@ namespace slnJapanTravel.View
             this.付款方式TableAdapter1.Fill(this.japanTravelDataSet3.付款方式);
 
         }
+
     }
 }
