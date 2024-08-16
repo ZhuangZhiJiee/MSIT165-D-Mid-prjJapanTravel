@@ -506,6 +506,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Picture\Member\AdminDefault.png" />
+    <Content Include="Picture\Member\小丸子.png" />
+    <Content Include="Picture\Member\彭于晏.jpg" />
+    <Content Include="Picture\Member\胖丁.png" />
+    <Content Include="Picture\Product\SUP划槳.jpg" />
+    <Content Include="Picture\Product\人力車.jpg" />
+    <Content Include="Picture\Product\倉敷地區_0.jpg" />
+    <Content Include="Picture\Product\船釣.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
