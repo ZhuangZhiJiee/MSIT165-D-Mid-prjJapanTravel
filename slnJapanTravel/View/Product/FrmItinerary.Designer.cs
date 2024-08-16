@@ -36,7 +36,7 @@
             this.btnMainSearch = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.cbArea = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtItineraryAct = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -104,7 +104,7 @@
             this.panel3.Controls.Add(this.btnMainSearch);
             this.panel3.Controls.Add(this.monthCalendar1);
             this.panel3.Controls.Add(this.cbArea);
-            this.panel3.Controls.Add(this.textBox7);
+            this.panel3.Controls.Add(this.txtItineraryAct);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label8);
@@ -147,14 +147,14 @@
             this.cbArea.Size = new System.Drawing.Size(183, 20);
             this.cbArea.TabIndex = 26;
             // 
-            // textBox7
+            // txtItineraryAct
             // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(101, 132);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(229, 20);
-            this.textBox7.TabIndex = 21;
+            this.txtItineraryAct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtItineraryAct.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItineraryAct.Location = new System.Drawing.Point(101, 132);
+            this.txtItineraryAct.Name = "txtItineraryAct";
+            this.txtItineraryAct.Size = new System.Drawing.Size(229, 20);
+            this.txtItineraryAct.TabIndex = 21;
             // 
             // label6
             // 
@@ -362,7 +362,7 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtItineraryAct;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

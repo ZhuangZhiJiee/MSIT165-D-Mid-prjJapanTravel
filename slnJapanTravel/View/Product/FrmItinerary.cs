@@ -16,13 +16,11 @@ namespace slnJapanTravel.View
 {
     public partial class FrmItinerary : Form
     {
-        SqlDataAdapter _adapter;
-        private SqlCommandBuilder _builder;
         CItineraryDate _date;
         private int _position;
 
-        //string _s = "Data Source=.;Initial Catalog = JapanTravel; Integrated Security = True; Encrypt=False";
-        string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
+        string _s = "Data Source=.;Initial Catalog = JapanTravel; Integrated Security = True; Encrypt=False";
+        //string _s = "Data Source=192.168.35.188;Initial Catalog=JapanTravel;User ID=Ting;Password=0000;Encrypt=False";
 
         public FrmItinerary()
         {
@@ -37,7 +35,7 @@ namespace slnJapanTravel.View
 
         private void DataGridRefresh()
         {
-            displayBySql("SELECT [行程編號], [行程名稱], [體驗名稱], [總團位], [價格], [主題], [地區名稱]"
+            displayBySql("SELECT [行程編號], [行程名稱], [體驗名稱], [總團位], [價格], [地區名稱]"
                             + "\r\nFROM [Itinerary行程]"
                             + "\r\nJOIN [Activity體驗]\r\nON[體驗編號]=[體驗]"
                             + "\r\nJOIN [Area地區]\r\nON[地區編號]=[地區]");
@@ -70,12 +68,14 @@ namespace slnJapanTravel.View
             con.ConnectionString = _s; //連接自來水廠
             con.Open();
 
-            _adapter = new SqlDataAdapter(sql, con);
-            _builder = new SqlCommandBuilder(_adapter);
-            _adapter.SelectCommand.Parameters.Add(new SqlParameter("K_IDWORD", "%" + txtItineraryId.Text + "%"));
-            _adapter.SelectCommand.Parameters.Add(new SqlParameter("K_NAMEWORD", "%" + txtItineraryName.Text + "%"));
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet ds = new DataSet();
-            _adapter.Fill(ds);
+            SqlCommandBuilder builder = new SqlCommandBuilder();
+            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_IDWORD", "%" + txtItineraryId.Text + "%"));
+            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_NAMEWORD", "%" + txtItineraryName.Text + "%"));
+            adapter.SelectCommand.Parameters.Add(new SqlParameter("K_ACTWORD", "%" + txtItineraryAct.Text + "%"));
+
+            adapter.Fill(ds);
             MaindataGridView.DataSource = ds.Tables[0];
             con.Close();
         }
@@ -109,10 +109,10 @@ namespace slnJapanTravel.View
         f.ShowDialog();
         if (f.isOK == DialogResult.OK)
         {
-            if (f.main.date == null)
-            {
-                f.main.date = new CItineraryDate();
-            }
+            //if (f.main.date == null)
+            //{
+            //    f.main.date = new CItineraryDate();
+            //}
             CProductManager p = new CProductManager();
             p.create(f.main);
 
@@ -127,72 +127,79 @@ namespace slnJapanTravel.View
            
             maindt.Rows.Add(dr);
 
+                
             DataTable dtTime = TimedataGridView.DataSource as DataTable;
-            foreach (var date in f.main.date.行程系統編號.ToString())
+            if (TimedataGridView.DataSource != null)
             {
-                DataRow drTime = dtTime.NewRow();
-                drTime["出發日期"] = f.main.date.出發日期;
-                dtTime.Rows.Add(drTime);
-            }
-
-            DataGridRefresh();
-        }
-    }
-    private string GetActivityNameById(int activityId)
-    {
-    string activityName = string.Empty;
-
-    using (SqlConnection con = new SqlConnection(_s))
-    {
-        con.Open();
-        string sql = "SELECT 體驗名稱 FROM Activity體驗 WHERE 體驗編號 = @ActivityId";
-        using (SqlCommand cmd = new SqlCommand(sql, con))
-        {
-            cmd.Parameters.AddWithValue("@ActivityId", activityId);
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
+                foreach (var date in CProductManager.DepartureDate)
                 {
-                    activityName = reader["體驗名稱"].ToString();
+                    DataRow drTime = dtTime.NewRow();
+                    drTime["出發日期"] = date;
+                    dtTime.Rows.Add(drTime);
                 }
             }
+            
+
+                DataGridRefresh();
         }
     }
-
-    return activityName;
-    }
-    private string GetAreaNameById(int areaId)
-    {
-        string areaName = string.Empty;
+        private string GetActivityNameById(int activityId)
+        {
+        string activityName = string.Empty;
 
         using (SqlConnection con = new SqlConnection(_s))
         {
             con.Open();
-            string sql = "SELECT 地區名稱 FROM Area地區 WHERE 地區編號 = @AreaId";
+            string sql = "SELECT 體驗名稱 FROM Activity體驗 WHERE 體驗編號 = @ActivityId";
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
-                cmd.Parameters.AddWithValue("@AreaId", areaId);
+                cmd.Parameters.AddWithValue("@ActivityId", activityId);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        areaName = reader["地區名稱"].ToString();
+                        activityName = reader["體驗名稱"].ToString();
                     }
                 }
             }
         }
 
-        return areaName;
-    }
+        return activityName;
+        }
+        private string GetAreaNameById(int areaId)
+        {
+            string areaName = string.Empty;
+
+            using (SqlConnection con = new SqlConnection(_s))
+            {
+                con.Open();
+                string sql = "SELECT 地區名稱 FROM Area地區 WHERE 地區編號 = @AreaId";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@AreaId", areaId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            areaName = reader["地區名稱"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return areaName;
+        }
 
         private void btnMainSearch_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM [Itinerary行程]";
-            sql += " WHERE 行程編號 LIKE @K_IDWORD ";
-            sql += " OR 行程名稱 LIKE @K_NAMEWORD ";
-            //sql += " OR 地區 LIKE " + cbArea + " ";
+            string sqlSearch = "SELECT [行程編號], [行程名稱], [總團位], [價格] FROM [Itinerary行程] ";
+            sqlSearch += "JOIN [Activity體驗] ON [體驗編號] = [體驗] ";
+            sqlSearch += "JOIN [Area地區] ON [地區編號] = [地區] ";
+            sqlSearch += "WHERE 行程編號 LIKE @K_IDWORD ";
+            sqlSearch += "OR 行程名稱 LIKE @K_NAMEWORD) ";
+            sqlSearch += "OR 體驗名稱 LIKE @K_ACTWORD)";
 
-            displayBySql(sql);
+            displayBySql(sqlSearch);
         }
 
         private void btnMainDelete_Click(object sender, EventArgs e)
@@ -287,9 +294,6 @@ namespace slnJapanTravel.View
             MaindataGridView.Columns[3].Width = 50;
             MaindataGridView.Columns[4].Width = 100;
             MaindataGridView.Columns[5].Width = 100;
-            MaindataGridView.Columns[6].Width = 100;
-            
-
 
             foreach (DataGridViewRow r in MaindataGridView.Rows)
             {
